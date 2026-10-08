@@ -1,0 +1,20 @@
+---
+/** Equal-width grid of <Cell>s. */
+interface Props { cols?: number; bg?: string }
+const { cols = 2, bg } = Astro.props;
+---
+<div class:list={['grid', { 'grid--panel': bg }]} style={`--cols: ${cols};${bg ? ` --panel: ${bg}` : ''}`} data-reveal>
+  <slot />
+</div>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-block: 2rem;
+  }
+  .grid--panel { background: var(--panel); padding: 1.5rem; border-radius: var(--radius); }
+  @media (max-width: 991px) { .grid { grid-template-columns: repeat(min(var(--cols), 2), minmax(0, 1fr)); } }
+  @media (max-width: 479px) { .grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,13 @@
+---
+/** Row of project facts (Timeline / Role / Team / Tools). */
+---
+<div class="meta-grid" data-reveal><slot /></div>
+
+<style>
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 2rem;
+    margin-block: 4rem;
+  }
+</style>

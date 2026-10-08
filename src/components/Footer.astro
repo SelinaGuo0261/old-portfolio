@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import footerLogo from '@/assets/site/footer-logo.png';
+import linkedin from '@/assets/site/linkedin.png';
+import instagram from '@/assets/site/instagram.png';
+import youtube from '@/assets/site/youtube.png';
+import email from '@/assets/site/email.png';
+import phone from '@/assets/site/phone.png';
+import wechat from '@/assets/site/wechat.png';
+import wechatQr from '@/assets/site/wechat-qr.jpg';
+import { getProjects } from '@/lib/projects';
+import { href, projectHref } from '@/lib/url';
+import { site } from '@/lib/site';
+
+const professional = (await getProjects('professional')).filter((p) => projectHref(p));
+const caseStudies = (await getProjects('case-study')).filter((p) => projectHref(p));
+
+const social = [
+  { label: 'LinkedIn', url: site.linkedin, icon: linkedin },
+  { label: 'Instagram', url: site.instagram, icon: instagram },
+  { label: 'YouTube', url: site.youtube, icon: youtube },
+  { label: 'Email', url: `mailto:${site.email}`, icon: email },
+  { label: 'Phone', url: `tel:${site.phone}`, icon: phone },
+  { label: 'WeChat QR code', url: wechatQr.src, icon: wechat },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
+    <div class="site-footer__brand">
+      <Image class="site-footer__logo" src={footerLogo} alt="Selina Guo" />
+      <div class="site-footer__social">
+        {social.map((s) => (
+          <a href={s.url} target={s.url.startsWith('http') ? '_blank' : undefined} rel="noopener" aria-label={s.label}>
+            <Image src={s.icon} alt="" width={32} height={32} />
+          </a>
+        ))}
+      </div>
+    </div>
+    <div>
+      <div class="site-footer__title">Professional Projects</div>
+      {professional.map((p) => <a class="site-footer__link" href={projectHref(p)}>{p.data.title}</a>)}
+    </div>
+    <div>
+      <div class="site-footer__title">Case Studies</div>
+      {caseStudies.map((p) => <a class="site-footer__link" href={projectHref(p)}>{p.data.title}</a>)}
+    </div>
+    <div>
+      <div class="site-footer__title">About Me</div>
+      <a class="site-footer__link" href={href('about')}>My story</a>
+      <a class="site-footer__link" href={href('experiment')}>Experimentations</a>
+    </div>
+  </div>
+  <p class="site-footer__copy">Copyright © 2020-{year} Xinyu Guo. All Rights Reserved</p>
+</footer>

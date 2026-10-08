@@ -1,0 +1,18 @@
+---
+/** Team member card: photo (markdown image) + lines of text. */
+interface Props { name: string }
+const { name } = Astro.props;
+---
+<div class="member">
+  <div class="member__body"><slot /></div>
+  <div class="member__name">{name}</div>
+</div>
+
+<style>
+  .member { display: flex; flex-direction: column-reverse; align-items: center; text-align: center; }
+  .member__name { font-weight: 600; margin-top: 0.5rem; }
+  .member__body { display: contents; }
+  .member__body :global(p) { margin: 0.2rem 0; font-size: 0.85rem; line-height: 1.4; }
+  .member__body :global(p:has(img)) { order: 2; }
+  .member__body :global(img) { width: 5rem; height: 5rem; object-fit: cover; border-radius: 50%; }
+</style>

@@ -1,0 +1,20 @@
+---
+interface Props { label: string }
+const { label } = Astro.props;
+---
+<div class="meta">
+  <div class="meta__label">{label} -</div>
+  <div class="meta__value"><slot /></div>
+</div>
+
+<style>
+  .meta__label {
+    color: var(--accent);
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .meta__value { font-size: 1.05rem; line-height: 1.7; }
+  .meta__value :global(p) { margin: 0; }
+  .meta__value :global(img) { max-width: 14rem; }
+</style>

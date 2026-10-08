@@ -1,0 +1,15 @@
+---
+/** 12-column row; put <Col span={n}> inside. Stacks on small screens. */
+---
+<div class="row" data-reveal><slot /></div>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+    align-items: start;
+    margin-block: 2rem;
+  }
+  @media (max-width: 767px) { .row { grid-template-columns: 1fr; } }
+</style>

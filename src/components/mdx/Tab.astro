@@ -1,0 +1,9 @@
+---
+interface Props { label: string }
+const { label } = Astro.props;
+---
+<div class="tab" role="tabpanel" data-tab-label={label}><slot /></div>
+
+<style>
+  .tab[hidden] { display: none; }
+</style>

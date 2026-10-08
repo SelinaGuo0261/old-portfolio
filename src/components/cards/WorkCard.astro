@@ -1,0 +1,52 @@
+---
+/** Row on "Latest Works": text on the left, cover on the right. */
+import { Image } from 'astro:assets';
+import nextIcon from '@/assets/site/next-button.png';
+import type { Project } from '@/lib/projects';
+import { projectHref, isExternal } from '@/lib/url';
+
+interface Props { project: Project }
+const { project } = Astro.props;
+const { data } = project;
+const url = projectHref(project);
+const external = isExternal(url);
+---
+<article class="work" data-reveal>
+  <div class="work__text">
+    {data.org && <p class="work__org">{data.org}</p>}
+    <h2 class="work__title"><a href={url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{data.title}</a></h2>
+    <p class="work__summary">{data.summary}</p>
+    <div class="work__footer">
+      <ul class="work__tags">{data.tags.map((t) => <li class="tag">{t}</li>)}</ul>
+      <a class="work__arrow" href={url} aria-hidden="true" tabindex="-1" target={external ? '_blank' : undefined} data-magnetic="12">
+        <Image src={nextIcon} alt="" width={32} />
+      </a>
+    </div>
+  </div>
+  <a class="work__cover" href={url} tabindex="-1" aria-hidden="true" target={external ? '_blank' : undefined}>
+    <Image src={data.cover} alt="" widths={[600, 1100]} sizes="(max-width: 767px) 100vw, 45vw" />
+  </a>
+</article>
+
+<style>
+  .work { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-block: 0 9rem; }
+  .work__org { margin: 0 0 0.5rem; color: var(--muted); font-size: 1.125rem; }
+  .work__title { font-family: var(--font-display); font-size: 4rem; font-weight: 700; line-height: 1.1; margin: 0 0 1.5rem; }
+  .work__title a {
+    text-decoration: none;
+    background: linear-gradient(109deg, #2354cf 8%, #ff635c 30%, #ff811a 56%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .work__summary { font-size: 1.125rem; line-height: 1.6; margin: 0 0 3rem; }
+  .work__footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .work__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 0; margin: 0; }
+  .work__arrow { flex: none; display: block; }
+  .work__cover { display: block; border: 1px solid #d9d9d9; border-radius: var(--radius); overflow: hidden; background: var(--white); }
+  .work__cover img { width: 100%; height: auto; transition: transform 0.6s ease; }
+  .work:hover .work__cover img { transform: scale(1.03); }
+  @media (max-width: 767px) {
+    .work { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 5rem; }
+    .work__cover { order: -1; }
+    .work__title { font-size: 2.75rem; }
+  }
+</style>
