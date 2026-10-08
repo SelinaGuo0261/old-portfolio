@@ -55,6 +55,9 @@ const isCurrent = (match: string[]) => match.some((m) => path === m || path === 
   .navbar-5.on-dark.is-solid .brand2 { display: block; position: static; }
   .navbar-5 { z-index: 1000; will-change: transform; }
   .logo-bright, .logo-dark { width: auto; }
+  /* Inline-block left a baseline gap under the dark logo, so the solid
+     navbar grew 5px taller than the transparent one. */
+  .navbar-5 .logo-dark { display: block; }
 
   /* Menu button (Webflow drew it with an icon font). */
   .nav__toggle { background: none; border: 0; }
