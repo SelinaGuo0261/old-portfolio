@@ -1,0 +1,15 @@
+---
+/** Narrower opening block under a page `heading` (text and project facts). */
+---
+<div class="intro"><slot /></div>
+
+<style>
+  /* The old intro sat 220–360px from the window edges, a bit inside the content column. */
+  .intro { margin-inline: max(0px, calc(220px - 15vw)); }
+  @media (min-width: 1280px) { .intro { margin-inline: max(0px, calc(250px - 15vw)); } }
+  @media (min-width: 1440px) { .intro { margin-inline: max(0px, calc(280px - 15vw)); } }
+  @media (min-width: 1920px) { .intro { margin-inline: max(0px, calc(360px - 15vw)); } }
+  @media (max-width: 991px) { .intro { margin-inline: 40px; } }
+  @media (max-width: 767px) { .intro { margin-inline: 0; } }
+  @media (max-width: 479px) { .intro { margin-inline: 10px; } }
+</style>

@@ -5,9 +5,9 @@
  * Plain `###`, `####` and paragraphs use the page's default styles.
  */
 import { typoStyle, type TypoProps } from './typo';
-interface Props extends TypoProps { as?: 'p' | 'h3' | 'h4' | 'div'; mt?: number; mb?: number }
-const { as: Tag = 'p', mt, mb, ...typo } = Astro.props;
-const style = [typoStyle(typo), mt !== undefined && `margin-top: ${mt}px`, mb !== undefined && `margin-bottom: ${mb}px`]
+interface Props extends TypoProps { as?: 'p' | 'h3' | 'h4' | 'div'; mt?: number; mb?: number; pad?: string }
+const { as: Tag = 'p', mt, mb, pad, ...typo } = Astro.props;
+const style = [typoStyle(typo), mt !== undefined && `margin-top: ${mt}px`, mb !== undefined && `margin-bottom: ${mb}px`, pad && `padding: ${pad}`]
   .filter(Boolean).join('; ') || undefined;
 ---
 <Tag class:list={['text', { 'text--sized': typo.size }]} style={style}><slot /></Tag>

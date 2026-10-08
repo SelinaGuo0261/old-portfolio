@@ -81,6 +81,8 @@ const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
   /* Copyright sits at the bottom of the screen, like the old page's .rights block. */
   .rights-served { position: absolute; inset: auto 0 1%; }
   body { position: relative; height: 100vh; max-height: 100vh; }
+  /* The page is exactly one screen tall, nav included. */
+  .slidepage { height: calc(100svh - var(--nav-h)); }
   .slidepage + .customizecursor { position: fixed; left: 0; top: 0; pointer-events: none; }
   .customizecursor {
     z-index: 9999;

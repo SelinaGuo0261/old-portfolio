@@ -31,21 +31,22 @@ const themeStyle = [
   `--text: ${data.theme.text}`,
   `--accent: ${data.theme.accent}`,
   data.theme.paragraphGap !== undefined && `--p-gap: ${data.theme.paragraphGap}px`,
+  data.gutter && `--project-gutter: ${data.gutter}`,
 ].filter(Boolean).join('; ');
 ---
 
 <BaseLayout title={data.title} description={data.summary} accent={data.theme.accent}>
   <article class="project" style={themeStyle} data-project={project.id}>
-    {data.hero ? (
-      <>
-        <h1 class="visually-hidden">{data.title}</h1>
-        <Image class="project__hero" src={data.hero} alt={data.title} widths={[800, 1440, 2400]} sizes="100vw" loading="eager" />
-      </>
-    ) : (
-      <header class="project__header">
-        <h1 class="project__title" data-split="words-slide-up">{data.title}</h1>
-        {data.period && <p class="project__period">{data.period}</p>}
+    {data.hero && <Image class="project__hero" src={data.hero} alt="" widths={[800, 1440, 2400]} sizes="100vw" loading="eager" />}
+    {data.heading ? (
+      <header class="exp-wrapper">
+        <h1 class="exp-h1" data-split="words-slide-up">
+          {data.heading.split('\n').map((line, i) => <>{i > 0 && <br />}{line}</>)}
+        </h1>
+        <div class="exp-bar"></div>
       </header>
+    ) : (
+      <h1 class="visually-hidden">{data.title}</h1>
     )}
 
     <div class="project__body prose">
@@ -100,12 +101,23 @@ const themeStyle = [
     background: var(--page-bg);
     color: var(--text);
     overflow-x: clip;
+    display: flow-root; /* keeps the heading's top margin inside the page colour */
   }
   .project__hero { width: 100%; height: auto; }
-  .project__header { margin-inline: var(--gutter); padding-top: 6rem; text-align: center; }
-  .project__title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; line-height: 1.2; }
-  .project__period { color: var(--accent); }
-  .project__body { margin-inline: var(--gutter); }
+  /* Big centred heading (old .exp-wrapper / .exp-h1 / grey bar). */
+  .exp-wrapper { padding-inline: 220px; }
+  .exp-h1 {
+    margin: 140px 0 0; text-align: center; color: var(--ink);
+    font-family: var(--font-display); font-size: 32px; font-weight: 500; line-height: 1.6;
+  }
+  .exp-bar { width: 200px; height: 4px; margin: 5px auto 40px; border-radius: 20px; background: #b8b8b8; }
+  @media (min-width: 1280px) { .exp-wrapper { padding-inline: 250px; } .exp-h1 { font-size: 40px; } }
+  @media (min-width: 1440px) { .exp-wrapper { padding-inline: 280px; } .exp-h1 { font-size: 44px; } }
+  @media (min-width: 1920px) { .exp-wrapper { padding-inline: 360px; } .exp-h1 { font-size: 60px; } }
+  @media (max-width: 991px) { .exp-wrapper { padding-inline: 100px; } }
+  @media (max-width: 767px) { .exp-wrapper { padding-inline: 60px; } }
+  @media (max-width: 479px) { .exp-wrapper { padding-inline: 40px; } .exp-h1 { font-size: 24px; } }
+  .project__body { margin-inline: var(--project-gutter, var(--gutter)); }
 
   /* Closing row: same sizes as the old site's .bottom / .thank-you / .btn. */
   .project__end { position: relative; overflow: hidden; }

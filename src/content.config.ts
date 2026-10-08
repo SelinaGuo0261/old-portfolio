@@ -51,6 +51,10 @@ const projects = defineCollection({
       tags: z.array(z.string()).default([]),
       /** Title colour on the Case Study card stack. */
       color: z.string().optional(),
+      /** Big centred heading at the top of the page (new lines break it). */
+      heading: z.string().optional(),
+      /** Side margin of the page content, e.g. "40px" (default 15%). */
+      gutter: z.string().optional(),
       /** Card image. */
       cover: image(),
       /** Image for the Case Study card stack, if different from cover. */
