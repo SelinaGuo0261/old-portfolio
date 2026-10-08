@@ -67,8 +67,25 @@ const projects = defineCollection({
           background: z.string().default('#f7f8fa'),
           text: z.string().default('#000000'),
           accent: z.string().default('#fe7505'),
+          /** Space above and below paragraphs in px (default: one line of text). */
+          paragraphGap: z.number().optional(),
         })
         .default({ background: '#f7f8fa', text: '#000000', accent: '#fe7505' }),
+      /**
+       * The closing "Thanks for Reading" row: `full` adds the Back / Next
+       * buttons, `thanks` is the row alone, `none` hides it. Colours are
+       * this page's own.
+       */
+      ending: z
+        .object({
+          show: z.enum(['full', 'thanks', 'none']).default('full'),
+          line: z.string().default('rgba(116, 98, 229, 0.45)'),
+          title: z.string().default('#7462e5'),
+          gradient: z.string().default('linear-gradient(40deg, #7462e5, #ff735d)'),
+          button: z.string().default('#ffffff'),
+          buttonText: z.string().default('#000000'),
+        })
+        .default({ show: 'full', line: 'rgba(116, 98, 229, 0.45)', title: '#7462e5', gradient: 'linear-gradient(40deg, #7462e5, #ff735d)', button: '#ffffff', buttonText: '#000000' }),
       /** Home page "More interesting..." card; overrides title/summary/image there. */
       showcase: z
         .object({

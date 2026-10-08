@@ -1,16 +1,28 @@
 ---
-/** Equal-width grid of <Cell>s (Webflow "quick stack": 20px gaps and padding). */
-interface Props { cols?: number; bg?: string }
-const { cols = 2, bg } = Astro.props;
+/**
+ * Grid of <Cell>s (Webflow "quick stack": 20px gaps and padding).
+ * Columns are equal unless `template` says otherwise, e.g. ".75fr 1fr 1fr".
+ */
+interface Props { cols?: number; template?: string; bg?: string; gap?: string; pad?: string; mt?: number; mb?: number }
+const { cols = 2, template, bg, gap, pad, mt, mb } = Astro.props;
+const style = [
+  `--cols: ${cols}`,
+  template && `--tpl: ${template}`,
+  bg && `background: ${bg}`,
+  gap && `gap: ${gap}`,
+  pad && `padding: ${pad}`,
+  mt !== undefined && `margin-top: ${mt}px`,
+  mb !== undefined && `margin-bottom: ${mb}px`,
+].filter(Boolean).join('; ');
 ---
-<div class="grid" style={`--cols: ${cols};${bg ? ` background: ${bg}` : ''}`} data-reveal>
+<div class="grid" style={style} data-reveal>
   <slot />
 </div>
 
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    grid-template-columns: var(--tpl, repeat(var(--cols), minmax(0, 1fr)));
     gap: 20px;
     padding: 20px;
   }

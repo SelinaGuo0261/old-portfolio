@@ -3,13 +3,16 @@
  * Full-width band with its own background. `dark` / `light` flip the
  * text colour when the band contrasts with the page background.
  */
-interface Props { bg?: string; image?: string; text?: string; accent?: string; hmw?: boolean }
-const { bg, image, text, accent, hmw } = Astro.props;
+interface Props { bg?: string; image?: string; text?: string; accent?: string; pad?: string; mt?: number; mb?: number; mx?: string; radius?: string }
+const { bg, image, text, accent, pad, mt, mb } = Astro.props;
 const style = [
   bg && `--band-bg: ${bg}`,
   image && `--band-image: url(${image})`,
   text && `--text: ${text}`,
   accent && `--accent: ${accent}`,
+  pad && `--pad: ${pad}`,
+  mt !== undefined && `margin-top: ${mt}px`,
+  mb !== undefined && `margin-bottom: ${mb}px`,
 ].filter(Boolean).join('; ');
 ---
 <section class="band" style={style}>
@@ -22,9 +25,9 @@ const style = [
     left: 50%;
     width: 100vw;
     margin-left: -50vw;
-    margin-block: 3rem;
+    margin-block: 0;
     background: var(--band-bg, transparent) var(--band-image, none) center / cover;
     color: var(--text);
   }
-  .band__inner { margin-inline: var(--gutter); padding-block: 3rem; }
+  .band__inner { margin-inline: var(--gutter); padding: var(--pad, 3rem 0); padding-inline: 0; }
 </style>

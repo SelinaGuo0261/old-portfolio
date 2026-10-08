@@ -1,9 +1,16 @@
 ---
 /** Big centred quote / "How might we…" line (Lexend bold, 40–48px). */
 import { typoStyle, type TypoProps } from './typo';
-const style = typoStyle(Astro.props as TypoProps);
+interface Props extends TypoProps { mt?: number; mb?: number; padx?: number }
+const { mt, mb, padx, ...typo } = Astro.props;
+const style = [
+  typoStyle(typo),
+  mt !== undefined && `margin-top: ${mt}px`,
+  mb !== undefined && `margin-bottom: ${mb}px`,
+  padx !== undefined && `padding-left: ${padx}px; padding-right: ${padx}px`,
+].filter(Boolean).join('; ');
 ---
-<blockquote class:list={['quote', { 'text--sized': (Astro.props as TypoProps).size }]} style={style} data-reveal><slot /></blockquote>
+<blockquote class:list={['quote', { 'text--sized': typo.size }]} style={style || undefined} data-reveal><slot /></blockquote>
 
 <style>
   .quote {

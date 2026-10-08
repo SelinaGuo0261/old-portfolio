@@ -1,0 +1,13 @@
+---
+/** Inline highlight inside a paragraph, e.g. <Span color="#8759ec" size={28}>key phrase</Span>. */
+interface Props { color?: string; size?: number; weight?: number; font?: string }
+const { color, size, weight, font } = Astro.props;
+const fontVar: Record<string, string> = { body: 'var(--font-body)', display: 'var(--font-display)', alt: 'var(--font-alt)' };
+const style = [
+  color && `color: ${color}`,
+  size && `font-size: ${size}px`,
+  weight && `font-weight: ${weight}`,
+  font && `font-family: ${fontVar[font] ?? `'${font}', var(--font-body)`}`,
+].filter(Boolean).join('; ');
+---
+<span style={style || undefined}><slot /></span>

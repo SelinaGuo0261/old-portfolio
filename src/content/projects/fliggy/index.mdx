@@ -10,11 +10,23 @@ theme:
   background: "#1e1e1e"
   text: "#ffffff"
   accent: "#ffd800"
+  paragraphGap: 10
+ending: 
+  show: "full"
+  line: "rgba(255, 216, 0, 0.5)"
+  title: "#ffd800"
+  gradient: "linear-gradient(40deg, rgb(116, 98, 229) 21%, rgb(255, 216, 0))"
+  button: "#1e1e1e"
+  buttonText: "#ffffff"
 order: 2
 featured: true
 ---
 
+<Block mt={40} mb={20}>
+
 <Lead>Route Map is reimagining shopping experience for trip tours in forms of changing the "display".</Lead>
+
+</Block>
 
 <MetaGrid>
 
@@ -44,15 +56,17 @@ Full-time UX Designer (2)<br />UX Research (2)<br />Product Manager (2)<br />Des
 
 </MetaGrid>
 
+<Block mb={60}>
+
 ### Route Map Project Overview
 
 <Row>
 
 <Col span={7}>
 
-In the landscape of travel technology, I led the design initiative for Fliggy's groundbreaking project focused on map visualization for routes. This strategic undertaking aimed to enhance the user experience by transforming information into a visually intuitive format on the map. The primary objective was to streamline decision-making processes for users, particularly in the realm of POI-related bookings, while exploring opportunities to extend the functionality to other industries.
+In the landscape of travel technology, I led the design initiative for Fliggy's groundbreaking project focused on <Span weight={400} color="#ffd800">map visualization for routes</Span>. This strategic undertaking aimed to enhance the user experience by transforming information into a visually intuitive format on the map. The primary objective was to <Span weight={400} color="#ffd800">streamline decision-making processes for users</Span>, particularly in the realm of POI-related bookings, while exploring opportunities to extend the functionality to other industries.
 
-The teamwork focuses on the iterative design process, user journey considerations, and collaborative decision-making that shape the evolution of Fliggy's map visualization for routes. And I am mainly responsible for visual design for final distribution.
+The teamwork focuses on the <Span weight={400} color="#ffd800">iterative design process</Span>, <Span weight={400} color="#ffd800">user journey considerations</Span>, and <Span weight={400} color="#ffd800">collaborative decision-making</Span> that shape the evolution of Fliggy's map visualization for routes. And I am mainly responsible for visual design for final distribution.
 
 </Col>
 
@@ -63,6 +77,10 @@ The teamwork focuses on the iterative design process, user journey consideration
 </Col>
 
 </Row>
+
+</Block>
+
+<Block mb={100}>
 
 ### Final Impact
 
@@ -86,11 +104,17 @@ Integrated 5 variations of design pattern into design system, estimated to be us
 
 </Row>
 
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="product" color="#ffffff">📱Main Features</Divider>
 
-<Grid cols={3}>
+<Block mb={100}>
 
-<Cell>
+<Grid cols={3} template=".75fr .75fr 1fr">
+
+<Cell align="center">
 
 <Text as="p" align="center">Add one POI for route recommendation</Text>
 
@@ -106,7 +130,7 @@ Integrated 5 variations of design pattern into design system, estimated to be us
 
 </Cell>
 
-<Cell>
+<Cell justify="center" pad="0px 0px 0px 10px">
 
 ### 01. Route Product Visulization
 
@@ -126,7 +150,7 @@ But the general ideas are:
 
 <Col span={6}>
 
-<Box bg="rgba(141, 143, 255, 0.3)">
+<Box bg="rgba(141, 143, 255, 0.3)" pad="10px 20px 10px 20px" mt={10} mb={10} radius="12px">
 
 #### Intelligent Routing Search
 
@@ -138,7 +162,7 @@ Based on the user's selected destination, the system will automatically generate
 
 <Col span={6}>
 
-<Box bg="rgba(141, 143, 255, 0.3)">
+<Box bg="rgba(141, 143, 255, 0.3)" pad="10px 20px 10px 20px" mt={10} mb={10} radius="12px">
 
 #### Increased Usage and Sales
 
@@ -154,7 +178,7 @@ The generated routes match the 5000+ travel packages offered by the platform, th
 
 <Col span={6}>
 
-<Box bg="rgba(141, 143, 255, 0.3)">
+<Box bg="rgba(141, 143, 255, 0.3)" pad="10px 20px 10px 20px" mt={10} mb={10} radius="12px">
 
 #### Recommend Nearby POIs
 
@@ -166,7 +190,7 @@ When pinpointing your current location, the system automatically displays cards 
 
 <Col span={6}>
 
-<Box bg="rgba(141, 143, 255, 0.3)">
+<Box bg="rgba(141, 143, 255, 0.3)" pad="10px 20px 10px 20px" mt={10} mb={10} radius="12px">
 
 #### Integrate Theme Promotion
 
@@ -177,6 +201,10 @@ Rather than placing tags on map for theme promotion, fliggy provided a new secti
 </Col>
 
 </Row>
+
+</Block>
+
+<Block mb={100}>
 
 <Row>
 
@@ -198,7 +226,13 @@ I created the reusable components listed right using Fliggy's design framework t
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### 03. Other Launched Pages
+
+<Block mb={60}>
 
 To get a clear understand of user journey, here are more integrated features for map visulization.
 
@@ -208,7 +242,7 @@ To get a clear understand of user journey, here are more integrated features for
 
 #### Route Product
 
-![route product gif](./images/gif11-1.gif)
+<Fit w={254} center>![route product gif](./images/gif11-1.gif)</Fit>
 
 <Text as="p" align="center">Every route product now has map visulizaion in its detail page</Text>
 
@@ -218,7 +252,7 @@ To get a clear understand of user journey, here are more integrated features for
 
 #### Neighboring Recommendation
 
-![neighboring recommendation gif](./images/gif22.gif)
+<Fit w={255} center>![neighboring recommendation gif](./images/gif22.gif)</Fit>
 
 <Text as="p" align="center">When clicking card for specific sceneary, users are able to see neighboring recommendations</Text>
 
@@ -228,7 +262,7 @@ To get a clear understand of user journey, here are more integrated features for
 
 #### Map Library
 
-![map library gif](./images/gif33.gif)
+<Fit w={254} center>![map library gif](./images/gif33.gif)</Fit>
 
 <Text as="p" align="center">Within in the "Travel" category, Fliggy has promotion library based on users' top choices</Text>
 
@@ -236,57 +270,77 @@ To get a clear understand of user journey, here are more integrated features for
 
 </Row>
 
+</Block>
+
 #### And more...
 
-![launched pages](./images/uis2.png)
+<Fit w={1008} center>![launched pages](./images/uis2.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Welcome to download the app :)
 
 This feature is now live and available for exploration. You can download it from the App Store to discover its full functionality.
 
-[![fliggy logo](./images/unnamed.webp)](https://apps.apple.com/cn/app/%E9%A3%9E%E7%8C%AA%E6%97%85%E8%A1%8C-%E6%9C%BA%E7%A5%A8%E9%85%92%E5%BA%97%E7%81%AB%E8%BD%A6%E7%A5%A8%E9%97%A8%E7%A5%A8%E8%BD%BB%E6%9D%BE%E9%A2%84%E8%AE%A2/id453691481)
+<Fit w={110} center>![fliggy logo](./images/unnamed.webp)</Fit>
+
+</Block>
+
+</Block>
+
+<Block mb={100}>
+
+<Block pt={60} pb={60}>
 
 <Divider id="background" color="#ffffff">👋 Background</Divider>
+
+<Block mb={100}>
 
 ### Value & Customers
 
 <Grid cols={4}>
 
-<Cell>
+<Cell row="span 2">
 
-![hotel booking screenshot 1](./images/qq-20231211194549.jpg)
-
-</Cell>
-
-<Cell>
-
-![hotel booking screenshot 2](./images/qq-20231211194546.jpg)
+<Fit w={227}>![hotel booking screenshot 1](./images/qq-20231211194549.jpg)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
+
+<Fit w={227}>![hotel booking screenshot 2](./images/qq-20231211194546.jpg)</Fit>
+
+</Cell>
+
+<Cell col="span 2">
 
 Fliggy improved map visualization, transitioning from list to tiled mode, which significantly boosted decision-making speed in hotel bookings. The successful outcome has prompted the company to explore applying this enhanced functionality to streamline decision-making across various industries for trip-related purchases.
 
 </Cell>
 
-<Cell>
+<Cell align="center">
 
-![age young](./images/age.png)
+<Fit w={227}>![age young](./images/age.png)</Fit>
 
 #### Younger
 
 </Cell>
 
-<Cell>
+<Cell align="center">
 
-![dynamic](./images/dynamic.png)
+<Fit w={227}>![dynamic](./images/dynamic.png)</Fit>
 
 #### Dynamic & Diverting
 
 </Cell>
 
 </Grid>
+
+</Block>
+
+<Block mb={100}>
 
 ### POI Principles
 
@@ -306,7 +360,13 @@ The principle of 'Point of Interest' (POI) posits that a higher level of specifi
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Business Objectives
+
+<Block mb={60}>
 
 #### Challenge & Success Metrics
 
@@ -326,6 +386,8 @@ In the current Fliggy app version, map features are compartmentalized with varyi
 
 </Row>
 
+</Block>
+
 #### Unmet User Needs
 
 As furnished by the Product Management team and User Research team, a potential but unfinished list of reasons and directions has been provided to guide the development of the map visualization product.
@@ -334,7 +396,7 @@ As furnished by the Product Management team and User Research team, a potential 
 
 <Cell bg="rgba(141, 143, 255, 0.3)">
 
-![time icon](./images/time.png)
+<Fit w={70}>![time icon](./images/time.png)</Fit>
 
 #### Time-consuming Map Switching
 
@@ -344,7 +406,7 @@ inefficient and repetitive to switch between different categories' maps
 
 <Cell bg="rgba(141, 143, 255, 0.3)">
 
-![route icon](./images/route.png)
+<Fit w={70}>![route icon](./images/route.png)</Fit>
 
 #### Route Generation Falls Short
 
@@ -354,7 +416,7 @@ can't generate a travel routes based on the POIs that users interested in
 
 <Cell bg="rgba(141, 143, 255, 0.3)">
 
-![inability icon](./images/inability.png)
+<Fit w={70}>![inability icon](./images/inability.png)</Fit>
 
 #### Inability to Custiomize Route
 
@@ -364,7 +426,7 @@ users have varied travel preferences but routes can’t be customized
 
 <Cell bg="rgba(141, 143, 255, 0.3)">
 
-![info icon](./images/insufficient.png)
+<Fit w={70}>![info icon](./images/insufficient.png)</Fit>
 
 #### Insufficient Information for Users
 
@@ -374,29 +436,43 @@ current maps not provide enough info to create a complete travel plan
 
 </Grid>
 
-<Box bg="#ffd800" accent="#333333" hmw>
+</Block>
 
-### Design Question
+</Block>
 
-<Text as="p" size={22} weight={400} color="#333333">Focusing on featuresGoals</Text>
+<Box bg="#ffd800" accent="#333333" pad="0px 0px 0px 0px" radius="0px">
 
-<Quote size={36} color="#333333">
+<Block pt={20} pb={20} padx="8.0%">
+
+<Text as="h3" lh={1.17}>Design Question</Text>
+
+<Text as="p" size={22} lh={1.27} weight={400} color="#333333" mt={0} mb={0}>Focusing on featuresGoals</Text>
+
+<Quote size={36} color="#333333" mt={10} mb={20} padx={60}>
 
 “HMW shift Fliggy’s product display from shelf views to a map-based interface, increasing engagement and improving turnover rates through an interactive experience?”
 
 </Quote>
 
+</Block>
+
 </Box>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="analysis" color="#ffffff">🔬 Analysis</Divider>
 
+<Block mb={100}>
+
 ### Competitive Analysis
 
-![competitive analysis](./images/compare.png)
+<Fit w={1008} center>![competitive analysis](./images/compare.png)</Fit>
 
 In order to comprehend the intricacies of compelling design and the effective utilization of maps for information visualization, I undertook a thorough examination of competitive applications within the map and travel domains. This involved a detailed analysis of innovative features and interactive modes employed by these apps, with a focus on identifying opportunities that can serve as valuable references.
 
-<Row>
+<Row mt={20}>
 
 <Col span={6}>
 
@@ -416,11 +492,15 @@ In order to comprehend the intricacies of compelling design and the effective ut
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Design Goal
 
 During discussions with team members, I identified a lack of emphasis on user journey. Consequently, I created a user journey map, drawing insights from our collective experiences as customers to elucidate the functionalities we aim to incorporate.
 
-<Row>
+<Row mt={20}>
 
 <Col span={6}>
 
@@ -440,11 +520,19 @@ After constructing the user journey, I conducted a hierarchical analysis of pain
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="brainstorm" color="#ffffff">🧠 Brainstorm</Divider>
+
+<Block mb={100}>
 
 ### Inspiration from Previous Academic Project
 
-<Row>
+<Row align="center">
 
 <Col span={10}>
 
@@ -462,7 +550,7 @@ As I embarked on the brainstorming process for user journey and functionalities,
 
 <Grid cols={2}>
 
-<Cell>
+<Cell row="span 2">
 
 <Fit w={474}>![gif of main routes](./images/main-route-gif.gif)</Fit>
 
@@ -476,7 +564,7 @@ The innovative approach of distinguishing between community exploration and pers
 
 <Cell>
 
-![aroute analysis](./images/aroute1.png)
+<Fit w={474}>![aroute analysis](./images/aroute1.png)</Fit>
 
 </Cell>
 
@@ -484,11 +572,15 @@ The innovative approach of distinguishing between community exploration and pers
 
 To address the distinct business values associated with each, I worked with team members and developed dual designs, facilitating collaborative decision-making with the product team.
 
+</Block>
+
+<Block mb={100}>
+
 ### Method 1: Function-based for Existing Users
 
 Users are going to explore POIs on “super map” and organize them on “my map”. It incoperates route and iteneary plan with team collaboration to increase the efficiency of decision-making.
 
-![function image ](./images/function2.jpg)
+<Fit w={1008} center>![function image ](./images/function2.jpg)</Fit>
 
 To understand it more clearly, I translated the information architecture to English below:
 
@@ -512,15 +604,21 @@ To understand it more clearly, I translated the information architecture to Engl
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Method 2: Theme-based to Attract New Users
 
 Aligned with the evolving preferences observed on social media, contemporary decision-making, particularly among the youth, is guided by factors like weather, temperature, transportation, and activities. Categorizing this information facilitates easier trend-following and attracts new users.
+
+<Block mb={60}>
 
 #### Inspirations
 
 Theme maps, like the ones below, have been extensively disseminated for promotion on the popular Chinese social media platform "Little Red Book". Those posts group routes, points of interest, and sites into many categories according to factors like weather, activities, and seasons, instead than just listing prominent destinations.
 
-<Row>
+<Row pt={10} pb={10}>
 
 <Col span={3}>
 
@@ -548,9 +646,13 @@ Theme maps, like the ones below, have been extensively disseminated for promotio
 
 </Row>
 
+</Block>
+
+<Block mb={60}>
+
 #### Functions Needed
 
-<Row>
+<Row pt={10} pb={10}>
 
 <Col span={3}>
 
@@ -586,15 +688,25 @@ Zoom in & out<br />Card swap<br /><br />‍
 
 </Row>
 
+</Block>
+
 #### Information Architecture
 
-![information architecture of theme base](./images/frame-1.png)
+<Fit w={1008} center>![information architecture of theme base](./images/frame-1.png)</Fit>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="prototype" color="#ffffff">🧩 Prototypes</Divider>
 
+<Block mb={100}>
+
 ### Function-based
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={6}>
 
@@ -614,7 +726,7 @@ Users have the option to activate the smart sort mode, enabling them to discover
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={3}>
 
@@ -644,7 +756,7 @@ The “super map” begins with popular scenic spots based on the current locati
 
 </Row>
 
-<Row>
+<Row align="center">
 
 <Col span={3}>
 
@@ -674,11 +786,15 @@ My Map' functions as a dedicated save folder, allowing users to plan their itine
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Theme-based
 
 Maps feature distinct sections: a promotion part based on overall ranking and a theme part reflecting popular trends. Users can easily switch between these sections using theme tags, starting from their current location.
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={6}>
 
@@ -698,7 +814,7 @@ The general map indicates locations that are 30 km, 45 km, and 60 km away from t
 
 </Row>
 
-<Row>
+<Row align="center">
 
 <Col span={10}>
 
@@ -716,13 +832,17 @@ Maps and cards will alter their appearance depending on the content when theme t
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Team Evaluation
 
 We struggled to decide on the initial design draft for the launch date of August 30. There was iteration in the solution between theme-based and function-based approaches. The PM team chose to add this functionality for route product first in order to ensure that it satisfies the fundamental business goal of raising turnover rate. At that time, it was the best way to reduce costs and eliminate risk.
 
 <Grid cols={3}>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" align="center" pad="10px 0px 5px 0px" row="span 3">
 
 #### Super Map
 
@@ -730,21 +850,25 @@ How to keep user rentention?
 
 </Cell>
 
-<Cell bg="rgba(141, 143, 255, 0.3)">
+<Cell bg="rgba(141, 143, 255, 0.3)" align="center" justify="center" pad="0px 0px 0px 0px" radius={100} row="span 4">
 
 #### Function - Based
 
-<Text as="p" size={300} weight={700} color="rgba(255, 255, 255, 0.1)">?</Text>
+<Abs left="76%">
+
+<Text as="p" size={300} lh={0.93} weight={700} color="rgba(255, 255, 255, 0.1)" mt={0} mb={0}>?</Text>
+
+</Abs>
 
 </Cell>
 
-<Cell bg="rgba(141, 143, 255, 0.3)">
+<Cell bg="rgba(141, 143, 255, 0.3)" align="center" justify="center" pad="0px 0px 0px 0px" radius={100} row="span 4">
 
 #### Theme - Based
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" align="center" pad="10px 0px 5px 0px" row="span 3">
 
 #### Content Driven
 
@@ -752,7 +876,7 @@ Where the content from?
 
 </Cell>
 
-<Cell>
+<Cell pad="0px 0px 0px 20px" row="span 4">
 
 #### Pros
 
@@ -760,7 +884,7 @@ Where the content from?
 
 </Cell>
 
-<Cell>
+<Cell pad="0px 0px 0px 20px" row="span 4">
 
 #### Pros
 
@@ -768,9 +892,13 @@ Where the content from?
 
 </Cell>
 
-<Cell bg="rgba(141, 143, 255, 0.4)">
+<Cell bg="rgba(141, 143, 255, 0.4)" align="center" pad="10px 0px 5px 0px" row="span 3">
 
-![choose icon](./images/yes.png)
+<Abs left="101%">
+
+<Fit w={40}>![choose icon](./images/yes.png)</Fit>
+
+</Abs>
 
 #### Route Product
 
@@ -778,7 +906,7 @@ Data Visulization
 
 </Cell>
 
-<Cell>
+<Cell pad="0px 0px 0px 20px" row="span 4">
 
 #### Cons
 
@@ -786,7 +914,7 @@ Data Visulization
 
 </Cell>
 
-<Cell>
+<Cell pad="0px 0px 0px 20px" row="span 4">
 
 #### Cons
 
@@ -794,7 +922,7 @@ Data Visulization
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" align="center" pad="10px 0px 5px 0px" row="span 3">
 
 #### Smart Tool
 
@@ -804,15 +932,19 @@ How to change user habits?
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Revision - Redefine Mission
 
 After discussions with the entire team and PM, we have confirmed the detailed product direction, which is emphasizing on functionality, but with a smart integration with theme-based creativity.
 
-<Grid cols={3}>
+<Grid cols={3} gap="10px 20px">
 
-<Cell bg="#ffd800">
+<Cell bg="#ffd800" align="center" pad="0px 0px 0px 0px" radius={20} col="span 3">
 
-<Quote size={36} color="#333333">
+<Quote size={36} color="#333333" mt={10} mb={20} padx={60}>
 
 An "super map" that assists people make more detailed travel plan efficiently and collaboratively
 
@@ -820,37 +952,37 @@ An "super map" that assists people make more detailed travel plan efficiently an
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
-![arrow](./images/arrow1.png)
-
-</Cell>
-
-<Cell>
-
-![arrow](./images/arrow2.png)
+<Fit w={70} center>![arrow](./images/arrow1.png)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
-![arrow](./images/arrow3.png)
+<Fit w={70} center>![arrow](./images/arrow2.png)</Fit>
 
 </Cell>
 
-<Cell bg="rgba(141, 143, 255, 0.3)">
+<Cell align="center" justify="center">
+
+<Fit w={70} center>![arrow](./images/arrow3.png)</Fit>
+
+</Cell>
+
+<Cell bg="rgba(141, 143, 255, 0.3)" align="center" justify="center" pad="15px 30px 15px 30px">
 
 <Text as="p" align="center">Preserving some theme-based features within the map</Text>
 
 </Cell>
 
-<Cell bg="rgba(141, 143, 255, 0.3)">
+<Cell bg="rgba(141, 143, 255, 0.3)" align="center" justify="center" pad="15px 30px 15px 30px">
 
 <Text as="p" align="center">Emphasizing on visualizing routes and route planning</Text>
 
 </Cell>
 
-<Cell bg="rgba(141, 143, 255, 0.3)">
+<Cell bg="rgba(141, 143, 255, 0.3)" align="center" justify="center" pad="15px 30px 15px 30px">
 
 <Text as="p" align="center">Allowing travel planning customization and team collaboration</Text>
 
@@ -860,9 +992,21 @@ An "super map" that assists people make more detailed travel plan efficiently an
 
 The user flow of the updated design was overseen by other members as my role in this project is mostly centered on visual representation. Additionally, I was executing rather than designing for the remainder of this "Route Map" project due to time management issues with the career website project having a greater priority at the same time.
 
-<Text as="p" size={24} weight={400} font="arial" color="#333333">[Back to See Final Design](#product)</Text>
+<Block mt={20} mb={20}>
+
+<LinkButton href="#product" center>Back to See Final Design</LinkButton>
+
+</Block>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="conclusion" color="#ffffff">💡Conclusions</Divider>
+
+<Block mb={100}>
 
 ### Reflections
 
@@ -872,31 +1016,37 @@ Engaging in four distinct projects at Alibaba-Fliggy design team during the summ
 
 <Cell>
 
-![fliggy photo](./images/qq-20231211194540.jpg)
+<Fit w={474}>![fliggy photo](./images/qq-20231211194540.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![fliggy photo](./images/qq-20231211194517.jpg)
+<Fit w={474}>![fliggy photo](./images/qq-20231211194517.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![fliggy photo](./images/qq-20231211194532.jpg)
+<Fit w={474}>![fliggy photo](./images/qq-20231211194532.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![fliggy photo](./images/qq-20231211194537.jpg)
+<Fit w={474}>![fliggy photo](./images/qq-20231211194537.jpg)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Challenges I Faced
+
+<Block mb={60}>
 
 <Row>
 
@@ -917,6 +1067,12 @@ Since this project has to build upon existing features and journey of discover P
 </Col>
 
 </Row>
+
+</Block>
+
+</Block>
+
+<Block mb={100}>
 
 ### Key Takeaways
 
@@ -947,3 +1103,7 @@ Clearly defined prototypes become the means of expressing, honing, and coordinat
 </Col>
 
 </Row>
+
+</Block>
+
+</Block>

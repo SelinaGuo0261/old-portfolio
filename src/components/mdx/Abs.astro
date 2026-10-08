@@ -1,0 +1,14 @@
+---
+/**
+ * Decoration taken out of the flow (like a big faint "?" behind a card).
+ * `left` is measured from the left edge of the surrounding box.
+ */
+interface Props { left?: string }
+const { left = '0' } = Astro.props;
+---
+<div class="abs" style={`left: ${left}`} aria-hidden="true"><slot /></div>
+
+<style>
+  .abs { position: absolute; pointer-events: none; }
+  .abs > :global(*) { margin: 0; }
+</style>

@@ -1,15 +1,15 @@
 ---
 /**
  * Round "View Prototype" link (white circle, colour rises on hover).
- * `offset` pushes it right by that many px at desktop width.
+ * `offset` pushes it right by that many px at desktop width; `center` centres it.
  */
-interface Props { href: string; offset?: number }
-const { href, offset } = Astro.props;
+interface Props { href: string; offset?: number; center?: boolean }
+const { href, offset, center } = Astro.props;
 const external = /^https?:/.test(href);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const url = href.startsWith('/') ? base + href : href;
 ---
-<a class="link-proto" href={url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}
+<a class:list={['link-proto', { 'link-proto--center': center }]} href={url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}
    style={offset ? `--offset: ${offset}` : undefined} data-hover="fill" data-magnetic="50">
   <span class="link-proto__text" data-magnetic-inner><slot /></span>
   <span class="link-proto__fill" data-hover-target></span>
@@ -39,6 +39,7 @@ const url = href.startsWith('/') ? base + href : href;
     font-weight: 400;
     line-height: 1.4;
   }
+  .link-proto--center { margin-inline: auto !important; }
   .link-proto__fill { position: absolute; inset: auto 0 0; z-index: 1; height: 0; border-radius: 100%; background: var(--purple); }
   @media (min-width: 1280px) { .link-proto { width: 120px; height: 120px; margin-left: calc(var(--offset, 0) * 0.86px); } .link-proto__text { font-size: 18px; } }
   @media (min-width: 1440px) { .link-proto { width: 140px; height: 140px; margin-left: calc(var(--offset, 0) * 1px); } .link-proto__text { font-size: 20px; } }

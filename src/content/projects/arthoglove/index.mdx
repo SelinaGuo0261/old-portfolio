@@ -13,10 +13,23 @@ theme:
   background: "#f8f5f2"
   text: "#000000"
   accent: "#74372e"
+ending: 
+  show: "full"
+  line: "rgba(232, 151, 125, 0.3)"
+  title: "#c23925"
+  gradient: "linear-gradient(40deg, rgb(31, 39, 42), rgb(146, 81, 67) 56%, rgb(224, 147, 122))"
+  button: "#f8f5f2"
+  buttonText: "#000000"
 order: 2
 ---
 
+<Block mb={80}>
+
+<Block mt={40} mb={20}>
+
 <Lead color="#333333">ArthoGlove is an exoskeleton-type device which designed to simulate the pain and discomfort associated with hand joint arthritis for research and education purposes.</Lead>
+
+</Block>
 
 <MetaGrid>
 
@@ -66,11 +79,15 @@ ArthoGlove is an exoskeleton-type device which designed to simulate the pain and
 
 </Row>
 
-<Section bg="#1f272a" text="#ffffff" accent="#e0937a">
+</Block>
+
+<Section bg="#1f272a" text="#ffffff" accent="#e0937a" pad="0px 0px 0px 0px" radius="0px">
+
+<Block pt={60} pb={60}>
 
 <Divider id="product" color="#ffffff">📱Main Features</Divider>
 
-<Row>
+<Row align="center" mt={20} mb={40}>
 
 <Col span={4}>
 
@@ -78,9 +95,9 @@ ArthoGlove is an exoskeleton-type device which designed to simulate the pain and
 
 #### Easy to Wear and Fit All Hand Sizes
 
-This glove leverages common sensors and motors to authentically mimic the pain associated with hand joint arthritis.
+<Text as="p" mt={10} mb={10}>This glove leverages common sensors and motors to authentically mimic the pain associated with hand joint arthritis.</Text>
 
-To make sure it fits different hand sizes, I clip a flat structure with three wrist straps to provide adjustment rather than directly applying hardwares on closed gloves.
+<Text as="p" mt={10} mb={10}>To make sure it fits different hand sizes, I clip a flat structure with three wrist straps to provide adjustment rather than directly applying hardwares on closed gloves.</Text>
 
 </Col>
 
@@ -92,7 +109,7 @@ To make sure it fits different hand sizes, I clip a flat structure with three wr
 
 </Row>
 
-<Row>
+<Row align="center" pb={40}>
 
 <Col span={7}>
 
@@ -106,15 +123,15 @@ To make sure it fits different hand sizes, I clip a flat structure with three wr
 
 #### Detection of the Finger Movement
 
-The bend sensor embedded in ArthoGlove adeptly detects and precisely records finger movements in degree, enabling an authentic simulation of joint constraints and pain associated with hand arthritis.
+<Text as="p" mt={10} mb={10}>The bend sensor embedded in ArthoGlove adeptly detects and precisely records finger movements in degree, enabling an authentic simulation of joint constraints and pain associated with hand arthritis.</Text>
 
-The loose and empty structure make sure it won’t adds additional limitation on hand mobility.
+<Text as="p" mt={10} mb={10}>The loose and empty structure make sure it won’t adds additional limitation on hand mobility.</Text>
 
 </Col>
 
 </Row>
 
-<Row>
+<Row align="center" pt={20} pb={40}>
 
 <Col span={4}>
 
@@ -122,7 +139,7 @@ The loose and empty structure make sure it won’t adds additional limitation on
 
 #### Haptic Precision
 
-The discreet yet powerful vibration motor on the glove responds to specific sensor thresholds, providing haptic feedback by discreetly vibrating when joints reach predetermined values, ensuring an immersive and nuanced simulation experience while remaining inconspicuously integrated into joint areas.
+<Text as="p" mt={10} mb={10}>The discreet yet powerful vibration motor on the glove responds to specific sensor thresholds, providing haptic feedback by discreetly vibrating when joints reach predetermined values, ensuring an immersive and nuanced simulation experience while remaining inconspicuously integrated into joint areas.</Text>
 
 </Col>
 
@@ -134,7 +151,7 @@ The discreet yet powerful vibration motor on the glove responds to specific sens
 
 </Row>
 
-<Row>
+<Row align="center" mt={20} mb={40}>
 
 <Col span={8}>
 
@@ -148,21 +165,27 @@ The discreet yet powerful vibration motor on the glove responds to specific sens
 
 #### Mobility Simulation
 
-The glove employs MG90S micro servo motors to rotate 90 degrees, effectively shortening the path of strings, simulating finger stiffness and providing users with a tactile experience that authentically mimics the challenges posed by restricted hand movement in conditions like arthritis.
+<Text as="p" mt={10} mb={10}>The glove employs MG90S micro servo motors to rotate 90 degrees, effectively shortening the path of strings, simulating finger stiffness and providing users with a tactile experience that authentically mimics the challenges posed by restricted hand movement in conditions like arthritis.</Text>
 
 </Col>
 
 </Row>
 
+</Block>
+
 </Section>
+
+<Block pt={60} pb={60}>
 
 <Divider id="background">👋Background</Divider>
 
 ### The Gap Between Customers & Designers
 
+<Block mb={60}>
+
 #### Inspiration
 
-As an industrial designer, I considered it crutial to start by analyzing the hand motion of users. However, looking for proper persona to do interview and testing is always hard, either because of the lack of medical knowledge or pool communication skills.
+As an industrial designer, I considered it <Span weight={500} color="#f06955">crutial to start by analyzing the hand motion of users</Span>. However, looking for proper persona to do interview and testing is always hard, either because of the lack of medical knowledge or pool communication skills.
 
 In my first year study in ID department, the final project requires every student to design a tangible product for a marginalized group of people. During the user interview and usability testing processes, we found a difficulty time getting useful data.
 
@@ -172,7 +195,7 @@ In my first year study in ID department, the final project requires every studen
 
 ![inspiration1](./images/inspiration1.jpg)
 
-So we usually develop a “smart way” to validate our design. I invite people to cover their eyes to mimic customers who have visual impairments.
+So we usually develop a <Span weight={500} color="#f06955">“smart way”</Span> to validate our design. I invite people to cover their eyes to mimic customers who have visual impairments.
 
 </Col>
 
@@ -180,19 +203,23 @@ So we usually develop a “smart way” to validate our design. I invite people 
 
 ![inspiration2](./images/inspiration2.jpg)
 
-My classmates also develop various of methods, but we all feellack of integrity and the final design are ridiculously not user-centered at all.
+My classmates also develop various of methods, but we all feel<Span weight={500} color="#f06955">lack of integrity</Span> and the final design are ridiculously not user-centered at all.
 
 </Col>
 
 </Row>
 
+</Block>
+
+<Block mb={80}>
+
 #### Stereotype & Marginalization
 
-In the field of multicultural psychology, considering the cognitive processes that shape perceived diversity, design for marginalized people is a type of prejudice to reinforce their stereotypes, especially during the user testing part.
+In the field of multicultural psychology, considering the <Span weight={500} color="#f06955">cognitive processes that shape perceived diversity</Span>, design for marginalized people is a type of prejudice to reinforce their stereotypes, especially during the user testing part.
 
-<Grid cols={7} bg="rgba(240, 211, 194, 0.3)">
+<Grid cols={7} template="1fr .5fr 1fr .5fr 1fr .5fr 1fr" bg="rgba(240, 211, 194, 0.3)">
 
-<Cell>
+<Cell align="center" justify="center">
 
 <Fit w={80} center>![icon](./images/sm1.png)</Fit>
 
@@ -200,13 +227,13 @@ In the field of multicultural psychology, considering the cognitive processes th
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
-![arrow](./images/arrow.png)
+<Fit w={77}>![arrow](./images/arrow.png)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
 <Fit w={80} center>![icon](./images/sm2.png)</Fit>
 
@@ -214,13 +241,13 @@ In the field of multicultural psychology, considering the cognitive processes th
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
-![arrow](./images/arrow.png)
+<Fit w={77} center>![arrow](./images/arrow.png)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
 <Fit w={80} center>![icon](./images/sm3.png)</Fit>
 
@@ -228,13 +255,13 @@ In the field of multicultural psychology, considering the cognitive processes th
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center">
 
-![arrow](./images/arrow.png)
+<Fit w={77}>![arrow](./images/arrow.png)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell align="center">
 
 <Fit w={80} center>![icon](./images/sm4.png)</Fit>
 
@@ -244,22 +271,34 @@ In the field of multicultural psychology, considering the cognitive processes th
 
 </Grid>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="research">🔎Research</Divider>
 
+<Block mb={100}>
+
 ### Arthritis - One of the Most Common Diseases of Hand Pain
+
+<Block mb={40}>
 
 #### Opportunity
 
 Every product needs the use of hands and designers are highly require on the functionality of their hands. But hand pain is a common problem that lack of consideration.
 
+</Block>
+
 #### Population & Effect
 
-<Grid cols={3}>
+<Grid cols={3} template=".25fr .75fr 1fr">
 
 <Cell>
 
-![population icon
-](./images/polulation.png)
+<Fit w={116}>![population icon
+](./images/polulation.png)</Fit>
 
 </Cell>
 
@@ -271,13 +310,13 @@ In 2014, 14.6 million adults reported severe joint pain due to arthritis (NHIS).
 
 </Cell>
 
-<Cell>
+<Cell align="center" justify="center" row="span 2">
 
-![people](./images/population2.png)
+<Fit w={464}>![people](./images/population2.png)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 <Lead size={74} align="start" color="#333333">78.4M</Lead>
 
@@ -286,6 +325,10 @@ By 2040, an estimated 78.4 million (25.9%) US adults aged 18 years or older are 
 </Cell>
 
 </Grid>
+
+</Block>
+
+<Block mb={100}>
 
 ### Academic Research
 
@@ -303,7 +346,7 @@ First of all, I found that most of the studies have realized the serious side ef
 
 <Col span={4}>
 
-![hand pain](./images/hand.png)
+<Fit w={146} center>![hand pain](./images/hand.png)</Fit>
 
 </Col>
 
@@ -317,7 +360,7 @@ The main deficiencies of hand exoskeleton with five-finger extension and holding
 
 #### The Feasibility
 
-![people](./images/population2.png)
+<Fit w={206}>![people](./images/population2.png)</Fit>
 
 (i.e. acceptability, adherence, usability, effectiveness) of integrating hand exoskeletons with five-finger extension and grip assistance into therapy programs with in-clinic and at-home components.
 
@@ -327,7 +370,7 @@ The main deficiencies of hand exoskeleton with five-finger extension and holding
 
 #### The OrthoticEffect
 
-![icon](./images/ortho.png)
+<Fit w={120}>![icon](./images/ortho.png)</Fit>
 
 (i.e. device-assisted performance) that hand exoskeletons provide during patient-specified goals and functional tasks after continued use.
 
@@ -337,7 +380,7 @@ The main deficiencies of hand exoskeleton with five-finger extension and holding
 
 #### The Restorative Effect
 
-![icon](./images/restor.png)
+<Fit w={120}>![icon](./images/restor.png)</Fit>
 
 (i.e. unassisted performance) after using hand exoskeletons during in-clinic and at-home components of rehabilitation programs that incorporate everyday objects.
 
@@ -345,37 +388,45 @@ The main deficiencies of hand exoskeleton with five-finger extension and holding
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Related Product Analysis
 
-Highlighting the substantial disparity between the promotional claims and actual user experience of everyday products, I focus on researching user-related issues in the ergonomic aspects of existing daily-use hand-related products.
+Highlighting the substantial <Span weight={500} color="#f06955">disparity between the promotional claims and actual user experience</Span> of everyday products, I focus on researching user-related issues in the ergonomic aspects of existing daily-use hand-related products.
 
-![product analysis](./images/compare1.png)
+<Fit w={1008} center>![product analysis](./images/compare1.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Interviews
 
-By interviewing with doctors who worked at orthopedics department before and now worked for Internet medical treatment to bring health care to more rare areas, I got more information about the gap between patients and therapy.
+By interviewing with doctors who worked at orthopedics department before and now worked for Internet medical treatment to bring health care to more rare areas, I got more information about the <Span weight={500} color="#f06955">gap between patients and therapy</Span>.
 
-<Grid cols={3}>
+<Grid cols={3} template=".5fr 1fr 1fr">
 
-<Cell bg="#f3d5c4">
+<Cell bg="#f3d5c4" radius={0}>
 
-<Text as="p" size={56} weight={700} font="display" color="#f06955">01</Text>
+<Text as="p" size={56} lh={1} weight={700} font="display" color="#f06955" mt={0} mb={0}>01</Text>
 
-<Text as="p" size={28} weight={700} font="display" color="#333333">Theory vs. Practical</Text>
+<Text as="p" size={28} lh={1.07} weight={700} font="display" color="#333333" mt={0} mb={0}>Theory vs. Practical</Text>
 
-![icon](./images/interview1.png)
+<Fit w={331} center>![icon](./images/interview1.png)</Fit>
 
 The statistical assurance offered by rehabilitation devices, indicating patients are on the path to recovery, does not necessarily signify a complete return to the pre-existing norm.
 
 </Cell>
 
-<Cell bg="#f3d5c4">
+<Cell bg="#f3d5c4" radius={0}>
 
-<Text as="p" size={56} weight={700} font="display" color="#f06955">02</Text>
+<Text as="p" size={56} lh={1} weight={700} font="display" color="#f06955" mt={0} mb={0}>02</Text>
 
-<Text as="p" size={28} weight={700} font="display" color="#333333">Medical vs. Non-Medical</Text>
+<Text as="p" size={28} lh={1.07} weight={700} font="display" color="#333333" mt={0} mb={0}>Medical vs. Non-Medical</Text>
 
-![icon](./images/interview2.png)
+<Fit w={331} center>![icon](./images/interview2.png)</Fit>
 
 The stark gap between medical and non-medical devices, accentuated by certification differences, results in distinct purposes, with medical devices prioritizing safety and efficacy, while non-medical devices focus more on consumer features.
 
@@ -383,7 +434,15 @@ The stark gap between medical and non-medical devices, accentuated by certificat
 
 </Grid>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="definition">📌Definition</Divider>
+
+<Block mb={100}>
 
 ### Pain Points
 
@@ -431,6 +490,10 @@ The stark gap between medical and non-medical devices, accentuated by certificat
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Design Goal
 
 To better understand the specific touchpoints from medical exmaination to daily recovery, I summarzie the people, things, and effects from various perspectives for different stakeholders and beneficiers.
@@ -448,23 +511,35 @@ To better understand the specific touchpoints from medical exmaination to daily 
 
 #### Insights & Touchpoints
 
-![patients' perspective](./images/goa1.png)
+<Fit w={318}>![patients' perspective](./images/goa1.png)</Fit>
 
-![server's perspective](./images/goa2.png)
+<Fit w={318}>![server's perspective](./images/goa2.png)</Fit>
 
 </Col>
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="brainstorm">🧠Brainstorm</Divider>
+
+<Block mb={100}>
 
 ### Ideation & Evaluation
 
 I conceptualize the solution in various directions during the exploratory phase of brainstorming and idea development, such as simulating user experience, implementing advanced recording mechanisms, and pioneering innovative designs, with a keen focus on pushing the boundaries of wearable technology in the context of hand joint arthritis simulation.
 
-A product that can quantify pain becomes the best choice by evaluating different designs criteria. Plan A wins.
+A product that can quantify pain becomes the best choice by evaluating different designs criteria. <Span weight={500} color="#f06955">Plan A wins.</Span>
 
-![ideation and evaluation](./images/ideas.png)
+<Fit w={1008} center>![ideation and evaluation](./images/ideas.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Concept Development
 
@@ -490,9 +565,19 @@ I carefully planned hardware utilization to closely resemble real-life experienc
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="design">🎨Design</Divider>
 
+<Block mb={100}>
+
 ### Prototype
+
+<Block mb={40}>
 
 #### Hardware Simulation
 
@@ -513,6 +598,8 @@ The hardware simply consists by bend sensors, vibration motors, and MG90S micro 
 </Col>
 
 </Row>
+
+</Block>
 
 #### Material & Structure
 
@@ -539,6 +626,10 @@ To make it skin-friendly and avoid the risk of adding other sources of pain, I d
 </Col>
 
 </Row>
+
+</Block>
+
+<Block mb={100}>
 
 ### Coding
 
@@ -826,25 +917,51 @@ if(analogRead(12) < 10)
 
 </Accordion>
 
+</Block>
+
+<Block mb={100}>
+
 ### User Scenario
+
+<Block mb={40}>
 
 #### Basic - for student designers
 
-![basic storyboard](./images/drawing1.png)
+<Block padx="7.9%">
+
+<Fit w={848} center>![basic storyboard](./images/drawing1.png)</Fit>
+
+</Block>
+
+</Block>
 
 #### Advanced - for professionals & companies
 
-![advanced storyboard](./images/drawing2.png)
+<Block padx="7.9%">
+
+<Fit w={848} center>![advanced storyboard](./images/drawing2.png)</Fit>
+
+</Block>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="conclusion">💡Conclusion</Divider>
 
+<Block mb={100}>
+
 ### Tests & Results
+
+<Block mb={40}>
 
 #### Lab setting - A series of actions on same product
 
-<Grid cols={3}>
+<Grid cols={3} template=".75fr 1fr 1fr">
 
-<Cell>
+<Cell row="span 2">
 
 I personally tested the gloves, simulating user interactions with a water bottle design, performing actions related to drinking and washing. I then compared observed limitations with data gathered from online patient surveys.
 
@@ -852,29 +969,33 @@ I personally tested the gloves, simulating user interactions with a water bottle
 
 <Cell>
 
-![usability testing](./images/img-8856.jpg)
+<Fit w={337}>![usability testing](./images/img-8856.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![usability testing](./images/img-8858.jpg)
+<Fit w={337}>![usability testing](./images/img-8858.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![usability testing](./images/img-8855.jpg)
+<Fit w={337}>![usability testing](./images/img-8855.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![usability testing](./images/img-8857.jpg)
+<Fit w={337}>![usability testing](./images/img-8857.jpg)</Fit>
 
 </Cell>
 
 </Grid>
+
+</Block>
+
+<Block mb={40}>
 
 #### Real life setting - A series of actions of different daily tasks
 
@@ -902,21 +1023,23 @@ I had individuals with intermittent arthritis wear the gloves to perform daily t
 
 </Row>
 
+</Block>
+
 #### Result
 
 The success of the physical prototyping and simulation design is affirmed through the comparison of scientific data and real-patient experiences.
 
-<Row>
+<Row align="end">
 
 <Col span={2}>
 
-![test diagram](./images/diagram2.png)
+<Fit w={140}>![test diagram](./images/diagram2.png)</Fit>
 
 </Col>
 
 <Col span={2}>
 
-![test diagram](./images/diagram2.png)
+<Fit w={140}>![test diagram](./images/diagram2.png)</Fit>
 
 </Col>
 
@@ -962,6 +1085,10 @@ The success of the physical prototyping and simulation design is affirmed throug
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Future Plan
 
 <Row>
@@ -988,9 +1115,13 @@ I intend to transform the product into an educational and user-testing tool with
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Key Takeaways
 
-<Grid cols={3}>
+<Grid cols={3} gap="40px 20px" pad="0px 0px 0px 0px">
 
 <Cell>
 
@@ -1017,3 +1148,7 @@ The interplay of specialized skills within the team fostered an environment wher
 </Cell>
 
 </Grid>
+
+</Block>
+
+</Block>

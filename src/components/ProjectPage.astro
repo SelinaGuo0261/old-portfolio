@@ -17,11 +17,21 @@ const i = siblings.findIndex((p) => p.id === project.id);
 const next = siblings.length > 1 ? siblings[(i + 1) % siblings.length] : undefined;
 const listPage = { professional: 'work', 'case-study': 'projects', playground: 'experiment' }[data.category];
 
+const backLabel = data.category === 'professional' ? 'Back to Work List' : 'Back to Project List';
+const endStyle = [
+  `--end-line: ${data.ending.line}`,
+  `--end-title: ${data.ending.title}`,
+  `--end-gradient: ${data.ending.gradient}`,
+  `--end-button: ${data.ending.button}`,
+  `--end-button-text: ${data.ending.buttonText}`,
+].join('; ');
+
 const themeStyle = [
   `--page-bg: ${data.theme.background}`,
   `--text: ${data.theme.text}`,
   `--accent: ${data.theme.accent}`,
-].join('; ');
+  data.theme.paragraphGap !== undefined && `--p-gap: ${data.theme.paragraphGap}px`,
+].filter(Boolean).join('; ');
 ---
 
 <BaseLayout title={data.title} description={data.summary} accent={data.theme.accent}>
@@ -42,21 +52,39 @@ const themeStyle = [
       <Content components={mdxComponents} />
     </div>
 
-    <footer class="project__end">
-      <p class="project__thanks"><span></span>Thanks for Reading<span></span></p>
-      <div class="project__buttons">
-        <a class="btn" href={href(listPage)} data-hover="spin">
-          <span class="btn__spin" data-hover-target></span>
-          <span class="btn__label">Back to Project List</span>
-        </a>
-        {next && (
-          <a class="btn" href={projectHref(next)} data-hover="spin">
-            <span class="btn__spin" data-hover-target></span>
-            <span class="btn__label">See Next Work</span>
-          </a>
-        )}
-      </div>
-    </footer>
+    {data.ending.show !== 'none' && (
+      <footer class:list={['project__end', { 'project__end--full': data.ending.show === 'full' }]} style={endStyle}>
+        <div class="end-wrapper">
+          <div class="thank-you w-row">
+            <div class="w-col w-col-4"><div class="end"></div></div>
+            <div class="w-col w-col-4"><div class="vision-center">Thanks for Reading</div></div>
+            <div class="w-col w-col-4"><div class="end"></div></div>
+          </div>
+          {data.ending.show === 'full' && (
+            <div class="button-bottom w-row">
+              <div class="column-17 w-col w-col-6">
+                <div class="btn" data-hover="spin">
+                  <div class="btn-inside">
+                    <div class="btn-background" data-hover-target></div>
+                    <a class="btn-link" href={href(listPage)}><span class="btn-text">{backLabel}</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="column-18 w-col w-col-6">
+                {next && (
+                  <div class="btn" data-hover="spin">
+                    <div class="btn-inside">
+                      <div class="btn-background" data-hover-target></div>
+                      <a class="btn-link" href={projectHref(next)}><span class="btn-text">See Next Work</span></a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </footer>
+    )}
 
     <nav class="section-nav" aria-label="Sections" data-section-nav></nav>
   </article>
@@ -77,40 +105,58 @@ const themeStyle = [
   .project__header { margin-inline: var(--gutter); padding-top: 6rem; text-align: center; }
   .project__title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; line-height: 1.2; }
   .project__period { color: var(--accent); }
-  .project__body { margin-inline: var(--gutter); padding-block: 3rem; }
+  .project__body { margin-inline: var(--gutter); }
 
-  .project__end { margin-inline: var(--gutter); padding-bottom: 5rem; text-align: center; }
-  .project__thanks {
-    display: flex; align-items: center; gap: 1.5rem;
-    font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
-    margin-bottom: 3rem;
+  /* Closing row: same sizes as the old site's .bottom / .thank-you / .btn. */
+  .project__end { position: relative; overflow: hidden; }
+  .project__end--full { padding: 20px 0; }
+  .end-wrapper { margin: 0 15%; padding: 40px 0; }
+  .thank-you { display: flex; justify-content: center; align-items: center; }
+  .end { height: 6px; border-radius: 20px; background: var(--end-line); }
+  .vision-center {
+    color: var(--end-title); text-align: center;
+    font-family: Lexend, sans-serif; font-size: 20px; font-weight: 500; line-height: 26px;
   }
-  .project__thanks span { flex: 1; height: 2px; background: var(--accent); }
-  .project__buttons { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-
-  .btn {
-    position: relative;
-    display: inline-flex;
-    padding: 3px;
-    border-radius: 100px;
-    overflow: hidden;
-    text-decoration: none;
-    isolation: isolate;
+  .button-bottom { margin: 20px 0 100px; }
+  .column-17, .column-18 { display: flex; align-items: center; }
+  .column-17 { justify-content: flex-end; }
+  .column-18 { justify-content: flex-start; }
+  .btn, .btn-inside {
+    position: relative; display: flex; justify-content: center; align-items: center;
+    width: 220px; height: 60px; padding: 0; border: 0; border-radius: 100vw; background: #fff; overflow: hidden;
   }
-  .btn__spin {
-    position: absolute;
-    inset: -150%;
-    z-index: -1;
-    background: conic-gradient(from 0deg, var(--accent), #ffffff, var(--accent));
+  .btn-inside { overflow: visible; }
+  .btn-background { min-width: 220px; min-height: 220px; background-image: var(--end-gradient); }
+  .btn-link {
+    position: absolute; inset: 12% 4%; display: flex; justify-content: center; align-items: center;
+    border-radius: 100vw; background: var(--end-button); text-decoration: none;
   }
-  .btn__label {
-    padding: 0.9em 2em;
-    border-radius: 100px;
-    background: var(--page-bg);
-    color: var(--text);
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 1.125rem;
+  .btn-text { color: var(--end-button-text); font-family: Lexend, sans-serif; font-size: 14px; font-weight: 400; line-height: 1.6; }
+  @media (min-width: 1280px) {
+    .project__end--full { padding-bottom: 40px; }
+    .end-wrapper { padding: 50px 0; }
+    .btn-text { font-size: 15px; }
+  }
+  @media (min-width: 1440px) {
+    .end-wrapper { padding: 60px 0; }
+    .vision-center { font-size: 22px; line-height: 28px; }
+    .column-17, .column-18 { padding-inline: 20px; }
+    .btn, .btn-inside { width: 240px; height: 70px; }
+    .btn-background { min-width: 240px; min-height: 240px; }
+    .btn-text { font-size: 18px; }
+  }
+  @media (min-width: 1920px) {
+    .end-wrapper { padding: 80px 0; }
+    .vision-center { font-size: 30px; line-height: 36px; }
+    .btn, .btn-inside { width: 280px; height: 80px; }
+    .btn-background { min-width: 280px; min-height: 280px; }
+    .btn-text { font-size: 24px; line-height: 1.4; }
+  }
+  @media (max-width: 991px) { .end-wrapper { margin: 0 60px; } }
+  @media (max-width: 479px) {
+    .end-wrapper { margin: 0; padding-inline: 30px; }
+    .vision-center { font-size: 16px; }
+    .column-17, .column-18 { padding-block: 10px; }
   }
 
   .section-nav {

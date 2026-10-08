@@ -1,26 +1,29 @@
 ---
 /** Rounded tinted panel inside the content column. */
-interface Props { bg?: string; image?: string; text?: string; accent?: string; hmw?: boolean }
-const { bg, image, text, accent, hmw } = Astro.props;
+interface Props { bg?: string; image?: string; text?: string; accent?: string; pad?: string; mt?: number; mb?: number; mx?: string; radius?: string }
+const { bg, image, text, accent, pad, mt, mb, mx, radius } = Astro.props;
 const style = [
   bg && `--box-bg: ${bg}`,
   image && `--box-image: url(${image})`,
   text && `--text: ${text}`,
   accent && `--accent: ${accent}`,
+  pad && `--pad: ${pad}`,
+  mt !== undefined && `margin-top: ${mt}px`,
+  mb !== undefined && `margin-bottom: ${mb}px`,
+  mx && `margin-left: ${mx.split(' ')[0]}; margin-right: ${mx.split(' ')[1]}`,
+  radius && `border-radius: ${radius}`,
 ].filter(Boolean).join('; ');
 ---
-<div class:list={['box', { 'box--hmw': hmw }]} style={style} data-reveal><slot /></div>
+<div class="box" style={style} data-reveal><slot /></div>
 
 <style>
   .box {
-    margin-block: 2rem;
-    padding: 1.5rem 2rem;
+    margin-block: 0;
+    padding: var(--pad, 1.5rem 2rem);
     border-radius: var(--radius);
     background: var(--box-bg, transparent) var(--box-image, none) center / cover;
     color: var(--text);
   }
-  .box--hmw { border-radius: 0; padding: 20px 100px; }
-  @media (max-width: 767px) { .box--hmw { padding: 20px; } }
   .box > :global(:first-child) { margin-top: 0; }
   .box > :global(:last-child) { margin-bottom: 0; }
 </style>

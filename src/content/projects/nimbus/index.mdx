@@ -10,11 +10,22 @@ theme:
   background: "#f7f8fa"
   text: "#000000"
   accent: "#8d8dba"
+ending: 
+  show: "full"
+  line: "#a4def4"
+  title: "#8d8dba"
+  gradient: "linear-gradient(40deg, rgb(160, 144, 255), rgb(255, 220, 220) 52%, rgb(77, 239, 212))"
+  button: "#ffffff"
+  buttonText: "#333333"
 order: 3
 featured: true
 ---
 
+<Block mt={40} mb={20}>
+
 <Lead color="#333333">A product that informs & eases houseplant care while fostering emotional connection for frequent travelers.</Lead>
+
+</Block>
 
 <MetaGrid>
 
@@ -64,11 +75,13 @@ The project was formed by 7 students from Industrial Design @ RISD, MBA @ MIT, a
 
 </Row>
 
+<Block pt={60} pb={60}>
+
 <Divider id="main-feature">📱 Main Features</Divider>
 
-<YouTube id="6HoKMjBOA1c" />
+<YouTube id="6HoKMjBOA1c" mb={40} />
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={9}>
 
@@ -88,7 +101,7 @@ There are panels above both plants and they are measuring WETNESS in the first c
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={3}>
 
@@ -108,7 +121,7 @@ The app connects with the sensor, has design features:<br />(1) real-time notifi
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={9}>
 
@@ -128,7 +141,13 @@ We were constantly reach out to targeted users for feedback. Let's hear what the
 
 </Row>
 
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="background">👋 Background</Divider>
+
+<Block mb={100}>
 
 ### Product Design Development
 
@@ -144,11 +163,11 @@ In this multi-faculty collaboration, 80 students from MIT & RISD were randomly p
 
 <Col span={8}>
 
-<Grid cols={4}>
+<Grid cols={4} gap="30px 20px" pad="20px 10px 20px 10px">
 
 <Member name="Aquila Simmons">
 
-![](./images/ellipse-20.png)
+<Fit w={100} center>![](./images/ellipse-20.png)</Fit>
 
 MS MechE @ MIT<br />Mechanical Engineer
 
@@ -156,7 +175,7 @@ MS MechE @ MIT<br />Mechanical Engineer
 
 <Member name="Danaé Hirsch">
 
-![](./images/ellipse-20-1.png)
+<Fit w={100} center>![](./images/ellipse-20-1.png)</Fit>
 
 MBA @ MIT<br />Product Manager
 
@@ -164,7 +183,7 @@ MBA @ MIT<br />Product Manager
 
 <Member name="Selina Guo">
 
-![](./images/ellipse-20-2.png)
+<Fit w={100} center>![](./images/ellipse-20-2.png)</Fit>
 
 ID @ RISD<br />Product Designer
 
@@ -172,7 +191,7 @@ ID @ RISD<br />Product Designer
 
 <Member name="Hiro Ogasawara">
 
-![](./images/ellipse-20-3.png)
+<Fit w={100} center>![](./images/ellipse-20-3.png)</Fit>
 
 MS SDM @ MIT<br />Product Manager
 
@@ -180,7 +199,7 @@ MS SDM @ MIT<br />Product Manager
 
 <Member name="Paige Forester">
 
-![](./images/ellipse-20-4.png)
+<Fit w={100} center>![](./images/ellipse-20-4.png)</Fit>
 
 MS MechE @ MIT<br />Mechanical Engineer
 
@@ -188,7 +207,7 @@ MS MechE @ MIT<br />Mechanical Engineer
 
 <Member name="Asha Wills">
 
-![](./images/ellipse-20-5.png)
+<Fit w={100} center>![](./images/ellipse-20-5.png)</Fit>
 
 MBA @ MIT<br />Product Manager
 
@@ -196,7 +215,7 @@ MBA @ MIT<br />Product Manager
 
 <Member name="Ivy Wang">
 
-![](./images/ellipse-20-6.png)
+<Fit w={100} center>![](./images/ellipse-20-6.png)</Fit>
 
 ID @ RISD<br />Product Designer
 
@@ -204,7 +223,7 @@ ID @ RISD<br />Product Designer
 
 <Member name="Carrie Deline">
 
-![](./images/ellipse-20-7.png)
+<Fit w={100} center>![](./images/ellipse-20-7.png)</Fit>
 
 MS SDM @ MIT<br />Teaching Assistant
 
@@ -215,6 +234,10 @@ MS SDM @ MIT<br />Teaching Assistant
 </Col>
 
 </Row>
+
+</Block>
+
+<Block mb={100}>
 
 ### Agile Development & Timeline
 
@@ -234,15 +257,25 @@ This project employs Agile methodology (scrum), utilizing early testing and deci
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="Research">🔍 Research</Divider>
+
+<Block mb={100}>
 
 ### Original Prompt : Better houseplant care during absences
 
-<Box bg="rgba(217, 217, 217, 0.3)">
+<Box bg="rgba(217, 217, 217, 0.3)" pad="20px 30px 20px 30px" mb={60} radius="24px">
 
 Many individuals who travel frequently struggle to care for their home plants, leading to neglect and often plant loss. About 66% american family have houseplants but most of them can’t survive their natural life expectancy. Existing solutions like self-watering pots or plant-tracking apps have limitations in terms of efficiency, cost, or accessibility. How to ensure the well-being of indoor plants during extended absences? Initial users to engage with could include frequent travelers, apartment dwellers with limited time for plant care, and individuals interested in sustainable living but lacking related experience.
 
 </Box>
+
+<Block mb={60}>
 
 ### Target Market - Is it Real?
 
@@ -274,13 +307,17 @@ Automated care<br />Customizable settings for varied plants<br />Simple to set u
 
 </Row>
 
+</Block>
+
+<Block mb={60}>
+
 ### Benchmarking - Can We Win?
 
-<Row>
+<Row align="center">
 
 <Col span={3}>
 
-![](./images/61ccb8yxbul-ac-sl1500.jpg)
+<Fit w={222}>![](./images/61ccb8yxbul-ac-sl1500.jpg)</Fit>
 
 </Col>
 
@@ -294,7 +331,7 @@ Automated care<br />Customizable settings for varied plants<br />Simple to set u
 
 </Row>
 
-<Row>
+<Row align="center">
 
 <Col span={6}>
 
@@ -311,6 +348,10 @@ Automated care<br />Customizable settings for varied plants<br />Simple to set u
 </Col>
 
 </Row>
+
+</Block>
+
+<Block mb={60}>
 
 ### Assessment - Is it worth it?
 
@@ -334,9 +375,17 @@ Automated care<br />Customizable settings for varied plants<br />Simple to set u
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block mb={100}>
+
 ### User Research
 
-<Row>
+<Block mb={60}>
+
+<Row align="center">
 
 <Col span={4}>
 
@@ -354,71 +403,73 @@ Many individuals who travel frequently struggle to care for their home plants, l
 
 </Row>
 
+</Block>
+
 #### User Interview Quotes about Pain Points & Needs
 
 We selected 6 participants from the survey that have 3-5 indoor plants, reported having difficult maintaining health level about their plants, and had motivation to utilize technology to improve. We've collected the most common pain points and needs from those interviews.
 
-<Box bg="rgba(217, 217, 217, 0.3)" accent="#333333">
+<Box bg="rgba(217, 217, 217, 0.3)" accent="#333333" pad="20px 30px 20px 30px" mb={60} radius="24px">
 
-<Row>
+<Row align="center" pt={20} pb={20}>
 
 <Col span={1}>
 
-![](./images/8301089-1.png)
+<Fit w={59}>![](./images/8301089-1.png)</Fit>
 
 </Col>
 
 <Col span={11}>
 
-<Text as="h4" weight={400}>" I want something that takes the guesswork out of watering and ensures that my plants receive the right amount of water at the right time. "</Text>
+<Text as="h4" weight={400}>" I want something that <Span size={28} weight={500} color="#8759ec">takes the guesswork out of watering</Span> and ensures that my plants receive the right amount of water at the right time. "</Text>
 
 </Col>
 
 </Row>
 
-<Row>
+<Row align="center" pt={20} pb={20}>
 
 <Col span={1}>
 
-![](./images/8301090-1.png)
+<Fit w={59}>![](./images/8301090-1.png)</Fit>
 
 </Col>
 
 <Col span={11}>
 
-<Text as="h4" weight={400}>" I have pets and, whenever I travel, I ask the pet sitter to also water the plants. The difficulty is in knowing whether or not they followed instructions."</Text>
+<Text as="h4" weight={400}>" I have pets and, whenever I travel, I ask the pet sitter to also water the plants. The difficulty is in <Span size={28} weight={500} color="#057cf1">knowing whether or not they followed instructions</Span>."</Text>
 
 </Col>
 
 </Row>
 
-<Row>
+<Row align="center" pt={20} pb={20}>
 
 <Col span={1}>
 
-![](./images/image-184.png)
+<Fit w={59}>![](./images/image-184.png)</Fit>
 
 </Col>
 
 <Col span={11}>
 
-<Text as="h4" weight={400}>" I just have a lot going on. I love my plants, but I sometimes forget to water them. Or sometimes, I forget that I did water them, and then I overwater them. "</Text>
+<Text as="h4" weight={400}>" I just have a lot going on. I love my plants, but <Span size={28} weight={500} color="#8759ec">I sometimes forget to water them</Span>. Or sometimes, <Span size={28} weight={500} color="#8759ec">I forget that I did water them</Span>, and then I overwater them. "</Text>
 
 </Col>
 
 </Row>
 
-<Row>
+<Row align="center" pt={20} pb={20}>
 
 <Col span={1}>
 
-![](./images/8301089-2.png)
+<Fit w={59}>![](./images/8301089-2.png)</Fit>
 
 </Col>
 
 <Col span={11}>
 
-<Text as="h4" weight={400}>" Taking care of plants makes me feel peaceful and motherly. Why would I want something \[like a self-watering system\] to do that for me? "</Text>
+<Text as="h4" weight={400}>" Taking care of plants makes me feel <Span size={28} weight={500} color="#057cf1">peaceful and motherly</Span>. Why would I want something \[like a self-watering system\] to do that for me? "</Text>
 
 </Col>
 
@@ -426,11 +477,19 @@ We selected 6 participants from the survey that have 3-5 indoor plants, reported
 
 </Box>
 
+</Block>
+
+<Block mb={100}>
+
 ### Persona
 
 Although we recognize that secondary customers, such as plant enthusiasts or gardeners, also experience challenges in plant care, we have chosen to focus on the category of young professionals. This group represents the primary target in the plant rescue initiative and is the market we can most easily reach out for.
 
-![](./images/personanimbus.png)
+<Fit w={1008} center>![](./images/personanimbus.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Competitive Analysis
 
@@ -466,19 +525,27 @@ We conducted research on similar plant monitoring apps, Florasense as a benchmar
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="Define">📌 Define</Divider>
+
+<Block mb={100}>
 
 ### Design Goal
 
 After conducting user researches, we've realized that having houseplants at home is not only for decorative purposes, it is a sense of accomplishment and maternal love towards non human lives, similar to raise a pet. As a result, we want to focusing on the gap between "frequent death of plants" and "motherhood" aspect as our design goals.
 
-<Row>
+<Row align="center">
 
 <Col span={5}>
 
-<Box bg="#ececf3" hmw>
+<Box bg="#ececf3" pad="10px 40px 10px 40px" mt={20} mb={20} mx="20px 20px" radius="16px">
 
-<Quote size={28} color="#333333">
+<Quote size={28} color="#333333" mt={40} mb={40} padx={0}>
 
 HMW help plant parents better understand and care for their plants, even while traveling, without sacrificing the “nurturing” aspect of plant ownership?
 
@@ -496,17 +563,33 @@ HMW help plant parents better understand and care for their plants, even while t
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Pain Points & Our Solution
 
 I’ve mapped out this hierarchy of pain points and we’ve developed features to solve each problem.
 
-![](./images/painpoints.png)
+<Fit w={1008} center>![](./images/painpoints.png)</Fit>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="Prototype">🧩 Prototype</Divider>
 
+<Block mb={100}>
+
 ### User Journey
 
-![](./images/f2155b01-beeb-4d44-adf1-ec0cb0e5fd01.png)
+<Fit w={1008} center>![](./images/f2155b01-beeb-4d44-adf1-ec0cb0e5fd01.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Branding & Avatar Design
 
@@ -530,11 +613,17 @@ We designed several nimbus shell in shape of cute characters, and finally moved 
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Low-fi Prototype & User Feedback
+
+<Block mb={60}>
 
 The low-fi prototype is focusing on the structure of delivering information. After making the following pages, we did a quick formative usability study with the same 6 participants that we interviewed at user research section.
 
-![](./images/41d7cc3b-b9c6-49ff-a643-c3d37b036063.png)
+<Fit w={1008} center>![](./images/41d7cc3b-b9c6-49ff-a643-c3d37b036063.png)</Fit>
 
 The main usability issues can be categorized as:
 
@@ -574,7 +663,19 @@ Another major pain point of plant care is "hard to find right helps when it look
 
 </Row>
 
+</Block>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="Final-design">🎨 Final Design</Divider>
+
+<Block mb={100}>
+
+<Block mt={30} mb={100}>
 
 ### 01. On-Boarding
 
@@ -584,6 +685,10 @@ After user creating a new account, they'll enter a "garden" homepage. They can s
 
 ![](./images/onboard.png)
 
+</Block>
+
+<Block mt={30} mb={100}>
+
 ### 02. Detect & Notification
 
 #### Multiply format of notification when sensors detect data in bad range
@@ -592,7 +697,9 @@ After entering each "caring" page, it'll display the 3D modeled plant species an
 
 ![](./images/notification.png)
 
-<Row>
+</Block>
+
+<Row align="center">
 
 <Col span={5}>
 
@@ -614,7 +721,7 @@ As shown from the user testing results, this gamification feature really motivat
 
 </Row>
 
-<Row>
+<Row align="center">
 
 <Col span={7}>
 
@@ -636,7 +743,9 @@ The right is the historical log page which collects all sensor data chronologica
 
 </Row>
 
-<Row>
+<Block mb={60}>
+
+<Row align="center">
 
 <Col span={3}>
 
@@ -656,7 +765,9 @@ The user can either send a reminder message for their friends who also installed
 
 </Row>
 
-<Row>
+</Block>
+
+<Row align="center">
 
 <Col span={8}>
 
@@ -678,7 +789,15 @@ For each connected plant, there is also a specific care instruction that has kno
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="Market">💰 Market</Divider>
+
+<Block mb={100}>
 
 ### Membership
 
@@ -686,9 +805,9 @@ For each connected plant, there is also a specific care instruction that has kno
 
 Membership includes access to the Nimbus app, which gives personalized plant-care insights in addition to built-in coaching features and reports. Choose from monthly or annual plans. In order to reduce the sense of "paying extra for the App", we made all the prices to be included with app access and the first Nimbus sensor.
 
-<Box bg="#ececf3">
+<Box bg="#ececf3" pad="0px 0px 0px 0px" radius="16px">
 
-<Row>
+<Row pt={20} pb={20}>
 
 <Col span={4}>
 
@@ -711,6 +830,10 @@ Membership includes access to the Nimbus app, which gives personalized plant-car
 </Row>
 
 </Box>
+
+</Block>
+
+<Block mb={100}>
 
 ### Go - To - Market Plan
 
@@ -756,7 +879,15 @@ Projected sensor production ramp up by 15% every year
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="Conclusion">💡 Conclusion</Divider>
+
+<Block mb={100}>
 
 ### Key Takeaways
 
@@ -787,3 +918,7 @@ Frequent synchronization within small group and large group makes teamwork consi
 </Col>
 
 </Row>
+
+</Block>
+
+</Block>
