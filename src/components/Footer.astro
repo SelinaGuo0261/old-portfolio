@@ -1,4 +1,6 @@
 ---
+/** Site footer — original Webflow markup/classes (styles/footer.css). */
+import '@/styles/footer.css';
 import { Image } from 'astro:assets';
 import footerLogo from '@/assets/site/footer-logo.png';
 import linkedin from '@/assets/site/linkedin.png';
@@ -8,12 +10,13 @@ import email from '@/assets/site/email.png';
 import phone from '@/assets/site/phone.png';
 import wechat from '@/assets/site/wechat.png';
 import wechatQr from '@/assets/site/wechat-qr.jpg';
-import { getProjects } from '@/lib/projects';
-import { href, projectHref } from '@/lib/url';
+import { getProjects, type Project } from '@/lib/projects';
+import { href, projectHref, isExternal } from '@/lib/url';
 import { site } from '@/lib/site';
 
-const professional = (await getProjects('professional')).filter((p) => projectHref(p));
-const caseStudies = (await getProjects('case-study')).filter((p) => projectHref(p));
+const listed = (p: Project) => p.data.footer && !!projectHref(p);
+const professional = (await getProjects('professional')).filter(listed);
+const caseStudies = (await getProjects('case-study')).filter(listed);
 
 const social = [
   { label: 'LinkedIn', url: site.linkedin, icon: linkedin },
@@ -24,33 +27,46 @@ const social = [
   { label: 'WeChat QR code', url: wechatQr.src, icon: wechat },
 ];
 const year = new Date().getFullYear();
+
+interface Props {
+  /** Full footer (links + social) as on the home page, or only the copyright line. */
+  full?: boolean;
+}
+const { full = false } = Astro.props;
+const ext = (url?: string) => (isExternal(url) ? { target: '_blank', rel: 'noopener' } : {});
 ---
 
-<footer class="site-footer">
-  <div class="wrap site-footer__grid">
-    <div class="site-footer__brand">
-      <Image class="site-footer__logo" src={footerLogo} alt="Selina Guo" />
-      <div class="site-footer__social">
-        {social.map((s) => (
-          <a href={s.url} target={s.url.startsWith('http') ? '_blank' : undefined} rel="noopener" aria-label={s.label}>
-            <Image src={s.icon} alt="" width={32} height={32} />
-          </a>
-        ))}
+{full && (
+<div class="footer">
+  <div class="main-feature-wrapper">
+    <div class="w-row">
+      <div class="w-col w-col-4">
+        <Image class="image-127" src={footerLogo} alt="Selina Guo" />
+        <div class="footer-connect">
+          {social.map((s) => (
+            <a class="footer-link w-inline-block" href={s.url} aria-label={s.label} {...(s.url.startsWith('http') || s.url.endsWith('.jpg') ? { target: '_blank', rel: 'noopener' } : {})}>
+              <Image src={s.icon} alt="" />
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="w-col w-col-3">
+        <div class="text-block-69 white">Professional Projects</div>
+        {professional.map((p) => <a class="content footer" href={projectHref(p)} {...ext(projectHref(p))}>{p.data.title}</a>)}
+      </div>
+      <div class="w-col w-col-3">
+        <div class="text-block-69 white">Case Studies</div>
+        {caseStudies.map((p) => <a class="content footer" href={projectHref(p)} {...ext(projectHref(p))}>{p.data.title}</a>)}
+      </div>
+      <div class="w-col w-col-2">
+        <div class="text-block-69 white">About Me</div>
+        <a class="content footer" href={href('about')}>My story</a>
+        <a class="content footer" href={href('experiment')}>Experimentations</a>
       </div>
     </div>
-    <div>
-      <div class="site-footer__title">Professional Projects</div>
-      {professional.map((p) => <a class="site-footer__link" href={projectHref(p)}>{p.data.title}</a>)}
-    </div>
-    <div>
-      <div class="site-footer__title">Case Studies</div>
-      {caseStudies.map((p) => <a class="site-footer__link" href={projectHref(p)}>{p.data.title}</a>)}
-    </div>
-    <div>
-      <div class="site-footer__title">About Me</div>
-      <a class="site-footer__link" href={href('about')}>My story</a>
-      <a class="site-footer__link" href={href('experiment')}>Experimentations</a>
-    </div>
   </div>
-  <p class="site-footer__copy">Copyright © 2020-{year} Xinyu Guo. All Rights Reserved</p>
+</div>
+)}
+<footer class="rights-served">
+  <div class="text-block-22">Copyright © 2020-{year} Xinyu Guo. All Rights Reserved</div>
 </footer>

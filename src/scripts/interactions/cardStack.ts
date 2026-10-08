@@ -22,16 +22,20 @@ export function initCardStacks(): void {
     let current = 0;
     let busy = false;
 
-    // Position each card by its distance from the front.
+    // Fan the deck out like the old page: cards behind the front one step
+    // right and tilt a little more; the previous card peeks out on the left.
+    const shift = [0, 7.25, 13, 17.25, 20, 22, 23.5, 24.5];
     const layout = (animate: boolean) => {
       cards.forEach((card, i) => {
         const depth = (i - current + count) % count;
+        const prev = count > 2 && depth === count - 1;
+        const d = prev ? 1 : depth;
         const vars: gsap.TweenVars = {
-          x: depth * -26,
-          rotation: depth === 0 ? 0 : -2 - depth * 1.5,
-          scale: 1 - depth * 0.05,
-          opacity: depth > 3 ? 0 : 1,
-          zIndex: count - depth,
+          xPercent: prev ? -7.25 : (shift[d] ?? 25),
+          z: -100 * d,
+          rotation: prev ? -2 : 2 * d,
+          opacity: 1,
+          zIndex: prev ? count - 1 : count - depth,
         };
         if (animate) gsap.to(card, { ...vars, duration: 0.5, ease: 'power3.out' });
         else gsap.set(card, vars);
@@ -52,13 +56,13 @@ export function initCardStacks(): void {
 
       const tl = gsap.timeline({ onComplete: () => { busy = false; } });
       if (dir === 1) {
-        tl.to(leaving, { x: 220, rotation: 12, opacity: 0, duration: 0.35, ease: 'power2.in' })
+        tl.to(leaving, { xPercent: -60, rotation: -8, opacity: 0, duration: 0.35, ease: 'power2.in' })
           .add(() => layout(true))
           .fromTo(leaving, { opacity: 0 }, { opacity: 1, duration: 0.3 }, '>-0.1');
       } else {
         const incoming = cards[current]!;
         layout(true);
-        tl.fromTo(incoming, { x: 220, rotation: 12, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: 0.45, ease: 'power3.out' });
+        tl.fromTo(incoming, { xPercent: -60, rotation: -8, opacity: 0 }, { xPercent: 0, rotation: 0, opacity: 1, duration: 0.45, ease: 'power3.out' });
       }
       if (prevPanel && nextPanel) {
         prevPanel.hidden = true;

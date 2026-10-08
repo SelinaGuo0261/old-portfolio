@@ -2,11 +2,11 @@
 interface Props { bg?: string }
 const { bg } = Astro.props;
 ---
-<div class:list={['cell', { 'cell--panel': bg }]} style={bg ? `--panel: ${bg}` : undefined}><slot /></div>
+<div class:list={['cell', { 'cell--panel': bg }]} style={bg ? `background: ${bg}` : undefined}><slot /></div>
 
 <style>
-  .cell { min-width: 0; }
-  .cell > :global(:first-child) { margin-top: 0; }
-  .cell > :global(:last-child) { margin-bottom: 0; }
-  .cell--panel { background: var(--panel); padding: 1.25rem; border-radius: var(--radius); }
+  .cell { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+  .cell > :global(*) { max-width: 100%; }
+  .cell > :global(p), .cell > :global(.fit) { align-self: stretch; }
+  .cell--panel { padding: 20px; border-radius: var(--radius); }
 </style>

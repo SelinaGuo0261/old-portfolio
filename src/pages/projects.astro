@@ -1,46 +1,66 @@
 ---
-import { Image } from 'astro:assets';
+/** Case Study — original Webflow markup (styles/pages/projects.css) with a GSAP card stack. */
+import '@/styles/pages/projects.css';
+import { getImage } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getProjects } from '@/lib/projects';
 import { projectHref, isExternal } from '@/lib/url';
 
 const studies = await getProjects('case-study');
+const cards = await Promise.all(
+  studies.map(async (p) => (await getImage({ src: p.data.card ?? p.data.cover, width: 1200, format: 'webp' })).src),
+);
+const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
 ---
 
-<BaseLayout title="Case Study" description="UX and product design case studies.">
-  <div class="cs wrap" data-stack tabindex="0" aria-roledescription="carousel" aria-label="Case studies">
-    <div class="cs__deck" data-stack-deck>
-      {studies.map((p, i) => (
-        <div class="cs__card" data-stack-card>
-          <Image src={p.data.card ?? p.data.cover} alt={p.data.title} widths={[600, 1200]} sizes="(max-width: 767px) 90vw, 45vw" loading={i < 2 ? 'eager' : 'lazy'} />
-        </div>
-      ))}
-    </div>
-
-    <div class="cs__panels">
-      {studies.map((p, i) => {
-        const url = projectHref(p);
-        const external = isExternal(url);
-        return (
-          <div class="cs__panel" data-stack-panel hidden={i !== 0}>
-            {p.data.disciplines && <p class="cs__type">{p.data.disciplines}</p>}
-            <h2 class="cs__name" style={p.data.color ? `color: ${p.data.color}` : undefined}>{p.data.title}</h2>
-            <p class="cs__desc">{p.data.description ?? p.data.summary}</p>
-            {p.data.period && <p class="cs__period">{p.data.period}</p>}
-            <a class="cs__btn" href={url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined} data-hover="slide">
-              <span class="cs__btn-fill" data-hover-target style={p.data.color ? `background: ${p.data.color}` : undefined}></span>
-              <span class="cs__btn-text">View Project</span>
-            </a>
+<BaseLayout title="Case Study" description="UX and product design case studies." background="#f7f8fa">
+  <div class="slidepage">
+    <div class="pagecenter">
+      <div class="slider-wrap" data-stack tabindex="0" aria-roledescription="carousel" aria-label="Case studies">
+        <div class="slider-photo">
+          <div class="swiper is-photos">
+            <div class="swiper-wrapper is-photos" data-stack-deck role="list">
+              {studies.map((p, i) => (
+                <div class="swiper-slide is-photos" data-stack-card role="listitem" style={`background-image: url(${cards[i]})`} aria-label={p.data.title}>
+                  <div class="slider-height"></div>
+                </div>
+              ))}
+            </div>
           </div>
-        );
-      })}
-      <div class="cs__arrows">
-        <button type="button" class="cs__arrow" data-stack-prev aria-label="Previous case study">‹</button>
-        <button type="button" class="cs__arrow" data-stack-next aria-label="Next case study">›</button>
+        </div>
+        <div class="slider-content">
+          <div class="swiper is-content">
+            <div class="swiper-wrapper is-content">
+              {studies.map((p, i) => {
+                const url = projectHref(p);
+                return (
+                  <div class="swiper-slide is-content" data-stack-panel hidden={i !== 0}>
+                    {p.data.disciplines && <div class="slider-type">{p.data.disciplines}</div>}
+                    <h2 class="slider-name" style={p.data.color ? `color: ${p.data.color}` : undefined}>{p.data.title}</h2>
+                    <div class="text-block-48">{p.data.description ?? p.data.summary}</div>
+                    {p.data.period && <div class="text-block-49">{p.data.period}</div>}
+                    <a class="project-btn w-inline-block" href={url} target={isExternal(url) ? '_blank' : undefined} rel={isExternal(url) ? 'noopener' : undefined} data-hover="slide">
+                      <div class="demo-btn-wrapper-block f-2" data-hover-target></div>
+                      <div class="demo-btn-text">View Project</div>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div class="arrows-2">
+            <button type="button" class="arrow is-left" data-stack-prev aria-label="Previous case study">
+              <div class="arrow_svg"><svg width="100%" height="100%" viewBox="0 0 11 18" fill="none"><path d={arrow} stroke="currentColor" stroke-width="1.5" /></svg></div>
+            </button>
+            <button type="button" class="arrow is-right" data-stack-next aria-label="Next case study">
+              <div class="arrow_svg is-alt"><svg width="100%" height="100%" viewBox="0 0 11 18" fill="none"><path d={arrow} stroke="currentColor" stroke-width="1.5" /></svg></div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="cursor" data-cursor aria-hidden="true"></div>
+  <div class="customizecursor" data-cursor aria-hidden="true"></div>
 </BaseLayout>
 
 <script>
@@ -50,39 +70,22 @@ const studies = await getProjects('case-study');
   initCursor();
 </script>
 
-<style>
-  .cs { display: grid; grid-template-columns: 1.15fr 1fr; gap: 5rem; align-items: center; min-height: calc(100vh - var(--nav-h) - 8rem); outline: none; }
-  .cs__deck { position: relative; aspect-ratio: 4 / 3; cursor: grab; touch-action: pan-y; }
-  .cs__card { position: absolute; inset: 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 12px 30px #0002; background: var(--white); transform-origin: 50% 100%; }
-  .cs__card img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; }
-
-  .cs__type { color: var(--muted); font-size: 1.125rem; margin: 0; }
-  .cs__name { font-family: var(--font-display); font-size: 5rem; font-weight: 800; line-height: 1.05; margin: 0.2rem 0 1rem; }
-  .cs__desc { font-size: 1.125rem; line-height: 1.6; }
-  .cs__period { font-size: 1.125rem; margin: 1rem 0 1.5rem; }
-  .cs__btn {
-    position: relative; display: inline-block; overflow: hidden; isolation: isolate;
-    padding: 0.8em 2.2em; border: 2px solid var(--black); border-radius: 100px;
-    font-family: var(--font-display); font-weight: 500; font-size: 1.125rem; text-decoration: none; color: var(--black);
-  }
-  .cs__btn-fill { position: absolute; inset: 0; z-index: -1; background: var(--orange); }
-  .cs__arrows { display: flex; gap: 1rem; margin-top: 2rem; }
-  .cs__arrow {
-    width: 3.5rem; height: 3.5rem; border-radius: 50%;
-    border: 2px solid var(--black); background: transparent;
-    font-size: 1.75rem; line-height: 1; cursor: pointer;
-  }
-  .cs__arrow:hover { background: var(--black); color: var(--white); }
-
-  .cursor {
-    position: fixed; left: 0; top: 0; z-index: 1000;
-    width: 28px; height: 28px; border-radius: 50%;
-    border: 2px solid var(--orange);
-    pointer-events: none; mix-blend-mode: multiply;
-  }
-
-  @media (max-width: 991px) {
-    .cs { grid-template-columns: 1fr; gap: 3rem; padding-top: 3rem; }
-    .cs__name { font-size: 3.5rem; }
+<style is:global>
+  /* Card deck: all cards share one spot; GSAP fans them out. */
+  .swiper-wrapper.is-photos { display: grid; perspective: 1200px; transform-style: preserve-3d; cursor: grab; touch-action: pan-y; }
+  .swiper-slide.is-photos { grid-area: 1 / 1; transform-origin: 50% 100%; box-shadow: 0 8px 24px #0001; }
+  .swiper-slide.is-content[hidden] { display: none; }
+  .slider-name { margin: 0; }
+  .arrow { background: none; padding: 0; cursor: pointer; color: inherit; font: inherit; }
+  .project-btn { overflow: hidden; }
+  /* Copyright sits at the bottom of the screen, like the old page's .rights block. */
+  .rights-served { position: absolute; inset: auto 0 1%; }
+  body { position: relative; height: 100vh; max-height: 100vh; }
+  .slidepage + .customizecursor { position: fixed; left: 0; top: 0; pointer-events: none; }
+  .customizecursor {
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    background: url('../assets/site/cursor-gradient.png') center / 40px 40px no-repeat;
   }
 </style>

@@ -1,4 +1,5 @@
 ---
+import '@/styles/webflow-base.css';
 import '@/styles/global.css';
 import Nav from '@/components/Nav.astro';
 import Footer from '@/components/Footer.astro';
@@ -13,8 +14,12 @@ interface Props {
   /** Accent colour for this page (headings, dividers). */
   accent?: string;
   bodyClass?: string;
+  /** Page background colour (the old pages each set their own). */
+  background?: string;
+  /** Show the full footer (only the home page had it). */
+  fullFooter?: boolean;
 }
-const { title, description = site.description, navVariant = 'default', accent, bodyClass } = Astro.props;
+const { title, description = site.description, navVariant = 'default', accent, bodyClass, fullFooter = false, background } = Astro.props;
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Portfolio`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -53,12 +58,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       )
     }
   </head>
-  <body class={bodyClass} style={accent ? `--accent: ${accent}` : undefined}>
+  <body class={bodyClass} style={[accent && `--accent: ${accent}`, background && `background-color: ${background}`].filter(Boolean).join('; ') || undefined}>
     <Nav variant={navVariant} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer full={fullFooter} />
     <script>
       import { initSite } from '@/scripts/main';
       initSite();

@@ -1,35 +1,46 @@
 ---
-/** Pill link with the colour-fill + magnetic hover from the old site. */
-interface Props { href: string }
-const { href } = Astro.props;
+/**
+ * Round "View Prototype" link (white circle, colour rises on hover).
+ * `offset` pushes it right by that many px at desktop width.
+ */
+interface Props { href: string; offset?: number }
+const { href, offset } = Astro.props;
 const external = /^https?:/.test(href);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const url = href.startsWith('/') ? base + href : href;
 ---
-<p class="link-button-wrap" data-reveal>
-  <a class="link-button" href={url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}
-     data-hover="fill" data-magnetic="20">
-    <span class="link-button__text" data-magnetic-inner><slot /></span>
-    <span class="link-button__fill" data-hover-target></span>
-  </a>
-</p>
+<a class="link-proto" href={url} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}
+   style={offset ? `--offset: ${offset}` : undefined} data-hover="fill" data-magnetic="50">
+  <span class="link-proto__text" data-magnetic-inner><slot /></span>
+  <span class="link-proto__fill" data-hover-target></span>
+</a>
 
 <style>
-  .link-button-wrap { text-align: center; margin-block: 2.5rem; }
-  .link-button {
+  .link-proto {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin-left: calc(var(--offset, 0) * 0.8px);
+    border-radius: 100%;
+    background: #fff;
     overflow: hidden;
-    padding: 1em 2.4em;
-    border: 2px solid var(--accent);
-    border-radius: 100px;
-    color: var(--text);
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 500;
     text-decoration: none;
-    isolation: isolate;
   }
-  .link-button__fill { position: absolute; inset: auto 0 0; height: 0; background: var(--accent); z-index: -1; }
-  .link-button__text { display: inline-block; }
+  .link-proto__text {
+    position: relative;
+    z-index: 5;
+    color: #333;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .link-proto__fill { position: absolute; inset: auto 0 0; z-index: 1; height: 0; border-radius: 100%; background: var(--purple); }
+  @media (min-width: 1280px) { .link-proto { width: 120px; height: 120px; margin-left: calc(var(--offset, 0) * 0.86px); } .link-proto__text { font-size: 18px; } }
+  @media (min-width: 1440px) { .link-proto { width: 140px; height: 140px; margin-left: calc(var(--offset, 0) * 1px); } .link-proto__text { font-size: 20px; } }
+  @media (max-width: 767px) { .link-proto { margin-left: 0; } }
 </style>

@@ -1,0 +1,14 @@
+---
+/** "Seattle, WA · clock · Open to work" with the two wave animations (original markup). */
+import { site } from '@/lib/site';
+import wave from '@/assets/lottie/wave.json?url';
+---
+<div class="div-block-75">
+  <div class="wave-animation left"><div class="lottie-animation-8" data-lottie={wave} data-lottie-loop></div></div>
+  <div class="div-block-76">
+    <div class="text-block-70">{site.location}</div>
+    <div class="clock"><time class="time-timezone-short" data-clock={site.timeZone}>&nbsp;</time></div>
+    <div class="text-block-70">Open to work</div>
+  </div>
+  <div class="wave-animation right"><div class="lottie-animation-8" data-lottie={wave} data-lottie-loop></div></div>
+</div>

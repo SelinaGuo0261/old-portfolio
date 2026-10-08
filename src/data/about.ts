@@ -23,9 +23,16 @@ import img_mit_pdd from '@/assets/about/mit-pdd.jpg';
 import img_uw_hcde from '@/assets/about/uw-hcde.jpg';
 import img_alibaba_intern from '@/assets/about/alibaba-intern.png';
 
+import iconLinkedin from '@/assets/about/icons/linkedin.png';
+import iconInstagram from '@/assets/about/icons/instagram.png';
+import iconYoutube from '@/assets/about/icons/youtube.png';
+import iconGithub from '@/assets/about/icons/github.png';
+
 import type { ImageMetadata } from 'astro';
 
 export interface TimelineEntry {
+  /** Space under the main text: 'medium' (32px) or 'xlarge' (56px), as on the old page. */
+  gap: 'medium' | 'xlarge';
   date: string;
   text: string;
   note?: string;
@@ -37,6 +44,14 @@ export const about = {
   portrait: img_portrait,
   skills: ["#UX Design", "#Product Strategy", "#Design System"],
   resume: 'documents/Selina-Guo-Resume.pdf',
+  /** Icons next to the skills (the About page used its own links). */
+  social: [
+    { label: 'linkedin', url: 'https://www.linkedin.com/in/selinaxinyu-guo', icon: iconLinkedin },
+    { label: 'instagram', url: '#', icon: iconInstagram },
+    { label: 'youtube', url: 'https://www.youtube.com/channel/UCuUFG_iBa3L7dmryxTs0a7w', icon: iconYoutube },
+    { label: 'github', url: 'https://github.com/SelinaGuo0261', icon: iconGithub },
+  ],
+  phoneDisplay: '+1 401-537-0517',
   bio: [
     "💯 I am an international student from 🏡Nanjing, China, and currently enroll in 🧙University of Washington for MS in Human Centered Design & Engineering. I will graduate at June, 2026.",
     "🎨 As a designer, I care deeply about how technology can be translated into a more humanistic language, and how we can better democratize design, creation, and collaboration through creative software.",
@@ -53,17 +68,17 @@ export const about = {
   storyTitle: "The Story of how I Become a User Experience Designer",
   storyLead: ["My dream journey was started by a group of friends with the same passion. ", "The story starts 9 years ago... Strap in."],
   timeline: [
-    { date: "December 2017", text: "I was always telling people that Vex Robotics Competition was the source of my passion in design and technology. \n\nGirls can do engineering!", note: "Three years experience in high school club allow me to develop from a tyro to an all-around captain capable of design, construction, programming, and operation. I've devote all my spare time into robots.", image: img_vex2017 },
-    { date: "December 12, 2019", text: "I always remember this day. I got the offer from RISD and the award of VEX Asia Chamiponship.", image: img_vex2019 },
-    { date: "September 2020", text: "Become a RISD student. But COVID-19 stoped my aborad study. My freshman year was totally online! But luckly, it gave me extra opportunity to keep in contact with VEX Robotics.", note: "I went back to high-school teams to support younger members preparing new seasonal competitions. This is my way of giving back to the community, as I was once helped by selfless alumni and seniors as well.", image: img_vex2 },
-    { date: "September 2021", text: "To be honest, I don't really like what I've learned this year. My heart still belongs to Computer Science. Thanks to Brown Univeristy that gives me opportunity to study coding.", image: img_brown },
-    { date: "March 2022", text: "The final design studio course in my Sophomore year introduced User Experience Design, which I collaborated with Jessie and designed a smart shopping cart. I finally found something I like in Industrial Design Department.", image: img_cart },
-    { date: "June 2022", text: "I explored more about UX Design and Interaction Design online. I started to know the term \"Human Computer Interaction\".", note: "I recognized that the Interaction Design program at Parsons that had admitted me was exactly what I wanted to study. And since CMU was my dream school, when I found the HCI program, I regret more that I did not do more to enhance my grades (CMU requires 24 for TOEFL speaking and I got 23). \n\nAs a result, I began the arduous journey of standardized exams again.", image: img_hci },
-    { date: "September 2022", text: "Entering Junior year, I drived my academic focus to UIUX. I was trying to study more digital prototyping techniques as well as user-centered design. I was continuted programming at Brown and self-explored different kinds of technology and AI.", image: img_ux1 },
-    { date: "February 2023", text: "Yifan Mei from UCI found me to do start-up. I finally got a chance to do toB UX design.", note: "Thought I am so not sure how much I can get from doing this (will recuriter seriously interested in failed startup projects?), I am passionate about it.", image: img_portalle },
-    { date: "June 2023", text: "Join the Alibaba Fliggy Design group as a UX Designer of school recruitment of interns. Cooperated and designed for 4 different projects. All launched!\n\nFinally got official return offer at Oct, 2023.", image: img_fliggywork },
-    { date: "February 2024", text: "Had a chance to join MIT Product Design Development course instructed by Prof. Steven D. Eppinger.", note: "I've worked with 5 students from MIT and another RISD designers, designing and prototyping Nimbus. It is a plant-health detector with gamified mobile app. And luckily, we won the final presentation. This is my first-ever chance to collaborate with engineers. I'd love to experience more.", image: img_mit_pdd },
-    { date: "September 2024", text: "Become a graduate student major in Human Centered Design & Engineering at the University of Washington!", note: "I received an offer at UW HCDE after being turned down by other graduate programs in HCI. I'm eager to become a full-stack UX designer and learn more about human-computer interaction.", image: img_uw_hcde },
-    { date: "June 2025", text: "Joined Alibaba International Group as a UX design intern. I was full engaged to participate in designing the international version of Taobao.", note: "Thanks for the wonderful team Studio Kio to provide the opportunity to allow me develop and deliver my skills in UIUX for such a large-based popular app.", image: img_alibaba_intern },
+    { gap: 'medium', date: "December 2017", text: "I was always telling people that Vex Robotics Competition was the source of my passion in design and technology. \n\nGirls can do engineering!", note: "Three years experience in high school club allow me to develop from a tyro to an all-around captain capable of design, construction, programming, and operation. I've devote all my spare time into robots.", image: img_vex2017 },
+    { gap: 'medium', date: "December 12, 2019", text: "I always remember this day. I got the offer from RISD and the award of VEX Asia Chamiponship.", image: img_vex2019 },
+    { gap: 'medium', date: "September 2020", text: "Become a RISD student. But COVID-19 stoped my aborad study. My freshman year was totally online! But luckly, it gave me extra opportunity to keep in contact with VEX Robotics.", note: "I went back to high-school teams to support younger members preparing new seasonal competitions. This is my way of giving back to the community, as I was once helped by selfless alumni and seniors as well.", image: img_vex2 },
+    { gap: 'medium', date: "September 2021", text: "To be honest, I don't really like what I've learned this year. My heart still belongs to Computer Science. Thanks to Brown Univeristy that gives me opportunity to study coding.", image: img_brown },
+    { gap: 'medium', date: "March 2022", text: "The final design studio course in my Sophomore year introduced User Experience Design, which I collaborated with Jessie and designed a smart shopping cart. I finally found something I like in Industrial Design Department.", image: img_cart },
+    { gap: 'medium', date: "June 2022", text: "I explored more about UX Design and Interaction Design online. I started to know the term \"Human Computer Interaction\".", note: "I recognized that the Interaction Design program at Parsons that had admitted me was exactly what I wanted to study. And since CMU was my dream school, when I found the HCI program, I regret more that I did not do more to enhance my grades (CMU requires 24 for TOEFL speaking and I got 23). \n\nAs a result, I began the arduous journey of standardized exams again.", image: img_hci },
+    { gap: 'xlarge', date: "September 2022", text: "Entering Junior year, I drived my academic focus to UIUX. I was trying to study more digital prototyping techniques as well as user-centered design. I was continuted programming at Brown and self-explored different kinds of technology and AI.", image: img_ux1 },
+    { gap: 'medium', date: "February 2023", text: "Yifan Mei from UCI found me to do start-up. I finally got a chance to do toB UX design.", note: "Thought I am so not sure how much I can get from doing this (will recuriter seriously interested in failed startup projects?), I am passionate about it.", image: img_portalle },
+    { gap: 'xlarge', date: "June 2023", text: "Join the Alibaba Fliggy Design group as a UX Designer of school recruitment of interns. Cooperated and designed for 4 different projects. All launched!\n\nFinally got official return offer at Oct, 2023.", image: img_fliggywork },
+    { gap: 'medium', date: "February 2024", text: "Had a chance to join MIT Product Design Development course instructed by Prof. Steven D. Eppinger.", note: "I've worked with 5 students from MIT and another RISD designers, designing and prototyping Nimbus. It is a plant-health detector with gamified mobile app. And luckily, we won the final presentation. This is my first-ever chance to collaborate with engineers. I'd love to experience more.", image: img_mit_pdd },
+    { gap: 'medium', date: "September 2024", text: "Become a graduate student major in Human Centered Design & Engineering at the University of Washington!", note: "I received an offer at UW HCDE after being turned down by other graduate programs in HCI. I'm eager to become a full-stack UX designer and learn more about human-computer interaction.", image: img_uw_hcde },
+    { gap: 'medium', date: "June 2025", text: "Joined Alibaba International Group as a UX design intern. I was full engaged to participate in designing the international version of Taobao.", note: "Thanks for the wonderful team Studio Kio to provide the opportunity to allow me develop and deliver my skills in UIUX for such a large-based popular app.", image: img_alibaba_intern },
   ] satisfies TimelineEntry[],
 };

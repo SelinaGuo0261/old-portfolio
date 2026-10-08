@@ -1,0 +1,43 @@
+/* Footer — generated from the original Webflow stylesheet. */
+.text-block-22 { color: #767676; justify-content: center; margin-top: 0; margin-bottom: 0; padding-top: 40px; padding-bottom: 20px; font-family: Lexend, sans-serif; font-size: 10px; font-weight: 300; line-height: 12px; display: flex; position: relative; inset: auto 0% 0%; }
+.rights-served { width: auto; font-family: Lexend, sans-serif; }
+.content { color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: Lexend, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6; display: block; }
+.content.footer { color: #aaa; text-decoration: none; }
+.main-feature-wrapper { background-color: #f7f8fa00; margin: 0 15%; padding-top: 40px; padding-bottom: 40px; position: static; overflow: hidden; }
+.text-block-69 { width: auto; margin-top: 0; margin-bottom: 0; font-family: Fivosansmodern, sans-serif; font-size: 18px; font-weight: 500; line-height: 1.6; }
+.text-block-69.white { color: #fff; }
+.footer { background-color: #15181d; }
+.image-127 { max-width: 85%; }
+.footer-connect { grid-column-gap: 10px; grid-row-gap: 10px; justify-content: flex-start; align-items: center; margin-top: 20px; display: flex; }
+.footer-link { aspect-ratio: auto; object-fit: contain; width: 32px; height: 32px; overflow: clip; }
+@media screen and (min-width: 1280px) {
+  .text-block-22 { font-size: 12px; line-height: 14px; }
+  .content { font-size: 14px; line-height: 1.6; }
+  .main-feature-wrapper { background-color: #f7f8fa00; margin-left: 15%; margin-right: 15%; padding-top: 50px; padding-bottom: 50px; }
+  .footer-connect { grid-column-gap: 10px; grid-row-gap: 10px; }
+  .footer-link { width: 34px; height: 34px; }
+}
+@media screen and (min-width: 1440px) {
+  .text-block-22 { padding-top: 60px; padding-bottom: 30px; font-size: 14px; line-height: 16px; }
+  .content { font-size: 17px; line-height: 1.6; }
+  .main-feature-wrapper { margin-left: 15%; margin-right: 15%; padding-top: 60px; padding-bottom: 60px; font-size: 24px; }
+  .text-block-69 { margin-bottom: 0; font-family: Fivosansmodern, sans-serif; font-size: 20px; font-weight: 500; }
+  .footer-connect { grid-column-gap: 14px; grid-row-gap: 14px; margin-top: 30px; }
+  .footer-link { width: 40px; height: 40px; }
+}
+@media screen and (min-width: 1920px) {
+  .text-block-22 { padding-top: 80px; padding-bottom: 40px; font-size: 18px; line-height: 20px; }
+  .content { font-size: 24px; line-height: 1.6; }
+  .main-feature-wrapper { margin-bottom: 0; margin-left: 15%; margin-right: 15%; padding-top: 80px; padding-bottom: 80px; }
+  .text-block-69 { margin-bottom: 0; font-family: Fivosansmodern, sans-serif; font-size: 28px; font-weight: 500; }
+  .footer-connect { grid-column-gap: 16px; grid-row-gap: 16px; margin-top: 40px; }
+  .footer-link { width: 54px; height: 54px; }
+}
+@media screen and (max-width: 991px) {
+  .main-feature-wrapper { margin-left: 60px; margin-right: 60px; }
+}
+@media screen and (max-width: 479px) {
+  .content { font-size: 14px; line-height: 20px; }
+  .main-feature-wrapper { margin-left: 0; margin-right: 0; padding-left: 30px; padding-right: 30px; }
+}
+

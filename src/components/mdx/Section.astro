@@ -3,13 +3,13 @@
  * Full-width band with its own background. `dark` / `light` flip the
  * text colour when the band contrasts with the page background.
  */
-interface Props { bg?: string; image?: string; dark?: boolean; light?: boolean }
-const { bg, image, dark, light } = Astro.props;
+interface Props { bg?: string; image?: string; text?: string; accent?: string; hmw?: boolean }
+const { bg, image, text, accent, hmw } = Astro.props;
 const style = [
   bg && `--band-bg: ${bg}`,
   image && `--band-image: url(${image})`,
-  dark && '--text: #ffffff',
-  light && '--text: #000000',
+  text && `--text: ${text}`,
+  accent && `--accent: ${accent}`,
 ].filter(Boolean).join('; ');
 ---
 <section class="band" style={style}>

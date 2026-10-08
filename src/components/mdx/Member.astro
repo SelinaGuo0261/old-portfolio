@@ -1,5 +1,5 @@
 ---
-/** Team member card: photo (markdown image) + lines of text. */
+/** Team member: round photo (markdown image), name, then lines of text. */
 interface Props { name: string }
 const { name } = Astro.props;
 ---
@@ -9,10 +9,12 @@ const { name } = Astro.props;
 </div>
 
 <style>
-  .member { display: flex; flex-direction: column-reverse; align-items: center; text-align: center; }
-  .member__name { font-weight: 600; margin-top: 0.5rem; }
+  .member { display: flex; flex-direction: column-reverse; align-items: center; justify-content: flex-start; }
+  .member__name { color: #333; font-family: var(--font-body); font-weight: 400; line-height: 1.6; }
   .member__body { display: contents; }
-  .member__body :global(p) { margin: 0.2rem 0; font-size: 0.85rem; line-height: 1.4; }
+  .member__body :global(p) { margin: 0; line-height: 1.6; }
   .member__body :global(p:has(img)) { order: 2; }
-  .member__body :global(img) { width: 5rem; height: 5rem; object-fit: cover; border-radius: 50%; }
+  .member__body :global(img) { width: 80px; height: 80px; object-fit: cover; border-radius: 100%; }
+  @media (min-width: 1280px) { .member__name { font-size: 15px; } }
+  @media (min-width: 1440px) { .member__name { font-size: 18px; } .member__body :global(img) { width: 100px; height: 100px; } }
 </style>

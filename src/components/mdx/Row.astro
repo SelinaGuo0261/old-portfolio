@@ -1,15 +1,9 @@
 ---
-/** 12-column row; put <Col span={n}> inside. Stacks on small screens. */
+/** 12-column row (Webflow grid: 10px gutters); put <Col span={n}> inside. */
 ---
 <div class="row" data-reveal><slot /></div>
 
 <style>
-  .row {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 1.5rem 2rem;
-    align-items: start;
-    margin-block: 2rem;
-  }
-  @media (max-width: 767px) { .row { grid-template-columns: 1fr; } }
+  .row { display: flex; flex-wrap: wrap; margin-inline: -10px; }
+  @media (max-width: 767px) { .row { flex-direction: column; } }
 </style>

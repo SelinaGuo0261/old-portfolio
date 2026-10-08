@@ -1,123 +1,79 @@
 ---
+/** Navbar — original Webflow markup/classes (styles/nav.css). */
+import '@/styles/nav.css';
 import { Image } from 'astro:assets';
 import logoLight from '@/assets/site/logo-light.png';
 import logoDark from '@/assets/site/logo-dark.png';
 import { href } from '@/lib/url';
 
 interface Props {
-  /** "overlay" floats over a dark hero (home page) and turns light on scroll. */
+  /** "overlay" floats over the dark home hero and turns light on scroll. */
   variant?: 'default' | 'overlay';
 }
 const { variant = 'default' } = Astro.props;
-const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '');
+const overlay = variant === 'overlay';
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
 
 const links = [
-  { label: 'Professional', to: 'work', match: ['/work', '/main-work'] },
+  { label: 'Professional', to: 'work', match: ['/work'] },
   { label: 'Case Study', to: 'projects', match: ['/projects'] },
   { label: 'Playground', to: 'experiment', match: ['/experiment'] },
   { label: 'About', to: 'about', match: ['/about'] },
 ];
-const isActive = (match: string[]) => match.some((m) => path.startsWith(m));
+const isCurrent = (match: string[]) => match.some((m) => path === m || path === `${m}/`);
 ---
 
-<header class:list={['nav', `nav--${variant}`]} data-nav={variant}>
-  <div class="nav__inner">
-    <a class="nav__brand" href={href('/')} aria-label="Home">
-      {/* logo-light = white mark for dark backgrounds, logo-dark = black mark */}
-      <Image class="nav__logo nav__logo--light" src={variant === 'overlay' ? logoLight : logoDark} alt="" loading="eager" />
-      {variant === 'overlay' && <Image class="nav__logo nav__logo--dark" src={logoDark} alt="" loading="eager" />}
+<div class:list={['navbar-5', 'w-nav', { 'on-dark': overlay }]} data-collapse="medium" data-nav={variant} role="banner">
+  <div class:list={['div-block-3', { 'on-dark': overlay }]}>
+    {/* logo-light = white mark for dark backgrounds, logo-dark = black mark */}
+    <a class:list={['brand', 'w-nav-brand', { 'w--current': path === '/' }]} href={href('/')} aria-label="Home">
+      <Image class="logo-bright" src={overlay ? logoLight : logoDark} alt="" loading="eager" />
     </a>
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+    {overlay && (
+      <a class="brand2 w-nav-brand w--current" href={href('/')} aria-label="Home" tabindex="-1">
+        <Image class="logo-dark" src={logoDark} alt="" loading="eager" />
+      </a>
+    )}
+    <nav class="nav-menu w-nav-menu" id="nav-menu">
+      {links.map((l) => (
+        <a class:list={['nav-link-13', 'w-nav-link', { 'on-dark': overlay, 'w--current': isCurrent(l.match) }]}
+           href={href(l.to)} aria-current={isCurrent(l.match) ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+    <button class="menu-button-4 w-nav-button nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
       <span class="visually-hidden">Menu</span>
       <span class="nav__bar"></span><span class="nav__bar"></span><span class="nav__bar"></span>
     </button>
-    <nav id="nav-menu" class="nav__menu">
-      {links.map((l) => (
-        <a class:list={['nav__link', { 'is-active': isActive(l.match) }]} href={href(l.to)}>{l.label}</a>
-      ))}
-    </nav>
   </div>
-</header>
+</div>
 
-<style>
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    height: var(--nav-h);
-    background: var(--paper);
-    box-shadow: 0 2px 5px #0003;
-    will-change: transform;
-  }
-  .nav--overlay {
-    position: fixed;
-    inset: 0 0 auto;
-    background: transparent;
-    box-shadow: none;
-  }
-  .nav__inner {
-    height: 100%;
-    margin-inline: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  @media (min-width: 1440px) { .nav__inner { margin-inline: 180px; } }
-  @media (min-width: 1920px) { .nav__inner { margin-inline: 220px; } }
-  @media (max-width: 991px)  { .nav__inner { margin-inline: 20px; } }
+<style is:global>
+  /* Overlay navbar after scrolling past the hero (old "Navbar change colour"). */
+  .navbar-5.on-dark.is-solid .nav-link-13.on-dark { color: #000; }
+  .navbar-5.on-dark.is-solid .nav-link-13.on-dark.w--current { color: var(--brand-blue); }
+  .navbar-5.on-dark.is-solid .brand { display: none; }
+  .navbar-5.on-dark.is-solid .brand2 { display: block; position: static; }
+  .navbar-5 { z-index: 1000; will-change: transform; }
+  .logo-bright, .logo-dark { width: auto; }
 
-  .nav__brand { display: block; height: 55px; }
-  .nav__logo { height: 55px; width: auto; }
-  .nav__logo--dark { display: none; }
-  .nav.is-solid .nav__logo--light { display: none; }
-  .nav.is-solid .nav__logo--dark { display: block; }
+  /* Menu button (Webflow drew it with an icon font). */
+  .nav__toggle { background: none; border: 0; }
+  .nav__bar { display: block; width: 24px; height: 2px; margin: 5px 0; background: #000; }
+  .navbar-5.on-dark:not(.is-solid) .nav__bar { background: #fff; }
 
-  .nav__menu { display: flex; gap: 2.5rem; }
-  .nav__link {
-    font-family: var(--font-display);
-    font-size: 16px;
-    line-height: 20px;
-    color: var(--black);
-    text-decoration: none;
-    padding-block: 0.5rem;
-    position: relative;
-  }
-  .nav__link::after {
-    content: '';
-    position: absolute; left: 0; right: 0; bottom: 0;
-    height: 2px; background: currentColor;
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-  .nav__link:hover::after, .nav__link.is-active::after { transform: scaleX(1); }
-  .nav--overlay .nav__link { color: var(--white); }
-  .nav--overlay.is-solid .nav__link { color: var(--black); }
-
-  @media (min-width: 1280px) { .nav__link { font-size: 18px; } }
-  @media (min-width: 1440px) { .nav__link { font-size: 20px; line-height: 28px; } }
-  @media (min-width: 1920px) { .nav__link { font-size: 24px; line-height: 40px; } .nav__brand, .nav__logo { height: 80px; } }
-
-  .nav__toggle {
-    display: none;
-    background: none; border: 0; padding: 10px; cursor: pointer;
-  }
-  .nav__bar { display: block; width: 24px; height: 2px; margin: 5px 0; background: var(--black); transition: transform 0.3s; }
-  .nav--overlay:not(.is-solid) .nav__bar { background: var(--white); }
-
-  @media (max-width: 767px) {
-    .nav__toggle { display: block; }
-    .nav__menu {
-      position: fixed;
-      inset: var(--nav-h) 0 auto;
-      flex-direction: column;
-      gap: 0;
-      padding: 1rem 20px 2rem;
-      background: var(--paper);
+  @media screen and (max-width: 991px) {
+    .navbar-5 .div-block-3 { display: flex; align-items: center; justify-content: space-between; }
+    .navbar-5.is-open { overflow: visible; }
+    .navbar-5.is-open .w-nav-menu {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      float: none;
+      background: #f7f8fa;
       box-shadow: 0 8px 12px #0002;
-      clip-path: inset(0 0 100% 0);
-      transition: clip-path 0.4s ease;
     }
-    .nav.is-open .nav__menu { clip-path: inset(0 0 0 0); }
-    .nav .nav__menu .nav__link { color: var(--black); font-size: 20px; padding-block: 1rem; }
+    .navbar-5.is-open .w-nav-link { display: block; color: #000; }
   }
 </style>

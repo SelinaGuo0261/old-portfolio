@@ -1,0 +1,150 @@
+/* Generated from the original Webflow stylesheet (only the classes this page uses). */
+.main-feature-wrapper { background-color: #f7f8fa00; margin: 0 15%; padding-top: 40px; padding-bottom: 40px; position: static; overflow: hidden; }
+.main-feature-wrapper.home { margin-left: 12%; margin-right: 12%; }
+.content-heading2 { color: var(--purple); text-align: left; font-family: Lexend, sans-serif; font-size: 18px; font-weight: 500; line-height: 1.6; }
+.content-heading2.other { color: #333; }
+.text-block-51 { font-family: Fivosansmodern, sans-serif; font-size: 30px; font-weight: 500; line-height: 30px; }
+.experiment-heading { -webkit-text-fill-color: inherit; background-color: #0000; background-clip: border-box; font-family: Fivosansmodern, sans-serif; font-size: 48px; font-weight: 700; line-height: 100px; }
+.d-128-button { color: #f3f6e5; letter-spacing: 2px; background-color: #383a47; border-radius: 3px; margin-bottom: 20px; margin-right: 20px; font-family: Fivosansmodern, sans-serif; font-weight: 300; position: absolute; inset: auto 0% 0% auto; }
+.d-128-h3-card-heading { color: #383a47; text-transform: none; margin-bottom: 0; font-family: Fivosansmodern, sans-serif; font-size: 24px; font-weight: 700; line-height: 36px; }
+.d-128-content-wrapper { backface-visibility: hidden; transform-origin: 0%; background-color: #aac6fc; flex-direction: column; justify-content: flex-start; width: 50%; padding-left: 20px; display: flex; position: absolute; inset: 0% auto 0% 0%; }
+.d-128-image-wrapper { background-color: #f6df49; position: absolute; inset: 0%; overflow: hidden; }
+.d-128-image-wrapper._3 { background-color: #7fd6c2; }
+.d-128-image-wrapper._2 { background-color: #e0719e; }
+.d-128-image {  background-position: 50%; background-repeat: no-repeat; background-size: cover; position: absolute; inset: 0%; }
+.d-128-image._2 {  background-size: cover; }
+.d-128-image._3 {  background-size: cover; }
+.d-128-image._9 { }
+.d-128-image._8 { }
+.d-128-image._7 { }
+.d-128-image._4 { }
+.d-128-image._5 { }
+.d-128-image._6 { }
+.d-128-image._1 { -webkit-text-fill-color: inherit; background-clip: border-box; }
+.demo-wrapper { flex-flow: row-reverse; flex: 0 auto; justify-content: center; align-items: center; width: 100%; margin-top: 10px; margin-bottom: 40px; margin-right: 0%; display: flex; position: relative; inset: 0%; }
+.d-128-author-text { color: #383a47; text-transform: none; font-family: Lexend, sans-serif; font-weight: 300; }
+.d-128-3d-card-wrapper { perspective: 1000px; cursor: pointer; width: 400px; height: 250px; margin-left: 15px; margin-right: 15px; position: relative; overflow: visible; }
+.d-8-image-text { color: #fff; flex: 0 auto; font-family: Fivosansmodern, sans-serif; font-size: 30px; font-weight: 500; line-height: 38px; position: static; }
+.d-8-image {  background-position: 50%; background-repeat: no-repeat; background-size: cover; background-attachment: scroll; flex: 1; justify-content: center; align-items: center; width: 20%; height: 100%; transition: all .8s cubic-bezier(.19, 1, .22, 1); display: flex; position: relative; overflow: hidden; }
+.d-8-image:hover { flex-grow: 7; }
+.d-8-image.four { }
+.d-8-image.three { }
+.d-8-image.two { }
+.d-8-image.five { }
+.d-8-image-wrapper { cursor: pointer; justify-content: center; align-items: center; width: 100%; height: 100%; display: flex; }
+.philo-master { margin-bottom: 100px; }
+._02-hover { height: 400px; }
+.creativity-captain { margin-bottom: 100px; }
+.link-block-11 { text-decoration: none; }
+.body-10 { background-color: #f7f8fa; }
+.work_wrapper { padding-top: 0; }
+.work_list { grid-column-gap: 1em; grid-row-gap: 1em; grid-template-rows: auto; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; grid-auto-columns: 1fr; grid-auto-flow: row dense; display: grid; }
+.work_item { color: #fff; border-radius: 0; position: relative; overflow: hidden; }
+.work_content-wrap { z-index: 2; object-fit: fill; flex-direction: column; justify-content: space-between; align-items: stretch; height: 100%; min-height: 12em; padding: .8em; display: flex; position: relative; }
+.work_date-wrap { grid-column-gap: .5em; grid-row-gap: .5em; justify-content: flex-end; align-items: center; display: flex; }
+.work_date-dot { border-style: solid; border-width: 2px; border-radius: 100vw; flex: none; width: .7em; height: .7em; }
+.work_date-text { font-family: Lexend, sans-serif; font-size: 10px; font-weight: 300; line-height: 10px; }
+.work_title-wrap { grid-column-gap: .15em; grid-row-gap: .15em; flex-direction: column; justify-content: flex-start; align-items: flex-start; padding-top: 2em; display: flex; }
+.work_title { font-family: Fivosansmodern, sans-serif; font-size: 14px; font-weight: 700; line-height: 14px; }
+.work_description { font-family: Lexend, sans-serif; font-size: 11px; font-weight: 300; line-height: 12px; }
+.html-embed { position: fixed; top: 0%; left: 0%; right: 0%; }
+.work-image { aspect-ratio: auto; opacity: 1; mix-blend-mode: normal; object-fit: cover; border: 0 solid #000; width: 100%; height: 100%; position: absolute; inset: 0%; }
+.artistic-alchemist { margin-bottom: 100px; }
+.div-block-36 { grid-column-gap: 16px; grid-row-gap: 16px; grid-template-rows: auto; grid-template-columns: 1fr 1fr 1fr; grid-auto-columns: 1fr; display: grid; }
+.workshop { margin-bottom: 100px; }
+.conqueror { margin-bottom: 100px; }
+.quick-stack-16 { grid-column-gap: 30px; grid-row-gap: 30px; padding: 0; }
+@media screen and (min-width: 1280px) {
+  .main-feature-wrapper { background-color: #f7f8fa00; margin-left: 15%; margin-right: 15%; padding-top: 50px; padding-bottom: 50px; }
+  .content-heading2 { font-size: 20px; line-height: 1.6; }
+  .text-block-51 { font-size: 32px; line-height: 32px; }
+  .experiment-heading { line-height: 80px; }
+  .d-128-image-wrapper { background-color: #37b19e; }
+  .d-128-image._2 { }
+  .d-128-image._8 { }
+  .d-128-image._7 { }
+  .demo-wrapper { margin-bottom: 40px; }
+  .d-128-author-text { font-size: 15px; }
+  .d-128-3d-card-wrapper { height: 250px; }
+  .d-8-image-text { font-size: 32px; }
+  .d-8-image {  background-repeat: no-repeat; background-size: cover; background-attachment: scroll; }
+  .d-8-image.four { }
+  .d-8-image.three { }
+  .d-8-image.two { }
+  .philo-master { margin-bottom: 100px; }
+  ._02-hover { height: 400px; padding-left: 10px; padding-right: 10px; }
+  .creativity-captain { margin-bottom: 100px; }
+  .work_list, .work_item { border-radius: 0; }
+  .work_content-wrap { min-height: 15em; font-family: Nunito, sans-serif; }
+  .work_date-text { font-size: 12px; line-height: 20px; }
+  .work_title { font-family: Fivosansmodern, sans-serif; font-size: 18px; font-weight: 700; line-height: 24px; }
+  .work_description { font-size: 14px; line-height: 16px; }
+  .work-image { opacity: 1; border-radius: 0; }
+  .div-block-36 { grid-column-gap: 16px; grid-row-gap: 16px; grid-template-rows: auto; grid-template-columns: 1fr 1fr 1fr; grid-auto-columns: 1fr; display: grid; }
+  .image-49 { object-fit: cover; height: 100%; min-height: 15px; position: relative; }
+  .workshop { margin-bottom: 100px; }
+}
+@media screen and (min-width: 1440px) {
+  .main-feature-wrapper { margin-left: 15%; margin-right: 15%; padding-top: 60px; padding-bottom: 60px; font-size: 24px; }
+  .content-heading2 { font-size: 22px; line-height: 1.6; }
+  .text-block-51 { font-size: 36px; line-height: 36px; }
+  .experiment-heading { font-size: 52px; }
+  .d-128-button { font-size: 16px; }
+  .d-128-h3-card-heading { font-size: 28px; line-height: 40px; }
+  .demo-wrapper { margin-bottom: 60px; }
+  .d-128-author-text { font-size: 17px; line-height: 24px; }
+  .d-128-3d-card-wrapper { width: 450px; height: 280px; margin-left: 20px; margin-right: 20px; }
+  .d-8-image-text { font-size: 36px; line-height: 46px; }
+  .philo-master { margin-bottom: 140px; }
+  ._02-hover { height: 480px; }
+  .creativity-captain { margin-bottom: 140px; }
+  .work_content-wrap { min-height: 10em; }
+  .work_title { font-size: 20px; }
+  .work_description { font-size: 16px; }
+  .artistic-alchemist, .workshop { margin-bottom: 140px; }
+  .conqueror { margin-bottom: 140px; }
+}
+@media screen and (min-width: 1920px) {
+  .main-feature-wrapper { margin-bottom: 0; margin-left: 15%; margin-right: 15%; padding-top: 80px; padding-bottom: 80px; }
+  .content-heading2 { font-size: 30px; line-height: 36px; }
+  .text-block-51 { font-size: 40px; line-height: 40px; }
+  .experiment-heading { font-size: 60px; line-height: 100px; }
+  .d-128-h3-card-heading { font-size: 36px; line-height: 50px; }
+  .demo-wrapper { justify-content: center; align-items: center; margin-bottom: 100px; }
+  .d-128-author-text { font-size: 22px; line-height: 30px; }
+  .d-128-3d-card-wrapper { width: 620px; height: 400px; margin-left: 40px; margin-right: 40px; }
+  .d-8-image-text { font-size: 40px; line-height: 50px; }
+  .philo-master { margin-bottom: 220px; }
+  ._02-hover { height: 700px; }
+  .creativity-captain { margin-bottom: 220px; }
+  .work_content-wrap { min-height: 12em; }
+  .work_date-text { font-size: 18px; }
+  .work_title-wrap { grid-column-gap: .25em; grid-row-gap: .25em; }
+  .work_title { font-size: 28px; line-height: 28px; }
+  .work_description { font-size: 22px; line-height: 24px; }
+  .artistic-alchemist, .workshop { margin-bottom: 220px; }
+  .conqueror { margin-bottom: 220px; }
+}
+@media screen and (max-width: 991px) {
+  .main-feature-wrapper { margin-left: 60px; margin-right: 60px; }
+  .demo-wrapper { flex-direction: column-reverse; flex: 0 auto; align-items: center; margin-top: 100px; margin-bottom: 140px; margin-right: 0%; }
+  .d-128-3d-card-wrapper { margin-bottom: 60px; }
+  .d-8-image-text { font-size: 20px; line-height: 28px; }
+  .d-8-image-wrapper { width: 90%; height: 300px; }
+}
+@media screen and (max-width: 767px) {
+  .demo-wrapper { margin-top: 100px; padding-bottom: 100px; padding-left: 0; padding-right: 0; }
+  .work_list { grid-template-columns: 1fr; }
+}
+@media screen and (max-width: 479px) {
+  .main-feature-wrapper { margin-left: 0; margin-right: 0; padding-left: 30px; padding-right: 30px; }
+  .content-heading2 { font-size: 16px; line-height: 20px; }
+  .experiment-heading { font-size: 36px; line-height: 50px; }
+  .demo-wrapper { align-items: center; margin-top: 40px; margin-bottom: auto; margin-right: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; }
+  .d-128-3d-card-wrapper { width: 300px; }
+  .d-8-image-wrapper { width: 95%; }
+  .philo-master { margin-bottom: 20px; }
+  ._02-hover { height: 350px; }
+  .div-block-36 { flex-direction: column; display: flex; }
+}
+

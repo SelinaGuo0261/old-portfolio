@@ -1,0 +1,53 @@
+/* Webflow framework rules (grid, layout helpers) shared by every page.
+   Wrapped in :where() so page styles always override them. */
+:where(.w-inline-block) { max-width: 100%; display: inline-block; }
+:where(.w-embed):before, :where(.w-embed):after { content: " "; grid-area: 1 / 1 / 2 / 2; display: table; }
+:where(.w-embed):after { clear: both; }
+:where(.w-row):before, :where(.w-row):after { content: " "; grid-area: 1 / 1 / 2 / 2; display: table; }
+:where(.w-row):after { clear: both; }
+:where(.w-row .w-row) { margin-left: 0; margin-right: 0; }
+:where(.w-col) { float: left; width: 100%; min-height: 1px; padding-left: 10px; padding-right: 10px; position: relative; }
+:where(.w-col .w-col) { padding-left: 0; padding-right: 0; }
+:where(.w-col-2) { width: 16.6667%; }
+:where(.w-col-4) { width: 33.3333%; }
+:where(.w-col-6) { width: 50%; }
+:where(.w-button) { color: #fff; line-height: inherit; cursor: pointer; background-color: #3898ec; border: 0; border-radius: 0; padding: 9px 15px; text-decoration: none; display: inline-block; }
+:where(input.w-button) { -webkit-appearance: button; }
+:where(.wf-layout-layout) { display: grid; }
+:where(.w-layout-layout) { grid-row-gap: 20px; grid-column-gap: 20px; grid-auto-columns: 1fr; justify-content: center; padding: 20px; }
+:where(.w-layout-cell) { flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex; }
+:where(.w-col-3) { width: 25%; }
+@media screen and (max-width: 991px) {
+  :where(.w-col-medium-4) { width: 33.3333%; }
+  :where(.w-col-medium-6) { width: 50%; }
+  :where(.w-col-stack) { width: 100%; left: auto; right: auto; }
+}
+@media screen and (max-width: 767px) {
+  :where(.w-row) { margin-left: 0; margin-right: 0; }
+  :where(.w-col) { width: 100%; left: auto; right: auto; }
+  :where(.w-col-small-2) { width: 16.6667%; }
+}
+@media screen and (max-width: 479px) {
+  :where(.w-col) { width: 100%; }
+  :where(.w-col-tiny-2) { width: 16.6667%; }
+  :where(.w-col-tiny-4) { width: 33.3333%; }
+}
+
+/* Navbar framework rules */
+:where(.w-nav) { z-index: 1000; background: #ddd; position: relative; }
+:where(.w-nav):before, :where(.w-nav):after { content: " "; grid-area: 1 / 1 / 2 / 2; display: table; }
+:where(.w-nav):after { clear: both; }
+:where(.w-nav-brand) { float: left; color: #333; text-decoration: none; position: relative; }
+:where(.w-nav-link) { vertical-align: top; color: #222; text-align: left; margin-left: auto; margin-right: auto; padding: 20px; text-decoration: none; display: inline-block; position: relative; }
+:where(.w-nav-link.w--current) { color: #0082f3; }
+:where(.w-nav-menu) { float: right; position: relative; }
+:where(.w-nav-button) { float: right; cursor: pointer; -webkit-tap-highlight-color: #0000; tap-highlight-color: #0000; -webkit-user-select: none; user-select: none; padding: 18px; font-size: 24px; display: none; position: relative; }
+:where(.w-nav-button):focus { outline: 0; }
+@media screen and (max-width: 991px) {
+  :where(.w-nav[data-collapse="medium"] .w-nav-menu) { display: none; }
+  :where(.w-nav[data-collapse="medium"] .w-nav-button) { display: block; }
+}
+@media screen and (max-width: 767px) {
+  :where(.w-nav-brand) { padding-left: 10px; }
+}
+

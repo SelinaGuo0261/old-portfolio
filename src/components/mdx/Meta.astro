@@ -1,20 +1,26 @@
 ---
-interface Props { label: string }
-const { label } = Astro.props;
+interface Props { label: string; color?: string }
+const { label, color } = Astro.props;
 ---
 <div class="meta">
-  <div class="meta__label">{label} -</div>
+  <div class="meta__label" style={color ? `color: ${color}` : undefined}>{label} -</div>
   <div class="meta__value"><slot /></div>
 </div>
 
 <style>
+  .meta { padding-inline: 10px; }
   .meta__label {
+    margin: 10px 0;
     color: var(--accent);
-    font-size: 1.35rem;
+    font-family: var(--font-body);
+    font-size: 18px;
     font-weight: 500;
-    margin-bottom: 0.6rem;
   }
-  .meta__value { font-size: 1.05rem; line-height: 1.7; }
+  .meta__value { margin: 10px 0; font-size: 14px; font-weight: 300; line-height: 1.6; }
   .meta__value :global(p) { margin: 0; }
-  .meta__value :global(img) { max-width: 14rem; }
+  @media (min-width: 1280px) { .meta__label { font-size: 20px; line-height: 22px; } }
+  @media (min-width: 1440px) {
+    .meta__label { font-size: 22px; line-height: 28px; }
+    .meta__value { font-size: 17px; }
+  }
 </style>

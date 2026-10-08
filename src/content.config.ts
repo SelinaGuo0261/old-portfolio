@@ -83,6 +83,10 @@ const projects = defineCollection({
       order: z.number().default(100),
       /** Show in "Latest Works" on the home page. */
       featured: z.boolean().default(false),
+      /** Playground "Artistic Alchemist" tile size. */
+      tileSize: z.enum(['regular', 'wide', 'tall', 'super-wide']).default('regular'),
+      /** List this project in the site footer. */
+      footer: z.boolean().default(true),
       /** Card only: no project page of its own. */
       listOnly: z.boolean().default(false),
       /** Hide everywhere (page is not built). */

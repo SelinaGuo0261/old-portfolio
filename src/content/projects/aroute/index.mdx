@@ -11,7 +11,7 @@ card: ./images/card.png
 theme: 
   background: "#23222c"
   text: "#ffffff"
-  accent: "#7462e5"
+  accent: "#a090ff"
 order: 5
 ---
 
@@ -22,28 +22,28 @@ order: 5
 
 <MetaGrid>
 
-<Meta label="Timeline">
+<Meta label="Timeline" color="#7462e5">
 
 1 month
 
 </Meta>
 
-<Meta label="Role">
+<Meta label="Role" color="#7462e5">
 
 App Product Design<br />UX Research<br />Visual & Branding System<br />Development
 
 </Meta>
 
-<Meta label="For">
+<Meta label="For" color="#7462e5">
 
 Individual Final Project of<br />"Web and app prototype" Course
 
 </Meta>
 
-<Meta label="Tools">
+<Meta label="Tools" color="#7462e5">
 
-![AI, FIGMA, VSCODE
-](./images/aroute-tool.png)
+<Fit w={162}>![AI, FIGMA, VSCODE
+](./images/aroute-tool.png)</Fit>
 
 </Meta>
 
@@ -73,13 +73,13 @@ The purpose of design is to allow different users from individuals to companies,
 
 <Col span={6}>
 
-📱Main Features
+<Divider id="main-features" color="#ffffff" wide>📱Main Features</Divider>
 
 </Col>
 
 <Col span={6}>
 
-<LinkButton href="https://www.figma.com/proto/NIfM4WX7ydJD9F90JWQEL3/Aroute-Desktop?page-id=0%3A1&node-id=1-337&viewport=191%2C265%2C0.02&scaling=scale-down&starting-point-node-id=1%3A337">View Prototype</LinkButton>
+<LinkButton href="https://www.figma.com/proto/NIfM4WX7ydJD9F90JWQEL3/Aroute-Desktop?page-id=0%3A1&node-id=1-337&viewport=191%2C265%2C0.02&scaling=scale-down&starting-point-node-id=1%3A337" offset={350}>View Prototype</LinkButton>
 
 </Col>
 
@@ -216,17 +216,17 @@ Aroute is a young and creative app which have a large community for your to expl
 
 ![to track gif](./images/totrack.gif)
 
-#### To Track
+<Text as="h4" weight={400} align="center">To Track</Text>
 
-Real-time and location tracking helps you know what's happening throughout your whole journey. Build your travel map without recording yourself.
+<Text as="p" align="center">Real-time and location tracking helps you know what's happening throughout your whole journey. Build your travel map without recording yourself.</Text>
 
 </Col>
 
 <Col span={4}>
 
-#### To Explore
+<Text as="h4" weight={400} align="center">To Explore</Text>
 
-As phones are gradually developed into social devices, every app needs a community. Aroute has a unique channel for users with all kinds of travel experiences to find their potential companions to explore the world together!
+<Text as="p" align="center">As phones are gradually developed into social devices, every app needs a community. Aroute has a unique channel for users with all kinds of travel experiences to find their potential companions to explore the world together!</Text>
 
 ![to explore gif](./images/toexplore.gif)
 
@@ -236,9 +236,9 @@ As phones are gradually developed into social devices, every app needs a communi
 
 ![to share page](./images/frame-37.png)
 
-#### To Share
+<Text as="h4" weight={400} align="center">To Share</Text>
 
-Cultivate an internal travel community and engage with the global Aroute Community to share your experiences.
+<Text as="p" align="center">Cultivate an internal travel community and engage with the global Aroute Community to share your experiences.</Text>
 
 </Col>
 
@@ -248,7 +248,7 @@ Cultivate an internal travel community and engage with the global Aroute Communi
 
 ![](./images/frame-52.png)
 
-<Section bg="#ffffff" light>
+<Section bg="#ffffff" text="#333333" accent="#7462e5">
 
 <Divider id="research">🔎Research</Divider>
 
@@ -316,13 +316,19 @@ Maps are only available to claculate one distance and cannot customize if we hav
 
 </Row>
 
-<Quote title="Prompt">
+<Box bg="#7462e5" accent="#ffffff" hmw>
 
-Focusing on featuresGoals
+### Prompt
+
+<Text as="p" size={22} weight={400} color="#ffffff">Focusing on featuresGoals</Text>
+
+<Quote size={48} color="#ffffff">
 
 “HMW enable people with varied travel preferences to plan efficiently and collaboratively on a single platform?”
 
 </Quote>
+
+</Box>
 
 ### User Persona
 
@@ -436,13 +442,13 @@ The discovery phase was a quick, high‐intensity effort that allowed us to defi
 
 <Col span={2}>
 
-01
+<Text as="p" size={100} weight={900} font="roboto" color="rgba(116, 98, 229, 0.3)">01</Text>
 
 </Col>
 
 <Col span={2}>
 
-![01-multi destination](./images/destination-1.png)
+<Fit w={100}>![01-multi destination](./images/destination-1.png)</Fit>
 
 </Col>
 
@@ -458,13 +464,13 @@ The discovery phase was a quick, high‐intensity effort that allowed us to defi
 
 <Col span={2}>
 
-02
+<Text as="p" size={100} weight={900} font="roboto" color="rgba(116, 98, 229, 0.3)">02</Text>
 
 </Col>
 
 <Col span={2}>
 
-![02-compare](./images/discipline.png)
+<Fit w={100}>![02-compare](./images/discipline.png)</Fit>
 
 </Col>
 
@@ -480,13 +486,13 @@ The discovery phase was a quick, high‐intensity effort that allowed us to defi
 
 <Col span={2}>
 
-03
+<Text as="p" size={100} weight={900} font="roboto" color="rgba(116, 98, 229, 0.3)">03</Text>
 
 </Col>
 
 <Col span={2}>
 
-![03-filter info](./images/filtration.png)
+<Fit w={100}>![03-filter info](./images/filtration.png)</Fit>
 
 </Col>
 
@@ -502,13 +508,13 @@ The discovery phase was a quick, high‐intensity effort that allowed us to defi
 
 <Col span={2}>
 
-04
+<Text as="p" size={100} weight={900} font="roboto" color="rgba(116, 98, 229, 0.3)">04</Text>
 
 </Col>
 
 <Col span={2}>
 
-![04-record and share](./images/share-2.png)
+<Fit w={100}>![04-record and share](./images/share-2.png)</Fit>
 
 </Col>
 
@@ -582,32 +588,32 @@ Understanding the usage contexts of the app helped me develop a clear vision of 
 
 <Col span={4}>
 
-![minimise the bad](./images/ellipse-89.png)
+<Fit w={200} center>![minimise the bad](./images/ellipse-89.png)</Fit>
 
-<Lead>Minimise The Bad</Lead>
+<Lead size={22} font="body" color="#7462e5">Minimise The Bad</Lead>
 
-Our key priority for the early phases was to focus on primary user goals. Our first task-stripping the app to its core and focus on usability and conveniece of adding a location to your trip.
-
-</Col>
-
-<Col span={4}>
-
-![amplify the good
-](./images/ellipse-91.png)
-
-<Lead>Amplify the Good</Lead>
-
-Beyond the obvious features, we saw opportunities to build a deep emotional connection with our users. Our vision was to create an honest, human app.
+<Text as="p" align="center">Our key priority for the early phases was to focus on primary user goals. Our first task-stripping the app to its core and focus on usability and conveniece of adding a location to your trip.</Text>
 
 </Col>
 
 <Col span={4}>
 
-![bring travellers together](./images/ellipse-90.png)
+<Fit w={300} center>![amplify the good
+](./images/ellipse-91.png)</Fit>
 
-<Lead>Bring Travellers Together</Lead>
+<Lead size={22} font="body" color="#7462e5">Amplify the Good</Lead>
 
-We envisioned empowering world-wide travelling culture, where travellers could co‐create safer and interesting routes and contribute to the community.
+<Text as="p" align="center">Beyond the obvious features, we saw opportunities to build a deep emotional connection with our users. Our vision was to create an honest, human app.</Text>
+
+</Col>
+
+<Col span={4}>
+
+<Fit w={200} center>![bring travellers together](./images/ellipse-90.png)</Fit>
+
+<Lead size={22} font="body" color="#7462e5">Bring Travellers Together</Lead>
+
+<Text as="p" align="center">We envisioned empowering world-wide travelling culture, where travellers could co‐create safer and interesting routes and contribute to the community.</Text>
 
 </Col>
 
@@ -651,9 +657,9 @@ Another challenge is the transition between horizontal desktop screen to limited
 
 <Col span={4}>
 
-<Box bg="rgba(160, 144, 255, 0.4)" light>
+<Box bg="rgba(160, 144, 255, 0.4)">
 
-1
+<Text as="p" size={30} weight={700} color="#7462e5">1</Text>
 
 </Box>
 
@@ -665,9 +671,9 @@ After the low-fi frames were sketched, I made a prototype with main pages only t
 
 <Col span={4}>
 
-<Box bg="rgba(160, 144, 255, 0.4)" light>
+<Box bg="rgba(160, 144, 255, 0.4)">
 
-2
+<Text as="p" size={30} weight={700} color="#7462e5">2</Text>
 
 </Box>
 
@@ -679,9 +685,9 @@ After collecting insights from the participants, I made an affinity diagram to s
 
 <Col span={4}>
 
-<Box bg="rgba(160, 144, 255, 0.4)" light>
+<Box bg="rgba(160, 144, 255, 0.4)">
 
-3
+<Text as="p" size={30} weight={700} color="#7462e5">3</Text>
 
 </Box>
 

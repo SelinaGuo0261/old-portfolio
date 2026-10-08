@@ -1,0 +1,12 @@
+---
+/** Keeps an image at a fixed width (px at desktop), optionally centred. */
+interface Props { w: number; center?: boolean }
+const { w, center } = Astro.props;
+---
+<div class:list={['fit', { 'fit--center': center }]} style={`--w: ${w}px`}><slot /></div>
+
+<style>
+  .fit { max-width: min(100%, var(--w)); }
+  .fit--center { margin-inline: auto; }
+  .fit :global(p) { margin: 0; }
+</style>

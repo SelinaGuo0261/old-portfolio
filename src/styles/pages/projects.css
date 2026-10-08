@@ -1,0 +1,86 @@
+/* Generated from the original Webflow stylesheet (only the classes this page uses). */
+.slider-wrap { flex-wrap: wrap; align-items: stretch; display: flex; }
+.slider-content { width: 38%; margin-left: 0; padding-left: 0; font-family: Lexend, sans-serif; font-weight: 300; position: relative; left: 50px; }
+.slider-photo { width: 54%; padding-right: 3%; display: block; }
+.swiper.is-photos { padding-left: 0; padding-right: 0; overflow: visible; }
+.swiper.is-content { width: 100%; height: 100%; position: absolute; inset: 0%; }
+.swiper-wrapper.is-content { width: 100%; height: 100%; position: relative; overflow: hidden; }
+.swiper-wrapper.is-photos { position: relative; overflow: visible; }
+.swiper-slide.is-photos {  background-position: 50%; background-repeat: no-repeat; background-size: cover; border-radius: 20px; width: 100%; height: 100%; position: relative; }
+.swiper-slide.is-content { width: 100%; height: 100%; }
+.slider-name { color: var(--darkpurple); font-family: Fivosansmodern, sans-serif; font-size: 54px; font-weight: 700; line-height: 1.1; }
+.slider-type { color: #666; font-family: Lexend, sans-serif; font-size: 12px; font-weight: 300; line-height: 18px; }
+.slider-height { width: 100%; padding-top: 70%; padding-bottom: 0; position: relative; }
+.arrows-2 { z-index: 100; justify-content: flex-start; align-items: center; display: flex; position: absolute; inset: auto auto 0% 0%; }
+.arrow { border: 1px solid #b8a5ff3d; border-radius: 100vw; justify-content: center; align-items: center; width: 7em; height: 3.1em; margin-right: 1em; transition: all .2s; display: flex; }
+.arrow:hover { color: #111; background-color: #b8a5ff; border-color: #b8a5ff; }
+.arrow_svg { width: .8em; height: 1.13em; }
+.arrow_svg.is-alt { transform: rotate(-180deg); }
+.slidepage { width: 100svw; height: 100svh; margin-left: auto; margin-right: auto; }
+.pagecenter { flex-direction: row; justify-content: center; align-items: stretch; margin-bottom: 0; margin-left: auto; margin-right: auto; padding: 4em 6em 0; display: block; }
+.text-block-48 { padding-top: 5px; padding-bottom: 5px; font-family: Lexend, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6; }
+.body-6 { cursor: auto; background-color: #f7f8fa; height: 100vh; max-height: 100vh; }
+.text-block-49 { padding-top: 2px; padding-bottom: 5px; font-family: Lexend, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.4; }
+.rights { justify-content: center; align-items: center; margin-top: auto; margin-bottom: auto; padding-top: 0; padding-bottom: 0; font-size: 10px; line-height: 12px; display: flex; position: absolute; inset: auto 0% 1%; }
+.project-btn { color: #000; border: 2px solid #000; border-radius: 100px; justify-content: center; align-items: center; width: 130px; height: 45px; margin-top: 2px; font-family: Lexend, sans-serif; font-size: 16px; font-weight: 300; text-decoration: none; display: flex; position: relative; overflow: hidden; }
+.project-btn.f-2 { background-image: none; border: 1px solid #ff47f9; border-radius: 25px; margin-top: 0; margin-left: 15px; }
+.demo-btn-text { z-index: 1; color: #000; border-right: 1px solid #ffffff54; flex: 1; justify-content: center; align-items: center; padding: 10px; font-size: 14px; text-decoration: none; display: flex; position: static; }
+.demo-btn-wrapper-block { z-index: 0; background-color: #4d16dd; position: absolute; inset: 0; }
+.demo-btn-wrapper-block.f-2 { background-color: #ff47f9; font-family: Lexend, sans-serif; font-weight: 300; }
+@media screen and (min-width: 1280px) {
+  .slider-content { width: 38%; left: 55px; }
+  .slider-name { font-size: 62px; line-height: 1.1; }
+  .slider-type { font-size: 14px; line-height: 1.4; }
+  .slider-height { padding-top: 70%; }
+  .pagecenter { padding-top: 4.5em; padding-left: 8.5em; padding-right: 8.5em; }
+  .text-block-48 { font-size: 16px; line-height: 1.6; }
+  .text-block-49 { padding-top: 3px; padding-bottom: 7px; font-size: 16px; }
+  .rights { font-size: 12px; line-height: 14px; }
+  .project-btn { background-image: none; border: 2px solid #000; border-radius: 100px; width: 130px; height: 45px; margin-top: 3px; }
+  .project-btn.f-2 { justify-content: center; width: 130px; height: 45px; margin-left: auto; position: relative; }
+}
+@media screen and (min-width: 1440px) {
+  .slider-content { width: 38%; left: 75px; }
+  .slider-name { font-size: 80px; line-height: 1.1; }
+  .slider-type { font-size: 16px; line-height: 1.4; }
+  .slider-height { padding-top: 74%; }
+  .pagecenter { padding-top: 6em; padding-left: 10em; padding-right: 10em; }
+  .text-block-48 { font-size: 18px; line-height: 1.6; }
+  .text-block-49 { padding-top: 5px; padding-bottom: 10px; font-size: 18px; line-height: 1.4; }
+  .rights { font-size: 14px; line-height: 16px; }
+  .project-btn { border-width: 2.5px; width: 180px; height: 56px; margin-top: 5px; }
+  .demo-btn-text { font-size: 18px; }
+}
+@media screen and (min-width: 1920px) {
+  .slider-content { left: 150px; }
+  .slider-photo { width: 50%; }
+  .slider-name { font-size: 110px; line-height: 1.1; }
+  .slider-type { font-size: 22px; line-height: 1.4; }
+  .slider-height { padding-top: 70%; }
+  .pagecenter { padding-top: 8em; padding-left: 12em; padding-right: 12em; }
+  .text-block-48 { font-size: 24px; line-height: 1.6; }
+  .text-block-49 { padding-top: 10px; padding-bottom: 20px; font-size: 24px; line-height: 1.4; }
+  .project-btn { border-width: 3px; width: 220px; height: 74px; margin-top: 10px; }
+  .demo-btn-text { font-size: 24px; line-height: 24px; }
+}
+@media screen and (max-width: 767px) {
+  .slider-wrap { flex-direction: column; }
+  .slider-content { width: 100%; }
+  .slider-photo { width: 100%; padding-bottom: 2em; padding-right: 0; }
+  .swiper.is-content, .arrows-2 { position: relative; }
+  .pagecenter { margin-left: 60px; margin-right: 60px; padding-top: 2em; padding-left: 0; padding-right: 0; }
+  .project-btn.f-2 { flex: none; margin-bottom: 10px; margin-left: 0; }
+}
+@media screen and (max-width: 479px) {
+  .slider-wrap { flex-direction: column; }
+  .slider-content { left: auto; }
+  .slider-photo { padding-bottom: 0; padding-right: 0; }
+  .slider-name { font-size: 40px; line-height: 50px; }
+  .slider-type { padding-top: 5px; }
+  .slider-height { padding-top: 60%; }
+  .slidepage { height: 100vh; }
+  .pagecenter { margin-left: 40px; margin-right: 40px; padding-top: 1em; padding-left: 0; padding-right: 0; }
+  .text-block-48 { font-size: 14px; line-height: 20px; }
+  .text-block-49 { padding-top: 2px; padding-bottom: 2px; font-size: 14px; line-height: 29px; }
+}
+
