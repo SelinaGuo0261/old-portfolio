@@ -1,0 +1,17 @@
+---
+/**
+ * Paragraph or heading with its own look, e.g.
+ *   <Text as="p" align="center" size={18}>Centred caption</Text>
+ * Plain `###`, `####` and paragraphs use the page's default styles.
+ */
+import { typoStyle, type TypoProps } from './typo';
+interface Props extends TypoProps { as?: 'p' | 'h3' | 'h4' | 'div'; mt?: number; mb?: number; pad?: string }
+const { as: Tag = 'p', mt, mb, pad, ...typo } = Astro.props;
+const style = [typoStyle(typo), mt !== undefined && `margin-top: ${mt}px`, mb !== undefined && `margin-bottom: ${mb}px`, pad && `padding: ${pad}`]
+  .filter(Boolean).join('; ') || undefined;
+---
+<Tag class:list={['text', { 'text--sized': typo.size }]} style={style}><slot /></Tag>
+
+<style>
+  .text--sized { font-size: min(calc(var(--fs) * 1px), calc(var(--fs) / 1440 * 100vw + 4px)); }
+</style>

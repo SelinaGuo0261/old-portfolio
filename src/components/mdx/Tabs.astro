@@ -1,22 +1,43 @@
 ---
-/** Tabbed panels: wrap several <Tab label="…"> in <Tabs>. */
+/**
+ * Tabbed panels: wrap several <Tab label="…"> in <Tabs>. The panel shows
+ * on the left and the tab buttons stack on the right, as on the old site.
+ * `active` is the tab shown first (0-based); the colours are optional.
+ */
+interface Props { active?: number; bg?: string; tab?: string; tabActive?: string }
+const { active = 0, bg, tab, tabActive } = Astro.props;
+const style = [bg && `background: ${bg}`, tab && `--tab: ${tab}`, tabActive && `--tab-active: ${tabActive}`]
+  .filter(Boolean).join('; ');
 ---
-<div class="tabs" data-tabs data-reveal>
-  <div class="tabs__list" role="tablist"></div>
+<div class="tabs" style={style || undefined} data-tabs data-active={active} data-reveal>
   <div class="tabs__panels"><slot /></div>
+  <div class="tabs__list" role="tablist"></div>
 </div>
 
 <style>
-  .tabs { margin-block: 2rem; padding: 1.5rem; border-radius: var(--radius); background: color-mix(in srgb, var(--accent) 8%, transparent); }
-  .tabs__list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .tabs { display: flex; align-items: flex-start; padding: 20px 10px; background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .tabs__panels { flex: 1; min-width: 0; }
+  .tabs__list { display: flex; flex-direction: column; align-items: center; gap: 20px; }
   .tabs :global(.tabs__button) {
-    padding: 0.5em 1.2em;
-    border: 2px solid var(--accent);
-    border-radius: 100px;
-    background: transparent;
+    width: 140px;
+    padding: 15px 20px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--tab, color-mix(in srgb, var(--accent) 20%, transparent));
     color: var(--text);
-    font: inherit;
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: left;
     cursor: pointer;
   }
-  .tabs :global(.tabs__button[aria-selected='true']) { background: var(--accent); color: var(--white); }
+  .tabs :global(.tabs__button[aria-selected='true']) { background: var(--tab-active, color-mix(in srgb, var(--accent) 40%, transparent)); }
+  @media (min-width: 1280px) { .tabs__list { gap: 22px; } .tabs :global(.tabs__button) { width: 155px; } }
+  @media (min-width: 1440px) { .tabs__list { gap: 25px; } .tabs :global(.tabs__button) { width: 170px; padding-block: 18px; } }
+  @media (min-width: 1920px) { .tabs__list { gap: 35px; } .tabs :global(.tabs__button) { width: 220px; padding-block: 20px; } }
+  @media (max-width: 767px) {
+    .tabs { flex-direction: column-reverse; }
+    .tabs__list { flex-direction: row; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+  }
 </style>

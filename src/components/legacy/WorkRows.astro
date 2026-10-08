@@ -1,0 +1,47 @@
+---
+/** "Latest Works" rows (original markup); cards come from the content collection. */
+import { Image } from 'astro:assets';
+import nextIcon from '@/assets/site/next-button.png';
+import type { Project } from '@/lib/projects';
+import { projectHref, isExternal } from '@/lib/url';
+
+interface Props { projects: Project[] }
+const { projects: featured } = Astro.props;
+const target = (url?: string) => (isExternal(url) ? '_blank' : undefined);
+---
+<div class="works-wrapper">
+  <div class="work-column" role="list">
+    {featured.map((p) => {
+      const url = projectHref(p);
+      return (
+        <div class="collection-item-2" role="listitem" data-reveal>
+          <div class="work-column w-row">
+            <div class="work-item-left w-col w-col-6 w-col-stack">
+              <div class="work-text-up">
+                {p.data.org && <div class="work-type">{p.data.org}</div>}
+                <h3 class="work-title">{p.data.title}</h3>
+                <div class="work-disctription">{p.data.summary}</div>
+              </div>
+              <div class="work-text-down">
+                <div class="work-tag-wrapper">
+                  {p.data.tags.map((t) => <div class="work-tag">{t}</div>)}
+                </div>
+              </div>
+              <a class="work-link w-inline-block" href={url} target={target(url)} aria-label={`Open ${p.data.title}`}>
+                <Image class="work-link-icon" src={nextIcon} alt="" />
+              </a>
+            </div>
+            <div class="work-item-right w-col w-col-6 w-col-stack">
+              <div class="work-image-wrapper">
+                <a class="link-block-13 w-inline-block" href={url} target={target(url)} tabindex="-1">
+                  <Image class="work-cover" src={p.data.cover} alt={p.data.title} widths={[600, 1100]} sizes="(max-width: 991px) 100vw, 40vw" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+

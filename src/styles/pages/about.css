@@ -1,0 +1,174 @@
+/* Generated from the original Webflow stylesheet (only the classes this page uses). */
+.body-4 { cursor: auto; background-color: #f7f8fa; margin-bottom: 60px; }
+.about-page { margin-top: 40px; margin-left: 60px; margin-right: 60px; }
+.heading-2 { margin-top: 10px; font-family: Fivosansmodern, sans-serif; font-size: 2em; font-weight: 500; line-height: 1.4; }
+.heading-2.center { text-align: center; margin-left: 40px; margin-right: 40px; padding-left: 60px; padding-right: 60px; font-size: 24px; line-height: 1.3; }
+.column-6 { padding: 3% 40px 0 20px; }
+.column-7 { margin-top: 20px; margin-bottom: 20px; padding: 2% 2% 2% 0%; position: relative; }
+.text-block-23 { margin-top: 10px; margin-bottom: 10px; font-family: Lexend, sans-serif; font-size: 26px; font-weight: 700; line-height: 1.5; }
+.text-block-24 { margin-top: 10px; margin-bottom: 10px; font-family: Lexend, sans-serif; font-size: 14px; line-height: 1.4; }
+.columns-3 { margin-top: 60px; margin-bottom: 40px; }
+.text-block-25, .text-block-26 { font-family: Lexend, sans-serif; font-size: 14px; line-height: 1.4; }
+.text-block-27, .text-block-28 { font-family: Lexend, sans-serif; font-size: 16px; font-weight: 700; line-height: 20px; }
+.center-text { margin-top: 100px; margin-bottom: 100px; font-family: Lexend, sans-serif; font-weight: 300; }
+.text-block-29 { background-image: linear-gradient(93deg, var(--brand-blue) 30%, #ff7575 54%, var(--brand-orange) 77%); text-align: center; -webkit-text-fill-color: transparent; -webkit-background-clip: text; background-clip: text; font-family: Fivosansmodern, sans-serif; font-size: 44px; font-weight: 500; line-height: 1.3; position: static; }
+.about-skills { margin-top: 20px; margin-left: 0; margin-right: 0; }
+.div-block-9 { border: 2px solid #000; border-radius: 30px; width: 120px; height: 40px; margin-top: 10px; margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px; }
+.text-block-30 { text-align: center; font-family: Lexend, sans-serif; font-size: 14px; font-weight: 500; line-height: 18px; text-decoration: none; }
+.link-block-2 { text-decoration: none; }
+.columns-4, .div-block-10 { margin-top: 10px; margin-bottom: 10px; }
+.image-4 { height: 50px; display: block; }
+.image-5, .image-6 { height: 50px; }
+.image-7 { height: 50px; }
+.columns-5 { width: 380px; height: 100%; margin-right: 0; }
+.content { color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: Lexend, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6; display: block; }
+.content.dark-text { color: #000; margin-top: 1em; margin-bottom: 1em; }
+.content.dark-text.center { text-align: center; }
+.main-feature-wrapper { background-color: #f7f8fa00; margin: 0 15%; padding-top: 40px; padding-bottom: 40px; position: static; overflow: hidden; }
+.main-feature-wrapper.about-page { background-color: #f7f8fa; margin-left: 12%; }
+.container-10 { width: 90vw; max-width: 1360px; margin-left: auto; margin-right: auto; }
+.timeline_circle { background-color: #000; border: 0 solid #000; border-radius: 100%; width: 15px; min-width: 15px; max-width: 15px; height: 15px; min-height: 15px; max-height: 15px; position: sticky; top: 50vh; box-shadow: 0 0 0 8px #f7f8fa; }
+.timeline_progress-bar { z-index: -1; background-color: #fff; background-image: linear-gradient(#ff9239, #ff489a 44%, #2354cf); width: 3px; height: 50vh; position: fixed; inset: 0 auto 50vh; }
+.text-colour-lightgrey { color: #333c; font-family: Lexend, sans-serif; font-size: 12px; font-weight: 300; }
+.margin-bottom-medium { margin-bottom: 32px; }
+.timeline_centre { justify-content: center; display: flex; }
+.margin-bottom-xlarge { margin-bottom: 56px; line-height: 1.5; }
+.timeline_progress { z-index: -2; background-color: #414141; width: 3px; height: 100%; position: absolute; }
+.timeline_item { z-index: 2; grid-column-gap: 0px; grid-row-gap: 0px; grid-template-rows: auto; grid-template-columns: 1fr 180px 1fr; grid-auto-columns: 1fr; padding-top: 80px; padding-bottom: 80px; display: grid; position: relative; }
+.timeline_text { color: #333; font-family: Lexend, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; }
+.overlay-fade-top { background-image: linear-gradient(#f7f8fa, #0a0a0a00); height: 80px; position: absolute; inset: 0% 0% auto; }
+.timeline_component { color: #333; object-fit: fill; flex-direction: column; justify-content: center; align-items: center; width: 90vw; max-width: 720px; margin-left: auto; margin-right: auto; display: flex; position: relative; }
+.timeline_left { text-align: right; justify-content: flex-end; align-items: stretch; }
+.timeline_image-wrapper { background-image: linear-gradient(138deg, #000, #0000 28%), url("../../assets/about/timeline-bg.png"); background-position: 0 0, 0 0; background-size: auto, cover; border-radius: 12px; overflow: hidden; }
+.overlay-fade-bottom { background-image: linear-gradient(to top, #f7f8fa, #0a0a0a00); height: 80px; position: absolute; inset: auto 0% 0%; }
+.timeline_date-text { color: #333; letter-spacing: -.03em; font-family: Fivosansmodern, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.3; position: sticky; top: 50vh; }
+.section-timeline-2 { z-index: -3; background-color: #f7f8fa; position: relative; }
+.column-44 { height: auto; padding-left: 0; padding-right: 0; overflow: hidden; }
+.column-45 { padding-left: 0; padding-right: 0; overflow: hidden; }
+.column-46 { aspect-ratio: auto; object-fit: fill; height: auto; padding-left: 0; padding-right: 0; overflow: hidden; }
+.photos { height: 54vw; margin-bottom: 0; overflow: hidden; }
+.heading-8 { font-family: Fivosansmodern, sans-serif; font-size: 1.2em; font-weight: 500; line-height: 1.4; }
+.image-137 { overflow: clip; }
+@media screen and (min-width: 1280px) {
+  .about-page { background-color: #f6f7f900; }
+  .heading-2 { font-size: 36px; line-height: 1.4; }
+  .heading-2.center { text-align: center; margin: 40px 20px; padding-left: 60px; padding-right: 60px; font-size: 26px; }
+  .text-block-23 { font-size: 36px; line-height: 1.5; }
+  .text-block-24 { font-size: 16px; }
+  .text-block-25, .text-block-26 { font-size: 18px; line-height: 26px; }
+  .text-block-27, .text-block-28 { font-size: 20px; line-height: 26px; }
+  .center-text.timeline { background-color: #f7f8fa; margin-top: 120px; margin-left: 40px; margin-right: 40px; }
+  .text-block-29 { font-size: 50px; line-height: 1.3; }
+  .about-skills { margin-top: 40px; margin-left: 40px; margin-right: 40px; }
+  .div-block-9 { width: 140px; height: 44px; }
+  .text-block-30 { font-size: 18px; line-height: 18px; }
+  .columns-4 { margin-top: 12px; margin-bottom: 12px; }
+  .div-block-10 { width: 420px; }
+  .image-4, .image-5, .image-6, .image-7 { height: 60px; }
+  .columns-5 { width: 480px; margin-right: auto; }
+  .content { font-size: 14px; line-height: 1.6; }
+  .content.dark-text { font-size: 14px; }
+  .main-feature-wrapper { background-color: #f7f8fa00; margin-left: 15%; margin-right: 15%; padding-top: 50px; padding-bottom: 50px; }
+  .main-feature-wrapper.about-page { overflow: hidden; }
+  .timeline_circle { background-color: #000; width: 18px; min-width: 18px; max-width: 18px; height: 18px; min-height: 18px; max-height: 18px; box-shadow: 0 0 0 8px #f7f8fa; }
+  .timeline_progress-bar { z-index: -1; background-color: #fff; width: 5px; }
+  .text-colour-lightgrey { font-size: 14px; }
+  .timeline_progress { width: 5px; }
+  .timeline_text { color: #333; font-size: 18px; line-height: 1.5; }
+  .timeline_component { max-width: 960px; }
+  .timeline_date-text { color: #333; font-size: 36px; line-height: 1.3; }
+  .section-timeline-2 { background-color: #f7f8fa; }
+  .column-25 { padding-right: 0; }
+  .photos { height: 54vw; }
+}
+@media screen and (min-width: 1440px) {
+  .heading-2 { font-size: 40px; line-height: 1.4; }
+  .heading-2.center { font-size: 30px; }
+  .text-block-23 { font-size: 40px; line-height: 1.5; }
+  .text-block-24 { font-size: 18px; }
+  .text-block-25, .text-block-26 { font-size: 20px; }
+  .text-block-27, .text-block-28 { font-size: 24px; line-height: 30px; }
+  .center-text.timeline { margin-top: 140px; }
+  .text-block-29 { font-size: 60px; }
+  .about-skills { margin-left: 0; margin-right: 0; }
+  .div-block-9 { width: 150px; height: 50px; }
+  .text-block-30 { font-size: 20px; line-height: 24px; }
+  .columns-4 { margin-top: 15px; margin-bottom: 15px; }
+  .image-4, .image-5, .image-6, .image-7 { height: 70px; }
+  .columns-5 { width: 500px; height: 100%; }
+  .content { font-size: 17px; line-height: 1.6; }
+  .content.dark-text { margin-top: 1em; margin-bottom: 1em; font-size: 17px; }
+  .main-feature-wrapper { margin-left: 15%; margin-right: 15%; padding-top: 60px; padding-bottom: 60px; font-size: 24px; }
+  .timeline_circle { width: 22px; min-width: 22px; max-width: 22px; height: 22px; min-height: 22px; max-height: 22px; }
+  .timeline_progress-bar { width: 8px; }
+  .text-colour-lightgrey { font-size: 16px; }
+  .timeline_progress { width: 8px; }
+  .timeline_text { font-size: 20px; }
+  .timeline_component { max-width: 1060px; }
+  .timeline_date-text { font-size: 44px; line-height: 1.3; }
+  .photos { height: 54vw; }
+}
+@media screen and (min-width: 1920px) {
+  .about-page { margin-left: 140px; margin-right: 140px; }
+  .heading-2 { margin-top: 10px; font-size: 56px; line-height: 1.4; }
+  .heading-2.center { font-size: 40px; }
+  .column-6 { padding-top: 3%; }
+  .column-7 { padding-top: 2%; padding-bottom: 2%; }
+  .text-block-23 { font-size: 48px; line-height: 1.5; }
+  .text-block-24 { font-size: 24px; line-height: 1.4; }
+  .columns-3 { margin-top: 60px; padding-top: 0%; }
+  .text-block-25, .text-block-26 { font-size: 24px; line-height: 30px; }
+  .text-block-27, .text-block-28 { font-size: 28px; line-height: 36px; }
+  .center-text.timeline { margin-top: 200px; }
+  .text-block-29 { font-size: 70px; line-height: 1.3; }
+  .div-block-9 { width: 160px; height: 50px; }
+  .text-block-30 { font-size: 24px; line-height: 24px; }
+  .columns-4 { margin-top: 20px; margin-bottom: 20px; }
+  .div-block-10 { width: 600px; }
+  .image-4, .image-5, .image-6, .image-7 { height: 90px; }
+  .columns-5 { width: 680px; height: 100%; }
+  .content { font-size: 24px; line-height: 1.6; }
+  .content.dark-text { margin-top: 1em; margin-bottom: 1em; font-size: 24px; font-weight: 300; }
+  .main-feature-wrapper { margin-bottom: 0; margin-left: 15%; margin-right: 15%; padding-top: 80px; padding-bottom: 80px; }
+  .container-10 { width: 90vw; max-width: 1560px; }
+  .timeline_circle { width: 28px; min-width: 28px; max-width: 28px; height: 28px; min-height: 28px; max-height: 28px; }
+  .timeline_progress-bar { width: 10px; }
+  .text-colour-lightgrey { font-size: 22px; }
+  .timeline_progress { width: 10px; }
+  .timeline_item { grid-template-columns: 1fr 200px 1fr; }
+  .timeline_text { font-size: 28px; }
+  .overlay-fade-top { background-image: linear-gradient(182deg, #f7f8fa, #0a0a0a00); }
+  .timeline_component { max-width: 1440px; }
+  .overlay-fade-bottom { background-image: linear-gradient(to top, #f7f8fa, #0a0a0a00); }
+  .timeline_date-text { font-size: 60px; line-height: 1.3; }
+  .photos { height: 54vw; }
+  .image-107 { max-width: none; }
+  .image-122 { max-width: 102%; }
+  .heading-8 { font-family: Fivosansmodern, sans-serif; }
+}
+@media screen and (max-width: 991px) {
+  .main-feature-wrapper { margin-left: 60px; margin-right: 60px; }
+}
+@media screen and (max-width: 767px) {
+  .timeline_centre { justify-content: flex-start; }
+  .margin-bottom-xlarge { margin-bottom: 48px; }
+  .timeline_progress { left: 6px; }
+  .timeline_item { grid-template-columns: 64px 1fr; width: 100%; }
+  .timeline_text { font-size: 20px; }
+  .timeline_left { text-align: left; }
+  .timeline_date-text { margin-bottom: 24px; font-size: 36px; }
+}
+@media screen and (max-width: 479px) {
+  .about-page { margin-top: 40px; margin-left: 10px; margin-right: 10px; }
+  .heading-2 { font-size: 20px; line-height: 24px; }
+  .heading-2.center, .column-6 { padding-left: 0; padding-right: 0; }
+  .text-block-29 { font-size: 30px; line-height: 1.3; }
+  .about-skills { margin-top: 0; }
+  .content { font-size: 14px; line-height: 20px; }
+  .main-feature-wrapper { margin-left: 0; margin-right: 0; padding-left: 30px; padding-right: 30px; }
+  .margin-bottom-medium { margin-bottom: 24px; }
+  .timeline_item { grid-template-columns: 48px 1fr; }
+  .timeline_text { font-size: 12px; }
+  .timeline_date-text { font-size: 20px; line-height: 24px; }
+}
+

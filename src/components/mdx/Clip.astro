@@ -1,0 +1,17 @@
+---
+/**
+ * Fixed-height box that crops what is inside it, e.g. a photo shown at
+ * h="48vw" whatever its own size. `mobile` is the height on phones.
+ */
+interface Props { h: string; mobile?: string; mb?: number }
+const { h, mobile, mb } = Astro.props;
+const style = [`--h: ${h}`, `--h-mobile: ${mobile ?? h}`, mb !== undefined && `margin-bottom: ${mb}px`]
+  .filter(Boolean).join('; ');
+---
+<div class="clip" style={style}><slot /></div>
+
+<style>
+  .clip { height: var(--h); overflow: hidden; }
+  .clip > :global(p) { margin: 0; }
+  @media (max-width: 479px) { .clip { height: var(--h-mobile); } }
+</style>

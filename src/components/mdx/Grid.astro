@@ -1,20 +1,31 @@
 ---
-/** Equal-width grid of <Cell>s. */
-interface Props { cols?: number; bg?: string }
-const { cols = 2, bg } = Astro.props;
+/**
+ * Grid of <Cell>s (Webflow "quick stack": 20px gaps and padding).
+ * Columns are equal unless `template` says otherwise, e.g. ".75fr 1fr 1fr".
+ */
+interface Props { cols?: number; template?: string; bg?: string; gap?: string; pad?: string; mt?: number; mb?: number }
+const { cols = 2, template, bg, gap, pad, mt, mb } = Astro.props;
+const style = [
+  `--cols: ${cols}`,
+  `--tpl: ${template ?? `repeat(${cols}, minmax(0, 1fr))`}`,
+  bg && `background: ${bg}`,
+  gap && `gap: ${gap}`,
+  pad && `padding: ${pad}`,
+  mt !== undefined && `margin-top: ${mt}px`,
+  mb !== undefined && `margin-bottom: ${mb}px`,
+].filter(Boolean).join('; ');
 ---
-<div class:list={['grid', { 'grid--panel': bg }]} style={`--cols: ${cols};${bg ? ` --panel: ${bg}` : ''}`} data-reveal>
+<div class="grid" style={style} data-reveal>
   <slot />
 </div>
 
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
-    gap: 1.5rem;
-    margin-block: 2rem;
+    grid-template-columns: var(--tpl);
+    gap: 20px;
+    padding: 20px;
   }
-  .grid--panel { background: var(--panel); padding: 1.5rem; border-radius: var(--radius); }
   @media (max-width: 991px) { .grid { grid-template-columns: repeat(min(var(--cols), 2), minmax(0, 1fr)); } }
   @media (max-width: 479px) { .grid { grid-template-columns: 1fr; } }
 </style>

@@ -1,4 +1,10 @@
-<p class="stat"><slot /></p>
+---
+import { typoStyle, type TypoProps } from './typo';
+const style = typoStyle(Astro.props as TypoProps);
+---
+<p class:list={['stat', { 'text--sized': (Astro.props as TypoProps).size }]} style={style}><slot /></p>
 <style>
-  .stat { font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--accent); margin: 0.5rem 0; line-height: 1.1; }
+  .stat { font-family: var(--font-body); font-size: 60px; font-weight: 700; line-height: 1; color: var(--accent); margin: 0.5rem 0; }
+  @media (min-width: 1440px) { .stat { font-size: 64px; } }
+  .text--sized { font-size: min(calc(var(--fs) * 1px), calc(var(--fs) / 1440 * 100vw + 4px)); }
 </style>

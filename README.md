@@ -43,7 +43,12 @@ To add a project, copy an existing folder, rename it, swap the images and edit
 Useful settings:
 
 - `cover`, `hero`, `card` – images (paths like `./images/cover.png`)
-- `theme` – page `background`, `text` and `accent` colours
+- `theme` – page `background`, `text` and `accent` colours (and `paragraphGap`
+  for pages that used 10px between paragraphs)
+- `heading` – big centred heading at the top (new lines break it)
+- `ending` – the closing "Thanks for Reading" row: `show: full | thanks | none`
+  plus its colours
+- `gutter` – side margin of the content when it isn't the usual 15%
 - `featured: true` – show in "Latest Works" on the home page
 - `showcase:` – show in "More interesting..." (can override title/summary/image)
 - `externalUrl` – card links out instead of to a page (e.g. Piggy → Medium)
@@ -75,14 +80,18 @@ Text on the left.
 </Row>
 
 <Grid cols={3}> <Cell>…</Cell> <Cell>…</Cell> <Cell>…</Cell> </Grid>
+<Grid cols={3} template=".5fr 1fr 1fr"> <Cell col="span 3">…</Cell> … </Grid>
+<Text as="p" size={18} lh={1.2} mt={0} mb={0}>Text with its own look</Text>
+<Clip h="48vw">![](./images/tall-photo.jpg)</Clip>      {/* crop to a fixed height */}
 <Quote title="Prompt">How might we…?</Quote>
 <YouTube id="6HoKMjBOA1c" />
 <LinkButton href="https://figma.com/…">View Prototype</LinkButton>
 <Tabs> <Tab label="One">…</Tab> <Tab label="Two">…</Tab> </Tabs>
 ```
 
-Also: `Lead`, `MetaGrid`/`Meta`, `Member`, `Box`, `Section`, `Accordion`, `Stat`,
-`Small`, `Embed` (see `src/components/mdx/`). Leave a blank line between a
+Also: `Lead`, `MetaGrid`/`Meta`, `Member`, `Box`, `Section`, `Block`, `Span`,
+`Intro`, `Abs`, `Fit`, `Accordion`, `Stat`, `Small`, `Embed` (see
+`src/components/mdx/`; each file says what its props do). Leave a blank line between a
 component tag and Markdown inside it.
 
 ### Animations

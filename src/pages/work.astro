@@ -1,17 +1,27 @@
 ---
+/** Professional — original Webflow markup (styles/pages/work.css). */
+import '@/styles/pages/work.css';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import StatusBar from '@/components/StatusBar.astro';
-import WorkCard from '@/components/cards/WorkCard.astro';
+import StatusRow from '@/components/legacy/StatusRow.astro';
+import WorkRows from '@/components/legacy/WorkRows.astro';
 import { getProjects } from '@/lib/projects';
 
 const works = await getProjects('professional');
 ---
 
-<BaseLayout title="Professional" description="Professional work from internships and start-ups.">
-  <div class="wrap">
-    <h1 class="page-title" data-split="words-slide-up">Latest Works</h1>
-    <p class="page-intro" data-reveal>3 projects are under constrction from internships and start-ups; More to come!</p>
-    <StatusBar />
-    {works.map((p) => <WorkCard project={p} />)}
+<BaseLayout title="Professional" description="Professional work from internships and start-ups." background="#ffffff">
+  <div class="main-feature-wrapper home">
+    <div class="project-intro">
+      <h1 class="experiment-heading" data-split="words-slide-up">Latest Works</h1>
+      <div class="text-block-69" data-split="words-slide-up">3 projects are under constrction from internships and start-ups; More to come!</div>
+      <StatusRow />
+    </div>
+    <WorkRows projects={works} />
   </div>
 </BaseLayout>
+
+<style is:global>
+  .work-title, .experiment-heading { margin: 0; }
+  .work-link { text-decoration: none; }
+  .work-link-icon { width: 100%; height: auto; }
+</style>

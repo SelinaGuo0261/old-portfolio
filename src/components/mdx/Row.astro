@@ -1,15 +1,12 @@
 ---
-/** 12-column row; put <Col span={n}> inside. Stacks on small screens. */
+/** 12-column row (Webflow grid: 10px gutters); put <Col span={n}> inside. */
+interface Props { mt?: number; mb?: number; pt?: number; pb?: number; align?: 'center' | 'end' }
+const { mt, mb, pt, pb, align } = Astro.props;
+const style = [mt !== undefined && `margin-top: ${mt}px`, mb !== undefined && `margin-bottom: ${mb}px`, pt !== undefined && `padding-top: ${pt}px`, pb !== undefined && `padding-bottom: ${pb}px`, align && `align-items: ${align === 'end' ? 'flex-end' : 'center'}`].filter(Boolean).join('; ');
 ---
-<div class="row" data-reveal><slot /></div>
+<div class="row" style={style || undefined} data-reveal><slot /></div>
 
 <style>
-  .row {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 1.5rem 2rem;
-    align-items: start;
-    margin-block: 2rem;
-  }
-  @media (max-width: 767px) { .row { grid-template-columns: 1fr; } }
+  .row { display: flex; flex-wrap: wrap; }
+  @media (max-width: 767px) { .row { flex-direction: column; } }
 </style>

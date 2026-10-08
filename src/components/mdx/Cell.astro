@@ -1,12 +1,29 @@
 ---
-interface Props { bg?: string }
-const { bg } = Astro.props;
+/**
+ * One grid cell. `bg` makes it a rounded panel; the other props match
+ * the old cell's own spacing and alignment when it had any.
+ */
+interface Props { bg?: string; align?: 'center'; justify?: 'center'; pad?: string; radius?: number;
+  /** Placement in the grid, e.g. col="span 3" or row="1 / 3". */
+  col?: string; row?: string }
+const { bg, align, justify, pad, radius, col, row } = Astro.props;
+const style = [
+  bg && `background: ${bg}`,
+  align && `align-items: ${align}`,
+  justify && `justify-content: ${justify}`,
+  pad && `padding: ${pad}`,
+  radius !== undefined && `border-radius: ${radius}px`,
+  `--col: ${col ?? 'auto'}`,
+  `--row: ${row ?? 'auto'}`,
+].filter(Boolean).join('; ');
 ---
-<div class:list={['cell', { 'cell--panel': bg }]} style={bg ? `--panel: ${bg}` : undefined}><slot /></div>
+<div class:list={['cell', { 'cell--panel': bg, 'cell--center': align }]} style={style}><slot /></div>
 
 <style>
-  .cell { min-width: 0; }
-  .cell > :global(:first-child) { margin-top: 0; }
-  .cell > :global(:last-child) { margin-bottom: 0; }
-  .cell--panel { background: var(--panel); padding: 1.25rem; border-radius: var(--radius); }
+  .cell { position: relative; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+  .cell > :global(*) { max-width: 100%; }
+  .cell:not(.cell--center) > :global(p), .cell > :global(.fit) { align-self: stretch; }
+  .cell { grid-column: var(--col); grid-row: var(--row); }
+  @media (max-width: 991px) { .cell { grid-column: auto; grid-row: auto; } }
+  .cell--panel { padding: 20px; border-radius: var(--radius); }
 </style>

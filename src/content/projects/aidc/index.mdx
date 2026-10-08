@@ -10,11 +10,24 @@ theme:
   background: "#000000"
   text: "#ffffff"
   accent: "#ff811a"
+  paragraphGap: 10
+ending: 
+  show: "full"
+  line: "rgba(214, 152, 125, 0.43)"
+  title: "#ff811a"
+  gradient: "linear-gradient(338deg, rgb(255, 204, 137) 12%, rgb(255, 41, 86))"
+  button: "#1e1e1e"
+  buttonText: "#ffffff"
 order: 1
 featured: true
+footer: false
 ---
 
+<Block mt={40} mb={20}>
+
 <Lead>Enhancing multi-language sites of "Taobao" to increase promotion rate and trust for international users.</Lead>
+
+</Block>
 
 <MetaGrid>
 
@@ -44,11 +57,13 @@ UX Designer (3)<br />UI Designer (2)<br />Product Manager (2)<br />Design Leader
 
 </MetaGrid>
 
+<Block mb={60}>
+
 ### Overview
 
 <Row>
 
-<Col span={6}>
+<Col span={6} pad="0 20px 0 0">
 
 TaoBao Overseas serves two distinct groups: overseas Chinese users already familiar with TaoBao's ecosystem, and new international users who have never experienced it. Spanning approximately 20 regional sites across 3 languages, the platform sits at a pivotal inflection point.
 
@@ -64,11 +79,15 @@ The core tension: **new business capabilities had no suitable design container t
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Final Impact
 
 <Row>
 
-<Col span={6}>
+<Col span={6} pad="0 10px 0 0">
 
 #### Increase in overall L-P Rate
 
@@ -86,9 +105,15 @@ A multilingual-ready component system — built to handle variable text lengths 
 
 </Row>
 
-<Divider id="product">📱Main Features</Divider>
+</Block>
 
-<Row>
+<Block pt={60} pb={60}>
+
+<Divider id="product" color="#ffffff">📱Main Features</Divider>
+
+<Block mb={100}>
+
+<Row align="center">
 
 <Col span={5}>
 
@@ -108,7 +133,11 @@ A four-zone grid layout (image, brand badge, benefit, price) that is structurall
 
 </Row>
 
-<Row>
+</Block>
+
+<Block mb={100}>
+
+<Row align="center">
 
 <Col span={7}>
 
@@ -130,7 +159,11 @@ Includes a Mini Detail large-card format (~half-screen) inspired by TikTok's inf
 
 </Row>
 
-<Row>
+</Block>
+
+<Block mb={100}>
+
+<Row align="center">
 
 <Col span={5}>
 
@@ -152,7 +185,11 @@ Includes a fallback design for products without structured size data — replaci
 
 </Row>
 
-<Row>
+</Block>
+
+<Block mb={100}>
+
+<Row align="center">
 
 <Col span={7}>
 
@@ -174,15 +211,23 @@ The design philosophy: *AI should find the right moment to intervene, not wait t
 
 </Row>
 
-<Divider id="background">👋 Background</Divider>
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="background" color="#ffffff">👋 Background</Divider>
+
+<Block mb={60}>
 
 ### Why TaoBao Overseas needed a design infrastructure reset?
 
 TaoBao Overseas launched with a foundational paradox: a platform with the breadth of "everything and anything" (万能的淘宝) trying to serve dramatically different users — from Chinese diaspora who grew up using TaoBao's domestic interface, to Thai or Australian first-time users who have never encountered it.
 
-<Grid cols={3}>
+<Grid cols={3} gap="15px 15px" pad="20px 0px 20px 0px">
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 ### 🧠
 
@@ -192,7 +237,7 @@ The design philosophy: *AI should find the right moment to intervene, not wait t
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 ### 🌎
 
@@ -202,7 +247,7 @@ The platform was expanding English, Russian, and Thai language support — but t
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 ### 📉
 
@@ -214,17 +259,193 @@ Low screen efficiency, unclear benefit hierarchy, dual-currency price confusion,
 
 </Grid>
 
-<Quote>
+<Quote size={18} weight={400} align="start" mt={0} mb={10} padx={20}>
 
 The core design problem: **new business capabilities had no suitable design container.** Before we could introduce AI-powered features and topic commerce, we needed to rebuild the experience foundation they would run on.
 
 </Quote>
 
-<Divider id="background">👋 Define</Divider>
+</Block>
 
-<Divider id="background">👋 Strategy</Divider>
+</Block>
 
-<Divider id="background">👋 Design</Divider>
+<Block pt={60} pb={60}>
+
+<Divider id="background" color="#ffffff">👋 Define</Divider>
+
+### What's actually stopping users from buying for the first time?
+
+<Block mb={60}>
+
+#### Product Card: Diagnosing the Existing Layout
+
+The domestic product card carried three critical failures in international contexts:
+
+<Grid cols={3} gap="15px 15px" pad="20px 0px 20px 0px">
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 🗂️
+
+#### Low Screen Efficiency
+
+Information hierarchy was unclear — benefits, labels, and prices competed for attention with no clear priority order.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 💵
+
+#### Dual-Currency Confusion
+
+Displaying both RMB and local currency added cognitive load. International users needed a single-currency, locally anchored price expression.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 💬
+
+#### Multilingual Layout Instability
+
+Text length variance across English, Russian, and Thai caused cards to break and overflow — the layout wasn't structurally language-agnostic.
+
+</Cell>
+
+</Grid>
+
+</Block>
+
+<Block mb={60}>
+
+#### Usability Report:
+
+The most revealing input came from user research on new user barriers to first purchase. Two pain points dominated the findings above all others:
+
+<Grid cols={2} gap="15px 15px" pad="20px 0px 20px 0px">
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 📏
+
+#### "I don't know if the size will fit."
+
+Not a price objection — a trust and uncertainty problem. Global clothing size standards (US / UK / EU / CM) are inconsistent, and the platform was using unstructured Chinese domestic size descriptions.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 📦
+
+#### "I don't know when it will arrive."
+
+An information transparency problem. Localized shipping ETA estimates were absent for many products, leaving users with no fulfillment timeline to anchor their decision.
+
+</Cell>
+
+</Grid>
+
+</Block>
+
+<Block mb={60}>
+
+#### Competitive Analysis: Size Experience Across 7 Platforms
+
+To understand the landscape, I analyzed the size experience across Temu, Shein, Lazada, Shopee, AliExpress, Amazon, and TikTok Shop across six dimensions:
+
+![](./images/competitive.png)
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="background" color="#ffffff">👋 Strategy</Divider>
+
+### Structure the content
+
+Across all three modules, a single design principle governed every decision: build structural containers that are language-agnostic and culturally portable at the layout level, while leaving room for localized content, imagery, and data at the surface level.
+
+<Box bg="rgba(255, 166, 65, 0.15)" pad="10px 40px 10px 40px" radius="0px">
+
+*The grid system is the great equalizer. In a multilingual environment, visual solutions break when text length changes — but structural grids don't. The same four-zone product card layout works in Thai, Russian, and English because the structure constrains the space, not the content.*
+
+</Box>
+
+<Grid cols={3} gap="15px 15px" pad="20px 0px 20px 0px">
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 01
+
+#### Structure over style
+
+Define information zones and priority rules before any visual decisions. The four-zone product card grid came before color, typography, or illustration choices.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 02
+
+#### Balance visual design
+
+Synthesize Shopee's color contrast energy and Amazon's minimal whitespace logic into a hybrid visual language suited to TaoBao Overseas's international ambition.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 03
+
+#### AI as an interventionist
+
+Don't require users to know how to prompt AI. Surface relevant AI entry points at the exact card layer and moment where they're most useful — fit queries in the size zone, spec comparisons in the attributes zone.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 04
+
+#### Progressive disclosure for trust
+
+Never front-load personal data collection. Start with lightweight brand preference matching; introduce body metrics only after initial intent is established.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 05
+
+#### Edge cases are experience guarantees
+
+A blank size module is worse than no size module. Design fallback states for products with incomplete data — visual size guides, model measurement callouts, seller-uploaded diagrams.
+
+</Cell>
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
+
+### 06
+
+#### Quantify risk before deciding
+
+When design judgment and business judgment diverge, surface the data. Propose A/B tests, instrument the right indicators, and let the data speak — rather than making the decision unilaterally.
+
+</Cell>
+
+</Grid>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="background" color="#ffffff">👋 Design</Divider>
+
+<Block mb={100}>
 
 ### Product Card: Building the Grid
 
@@ -232,19 +453,23 @@ In light of the complex marketing information on Taobao and the localization req
 
 ![](./images/card1.png)
 
+</Block>
+
+<Block mb={100}>
+
 ### Topic Feed: Three Formats, One Coherent System
 
 When the business requested AIB topic placement, the design constraint was strict: visually differentiate from existing "Good Goods," free-shipping, and category channels — without disrupting existing recommendation click efficiency. I designed three formats:
 
-<Grid cols={5}>
+<Grid cols={5} template="1fr .25fr 1fr .75fr 1fr" pad="0px 0px 40px 0px">
 
-<Cell>
+<Cell row="span 3 / span 3" col="span 2 / span 2">
 
-![](./images/topic-feed.png)
+<Fit w={310}>![](./images/topic-feed.png)</Fit>
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 #### 1. Carousel Card
 
@@ -252,13 +477,13 @@ Shown on the home page, take the topmost exposure position. Guide users to enter
 
 </Cell>
 
-<Cell>
+<Cell justify="center" col="span 2">
 
-![](./images/topic-channel1.png)
+<Fit w={426}>![](./images/topic-channel1.png)</Fit>
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 #### 2. In-Feed
 
@@ -266,13 +491,13 @@ Inserted at fixed positions in the product feed. Visual distinction from product
 
 </Cell>
 
-<Cell>
+<Cell justify="center" col="span 2">
 
-![](./images/topic-channel2.png)
+<Fit w={426}>![](./images/topic-channel2.png)</Fit>
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 #### 3. Store / Campaign Sub-Card
 
@@ -280,19 +505,25 @@ Used beneath store storefronts and campaign landing pages. Compact format for mo
 
 </Cell>
 
-<Cell>
+<Cell justify="center" col="span 2">
 
-![](./images/topic-channel3.png)
+<Fit w={426}>![](./images/topic-channel3.png)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Mini Detail: Reimagining the Topic Channel Page
+
+<Block mb={60}>
 
 Standard product cards on a topic channel page surface four to five rows before users hit the bottom — not enough depth to create a "browsing" feeling. I reframed the channel page's core purpose:
 
-<Quote>
+<Quote size={18} weight={400} align="start" mt={0} mb={10} padx={20}>
 
 Users come to a topic page not to find a specific product, but to be moved by the experience of discovery. The card format needed to serve that intent.
 
@@ -300,13 +531,21 @@ Users come to a topic page not to find a specific product, but to be moved by th
 
 ![](./images/615318.png)
 
+</Block>
+
+<Block mb={60}>
+
 #### Card Design differ by industry category
 
 The Mini Detail card — approximately half a screen tall — borrows from TikTok's infinite scroll immersion. It's industry-customized: fashion cards carousel through images, size guides, reviews, and styling suggestions; electronics cards carousel through images, specifications, user reviews, and similar product recommendations.
 
 ![](./images/615320.png)
 
-<Row>
+</Block>
+
+<Block mb={60}>
+
+<Row align="center">
 
 <Col span={5}>
 
@@ -326,9 +565,17 @@ Fashion cards surface *"what does this pair with?"*, electronics cards surface *
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block mb={100}>
+
 ### Detail Page: The Size Experience Redesign
 
-<Grid cols={3}>
+<Block mb={60}>
+
+<Grid cols={3} pad="0px 0px 40px 0px">
 
 <Cell>
 
@@ -336,61 +583,69 @@ Fashion cards surface *"what does this pair with?"*, electronics cards surface *
 
 Size info is accessible via one-click entry points across key areas, while structured insights from purchase history and reviews (e.g., “too large,” “true to size”,"roo small") support recommendations.
 
-![](./images/614726-1x.png)
+<Fit w={323}>![](./images/614726-1x.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/1x.png)
+<Fit w={323} center>![](./images/1x.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/1x-2.png)
+<Fit w={323}>![](./images/1x-2.png)</Fit>
 
 </Cell>
 
 </Grid>
+
+</Block>
+
+<Block mb={60}>
 
 #### Reverse Design Strategy: Personalized Recommendations Based on Frequently Worn Brands
 
 Use progressive guidance by first onboarding new users through a lightweight brand-matching flow, then prompting for additional body data later to avoid information overload. Present recommendations with both “smart suggestions” and supporting rationale to build trust.
 
-<Grid cols={3}>
+<Grid cols={3} pad="0px 0px 40px 0px">
 
 <Cell>
 
-![](./images/1-1x.png)
+<Fit w={323}>![](./images/1-1x.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/2-1x.png)
+<Fit w={323} center>![](./images/2-1x.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/1x-3.png)
+<Fit w={323}>![](./images/1x-3.png)</Fit>
 
 </Cell>
 
 </Grid>
 
-<Grid cols={3}>
+</Block>
+
+<Block mb={60}>
+
+<Grid cols={3} pad="0px 0px 40px 0px">
 
 <Cell>
 
-![](./images/1x-4.png)
+<Fit w={323}>![](./images/1x-4.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/1x-5.png)
+<Fit w={323} center>![](./images/1x-5.png)</Fit>
 
 </Cell>
 
@@ -400,17 +655,27 @@ Use progressive guidance by first onboarding new users through a lightweight bra
 
 Standardize merchant sizing info into a unified format with model try-ons and measurement guides, while leveraging similar body-type data and fit feedback—enabling on-demand exploration without overwhelming users.
 
-![](./images/1x-6.png)
+<Fit w={323}>![](./images/1x-6.png)</Fit>
 
 </Cell>
 
 </Grid>
 
-<Divider id="background">👋 Reflection</Divider>
+</Block>
 
-<Grid cols={2}>
+</Block>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="background" color="#ffffff">👋 Reflection</Divider>
+
+<Block mb={100}>
+
+<Grid cols={2} gap="15px 15px" pad="20px 0px 20px 0px">
+
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 #### On global design
 
@@ -418,7 +683,7 @@ The most transferable insight from this project: when you're designing for 20 ma
 
 </Cell>
 
-<Cell bg="rgba(255, 255, 255, 0.1)">
+<Cell bg="rgba(255, 255, 255, 0.1)" radius={0}>
 
 #### On AI in commerce
 
@@ -427,3 +692,7 @@ The most important AI design decision in this project was about placement, not c
 </Cell>
 
 </Grid>
+
+</Block>
+
+</Block>

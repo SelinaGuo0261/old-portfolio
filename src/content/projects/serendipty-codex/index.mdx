@@ -13,16 +13,28 @@ theme:
   background: "#f8f5f2"
   text: "#004377"
   accent: "#c23925"
+  paragraphGap: 10
 showcase: 
   title: "Healing Bot"
   summary: "Daily mindfulness training machine for CPTSD patients."
   tags: ["Product", "Game"]
   order: 3
   image: ./images/showcase.png
+ending: 
+  show: "full"
+  line: "#e0937a"
+  title: "#c23925"
+  gradient: "linear-gradient(40deg, rgb(0, 67, 119), rgb(194, 57, 37) 88%)"
+  button: "#f4f0ef"
+  buttonText: "#000000"
 order: 4
 ---
 
-<Lead>Serendipity Codex is an answer bot for potential C-PTSD patients to mitigate their daily struggles.</Lead>
+<Block mt={40} mb={20}>
+
+<Lead color="#c23925">Serendipity Codex is an answer bot for potential C-PTSD patients to mitigate their daily struggles.</Lead>
+
+</Block>
 
 <MetaGrid>
 
@@ -60,7 +72,7 @@ Individual concept project
 
 This is an innovative product designed to help those affected by Complex Post-Traumatic Stress Disorder (C-PTSD) rekindle the love and support they may have missed out on. The delightful, table-top robot features a simple "Answer" button that initiates a five-question dialogue, helping users express their concerns. It then connects users to "The Best Parents' App," a community of experienced parents ready to provide empathetic solutions.
 
-Every parent loves their child deeply, but sometimes they struggle to express it effectively or understand the right methods to offer support. This project aims to bridge this gap by connecting C-PTSD patients with the world's most compassionate parents through a meaningful medium.
+Every parent loves their child deeply, but sometimes they struggle to express it effectively or understand the right methods to offer support. This project aims to bridge this gap by <Span weight={500}>connecting C-PTSD patients with the world's most compassionate parents</Span> through a meaningful medium.
 
 </Col>
 
@@ -72,9 +84,11 @@ Every parent loves their child deeply, but sometimes they struggle to express it
 
 </Row>
 
+<Block pt={60} pb={60}>
+
 <Divider id="product">📱Main Features</Divider>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={5}>
 
@@ -94,7 +108,7 @@ Taking on the role of a loyal companion in users' daily lives, the bot resembles
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={6}>
 
@@ -114,7 +128,7 @@ With the help of five well considered questions, users can embark on a therapeut
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={6}>
 
@@ -134,7 +148,7 @@ The interaction form of feedback is by clicking bubbles containing words that ca
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={6}>
 
@@ -154,7 +168,7 @@ To motivate patients to better implement instructions step by step, each stage w
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={3}>
 
@@ -192,7 +206,7 @@ The playground encourages diverse responses, withholding access to the list of a
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={5}>
 
@@ -218,7 +232,7 @@ New Answer (Empty)
 
 See Specific Answer
 
-![](./images/ui5.png)
+<Fit w={148}>![](./images/ui5.png)</Fit>
 
 </Col>
 
@@ -226,11 +240,13 @@ See Specific Answer
 
 See Whole List after Unlocking
 
-![](./images/ui6.png)
+<Fit w={148}>![](./images/ui6.png)</Fit>
 
 </Col>
 
 </Row>
+
+<Block mb={100}>
 
 ### 07. Parents' App - Community
 
@@ -238,13 +254,13 @@ See Whole List after Unlocking
 
 The fostering of a supportive community and the grading system not only facilitate the dissemination of valuable insights and experiences but also afford them an opportunity for self-reflection on their interactions with children.
 
-<Grid cols={5}>
+<Grid cols={5} gap="10px 10px" pad="0px 0px 0px 0px">
 
 <Cell>
 
 New Question
 
-![](./images/iphone-21.png)
+<Fit w={194}>![](./images/iphone-21.png)</Fit>
 
 </Cell>
 
@@ -252,7 +268,7 @@ New Question
 
 Select Tag
 
-![](./images/iphone-28.png)
+<Fit w={194}>![](./images/iphone-28.png)</Fit>
 
 </Cell>
 
@@ -260,7 +276,7 @@ Select Tag
 
 Messages
 
-![](./images/iphone-22.png)
+<Fit w={194} center>![](./images/iphone-22.png)</Fit>
 
 </Cell>
 
@@ -268,7 +284,7 @@ Messages
 
 My Profile
 
-![](./images/iphone-23.png)
+<Fit w={194}>![](./images/iphone-23.png)</Fit>
 
 </Cell>
 
@@ -276,13 +292,21 @@ My Profile
 
 Friend’s Profile
 
-![](./images/iphone-29.png)
+<Fit w={194}>![](./images/iphone-29.png)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="background">👋Background</Divider>
+
+<Block mb={100}>
 
 ### C-PTSD on Children Who Grew Up In Depressed Education And Family Environment
 
@@ -290,7 +314,7 @@ Friend’s Profile
 
 <Col span={7}>
 
-The social anxiety and psychological issues in contemporary young adults do not solely originate from the pressures of life and work. Apart from individuals who deliberately opt for solitude, these concerns may also be intricately linked to the interaction patterns fostered within the suppressive educational culture of China's indigenous families, further compounded by the presence of intergenerational trauma. Consequently, these individuals may already be afflicted with C-PTSD, albeit unbeknownst to themselves.
+The social anxiety and psychological issues in contemporary young adults do not solely originate from the pressures of life and work. Apart from individuals who deliberately opt for solitude, these concerns may also be intricately linked to the <Span weight={500}>interaction patterns fostered within the suppressive educational culture of China's indigenous families</Span>, further compounded by the presence of intergenerational trauma. Consequently, these individuals may already be afflicted with C-PTSD, albeit unbeknownst to themselves.
 
 </Col>
 
@@ -306,9 +330,13 @@ The social anxiety and psychological issues in contemporary young adults do not 
 
 Complex post-traumatic stress disorder (C-PTSD) is caused by ongoing trauma which lasts for months or years and result in borderline personality disorder such as emotional flashbacks, toxic shame, self-abandonment, vicious inner critic, and social anxiety.
 
+</Block>
+
+<Block mb={100}>
+
 ### Category - 4F Personality
 
-<Row>
+<Row pt={20}>
 
 <Col span={3}>
 
@@ -352,13 +380,17 @@ The price of admission to any relationship is the forfeiture of all their needs,
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Differentiation & Effect
 
-<Grid cols={3}>
+<Grid cols={3} template=".75fr 1fr 1fr">
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/group-262.png)
+<Fit w={253}>![](./images/group-262.png)</Fit>
 
 #### Low Self-Esteem
 
@@ -366,15 +398,15 @@ Feel worthless and helpless to overcome their troubles or manage their lives, an
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/frame-21.png)
+<Fit w={337}>![](./images/frame-21.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/frame-19.png)
+<Fit w={337}>![](./images/frame-19.png)</Fit>
 
 #### Poor Emotional Regulation
 
@@ -384,7 +416,7 @@ Struggle to control their emotions, which are often volatile, fear- or anger-bas
 
 <Cell>
 
-![](./images/frame-20.png)
+<Fit w={337}>![](./images/frame-20.png)</Fit>
 
 #### Inability to self-argue
 
@@ -394,11 +426,15 @@ Cannot question wrong behaviors, which they tend to listen, agree, and take care
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### How C-PTSD Formed From Unbeknown Childhood Truma?
 
 <Grid cols={4}>
 
-<Cell>
+<Cell row="span 6">
 
 It begins from
 
@@ -406,13 +442,13 @@ It begins from
 
 Power and control can create safety, assuage abandonment and secure love.
 
-![](./images/step1.png)
+<Fit w={227}>![](./images/step1.png)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell row="span 3">
 
-![](./images/step2.png)
+<Fit w={227}>![](./images/step2.png)</Fit>
 
 #### 02. Problems of Co-dependency
 
@@ -420,9 +456,9 @@ Children are focused on coping with external family events, leaving them disconn
 
 </Cell>
 
-<Cell>
+<Cell row="span 4">
 
-![](./images/step4.png)
+<Fit w={227}>![](./images/step4.png)</Fit>
 
 #### 04. Maliciously Interpreting Neutral Attitude Signals
 
@@ -430,9 +466,9 @@ Defensive behaviors activates the brain's self-protective mode, suddenly perceiv
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/step6.png)
+<Fit w={227}>![](./images/step6.png)</Fit>
 
 #### 06. Worse Thoughts
 
@@ -440,9 +476,9 @@ Hunger insatiably for love but never feel it is enough.
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/step7.png)
+<Fit w={227}>![](./images/step7.png)</Fit>
 
 #### 07. Escape
 
@@ -450,9 +486,9 @@ Consider themselves as friendless; the real world becomes their inner perception
 
 </Cell>
 
-<Cell>
+<Cell row="span 3">
 
-![](./images/step3.png)
+<Fit w={227}>![](./images/step3.png)</Fit>
 
 #### 03. Self-criticism
 
@@ -460,9 +496,9 @@ Children in abusive environments may internalize the negative messages and treat
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/step5.png)
+<Fit w={227}>![](./images/step5.png)</Fit>
 
 #### 05. Negative Interaction Patterns
 
@@ -470,13 +506,17 @@ Focus on bad interactions and withdraw from social circles, treat others by foll
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
 ### And Finally...  EXTREME ISOLATION & AVOIDANCE
 
 </Cell>
 
 </Grid>
+
+</Block>
+
+<Block mb={100}>
 
 ### Conclusion
 
@@ -488,7 +528,15 @@ Chinese educational culture has been criticized for its tendency to emphasize co
 
 However, I have always believed that there are no parents in the world who do not love their children; they simply use inappropriate methods and may not immediately recognize their mistakes.
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="analysis">🔬Analysis</Divider>
+
+<Block mb={100}>
 
 ### Potential Patients Who Have Grown Up
 
@@ -508,7 +556,7 @@ It is not important to know they are diagnosed as CPTSD patients due to
 
 <Col span={2}>
 
-![](./images/diagnosis-icon.png)
+<Fit w={148}>![](./images/diagnosis-icon.png)</Fit>
 
 </Col>
 
@@ -524,11 +572,15 @@ But it is important for those potential patients to
 
 <Col span={2}>
 
-![](./images/mitigate-icon.png)
+<Fit w={148}>![](./images/mitigate-icon.png)</Fit>
 
 </Col>
 
 </Row>
+
+</Block>
+
+<Block mb={100}>
 
 ### Interviews
 
@@ -556,15 +608,23 @@ The interview session serves as a vital exploration of personal narratives, reve
 
 </Row>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="define">📌Definition</Divider>
+
+<Block mb={100}>
 
 ### Problem Definition
 
-<Row>
+<Row align="end" pt={8} pb={8}>
 
 <Col span={2}>
 
-![](./images/needs.png)
+<Fit w={60}>![](./images/needs.png)</Fit>
 
 #### Common Needs
 
@@ -574,7 +634,7 @@ The interview session serves as a vital exploration of personal narratives, reve
 
 <Col span={3}>
 
-![](./images/cases.png)
+<Fit w={60}>![](./images/cases.png)</Fit>
 
 #### Clinical Cases
 
@@ -584,7 +644,7 @@ The interview session serves as a vital exploration of personal narratives, reve
 
 <Col span={3}>
 
-![](./images/insights.png)
+<Fit w={60}>![](./images/insights.png)</Fit>
 
 #### Detailed Insights
 
@@ -594,7 +654,7 @@ The interview session serves as a vital exploration of personal narratives, reve
 
 <Row>
 
-<Col span={2}>
+<Col span={2} pad="0 0 0 10px">
 
 Household healing
 
@@ -610,83 +670,95 @@ Emotional control
 
 </Col>
 
-<Col span={2}>
+<Col span={2} pad="0 0 0 0">
 
-![](./images/need-case.png)
-
-</Col>
-
-<Col span={3}>
-
-#### Inner Child Therapy
-
-<Small>Through a variety of external actions to achieve the unmet needs of childhood to heal the trauma.</Small>
-
-#### Cognitive Behavioral Therapy
-
-<Small>Gradually increased exposure to the things they fear and replace the toxic perception of the inner critic with a self-supportive perspective to stop unnecessary self-harm.</Small>
-
-#### Emotional Disclosure
-
-<Small>Demonstrates to the client the value of being vulnerable and encourages her to risk wading into her own vulnerability.</Small>
+<Fit w={168}>![](./images/need-case.png)</Fit>
 
 </Col>
 
-<Col span={2}>
+<Col span={3} pad="10px 0 0 0">
 
-![](./images/case-insight.png)
+<Text as="h4" size={18} color="#004377">Inner Child Therapy</Text>
+
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>Through a variety of external actions to achieve the unmet needs of childhood to heal the trauma.</Text>
+
+<Text as="h4" size={18} color="#004377">Cognitive Behavioral Therapy</Text>
+
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>Gradually increased exposure to the things they fear and replace the toxic perception of the inner critic with a self-supportive perspective to stop unnecessary self-harm.</Text>
+
+<Text as="h4" size={18} color="#004377">Emotional Disclosure</Text>
+
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>Demonstrates to the client the value of being vulnerable and encourages her to risk wading into her own vulnerability.</Text>
 
 </Col>
 
-<Col span={3}>
+<Col span={2} pad="0 0 0 0">
 
-<Small>1. They need to analyze childhood injury through questionnaires and guidance</Small>
+<Fit w={168}>![](./images/case-insight.png)</Fit>
 
-<Small>2. They need to fill the unmet needs of childhood through an object and/or a meaning</Small>
+</Col>
 
-<Small>3. They need correct and clear boundaries to gradually behave in better direction</Small>
+<Col span={3} pad="0 20px 0 10px">
 
-<Small>4. They need some sensory healing to calm down</Small>
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>1. They need to analyze childhood injury through questionnaires and guidance</Text>
 
-<Small>5. They require a spiritual or cultural beliefs, goals, or dreams for the future life</Small>
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>2. They need to fill the unmet needs of childhood through an object and/or a meaning</Text>
+
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>3. They need correct and clear boundaries to gradually behave in better direction</Text>
+
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>4. They need some sensory healing to calm down</Text>
+
+<Text as="p" size={14} lh={1.5} mt={0} mb={15}>5. They require a spiritual or cultural beliefs, goals, or dreams for the future life</Text>
 
 </Col>
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Design Goal
 
 The main objective of the design is to support a process of re-nurturing that is focused on the present, making sure that the features and interactions of the product lead users toward a route of emotional recovery and resilience.
 
-![](./images/design-goal.png)
+<Fit w={1008} center>![](./images/design-goal.png)</Fit>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="brainstorm">🧠Brainstorm</Divider>
 
+<Block mb={100}>
+
 ### Ideation
 
-In order to create a complete healing experience, I combine treatment with entertainment during the ideation phase by including therapeutic aspects into an interesting and entertaining structure and carefully using distraction techniques in the product's interactions to favorably reroute attention.
+In order to create a complete healing experience, I <Span weight={500}>combine treatment with entertainment</Span> during the ideation phase by including therapeutic aspects into an interesting and entertaining structure and carefully using distraction techniques in the product's interactions to favorably reroute attention.
 
-<Grid cols={3}>
+<Grid cols={3} gap="10px 20px">
 
-<Cell>
+<Cell align="center">
 
-<Lead>01</Lead>
+<Lead size={74} align="start" color="#333333">01</Lead>
 
 #### Construction Game
 
 </Cell>
 
-<Cell>
+<Cell align="center">
 
-<Lead>02</Lead>
+<Lead size={74} align="start" color="#333333">02</Lead>
 
 #### Answer Machine
 
 </Cell>
 
-<Cell>
+<Cell align="center">
 
-<Lead>03</Lead>
+<Lead size={74} align="start" color="#333333">03</Lead>
 
 #### Art Board
 
@@ -694,7 +766,7 @@ In order to create a complete healing experience, I combine treatment with enter
 
 <Cell>
 
-![](./images/idea2.png)
+<Fit w={309}>![](./images/idea2.png)</Fit>
 
 Become your inner child’s mum to exchange objects to build dream house through a mobile game. Npc will provide choices according to CBT therapy.
 
@@ -702,7 +774,7 @@ Become your inner child’s mum to exchange objects to build dream house through
 
 <Cell>
 
-![](./images/idea3.png)
+<Fit w={309} center>![](./images/idea3.png)</Fit>
 
 Get a random suggestion from “Best parent” App through an answer machine when you need a suggestion.
 
@@ -710,7 +782,7 @@ Get a random suggestion from “Best parent” App through an answer machine whe
 
 <Cell>
 
-![](./images/idea1.png)
+<Fit w={309}>![](./images/idea1.png)</Fit>
 
 Inspired by Google Arts & Culture’s “The Real Leonardo”, using others’ event fragments to fulfill own story.
 
@@ -718,39 +790,55 @@ Inspired by Google Arts & Culture’s “The Real Leonardo”, using others’ e
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Revised Design
+
+<Block mb={60}>
 
 #### Evaluation
 
-<Grid cols={2}>
+<Grid cols={2} template=".75fr 1fr" pad="0px 20px 20px 20px">
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/revised1.png)
-
-</Cell>
-
-<Cell>
-
-I improved the Answer Bot design using a strict evaluation process that prioritized accessibility and social impact in order to guarantee inclusive access and optimize beneficial contributions to society.
+<Fit w={406}>![](./images/revised1.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/revised2.png)
+I improved the <Span weight={500}>Answer Bot</Span> design using a strict evaluation process that prioritized accessibility and social impact in order to guarantee inclusive access and optimize beneficial contributions to society.
+
+</Cell>
+
+<Cell>
+
+<Fit w={542}>![](./images/revised2.png)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
 #### Service Blueprint
 
 I made the service blueprint to succinctly outline the holistic user journey, detailing the integration of the bot, parent's app, and therapeutic model within the Serendipity Codex ecosystem.
 
-![](./images/service-blueprint.png)
+<Fit w={1008} center>![](./images/service-blueprint.png)</Fit>
+
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
 
 <Divider id="design">🎨Design</Divider>
+
+<Block mb={100}>
 
 ### Product Design
 
@@ -772,13 +860,19 @@ I made the service blueprint to succinctly outline the holistic user journey, de
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Interaction Design & UX Writing
+
+<Block mb={60}>
 
 #### Question References / Metaphor Tag Comparison Table
 
-The entire system is inspired by STAIR Narrative Therapy. Just as STAIR therapy seeks to guide individuals towards emotional healing and growth, the design aspires to capture the essence of personal transformation on daily tasks. Each section is thoughtfully curated to reflect the journey of self-discovery.
+The entire system is inspired by <Span weight={500}>STAIR Narrative Therapy</Span>. Just as STAIR therapy seeks to guide individuals towards emotional healing and growth, the design aspires to capture the essence of personal transformation on daily tasks. Each section is thoughtfully curated to reflect the journey of self-discovery.
 
-<Grid cols={3} bg="rgba(195, 205, 215, 0.3)">
+<Grid cols={3} template=".5fr 1fr 1.5fr" bg="rgba(195, 205, 215, 0.3)">
 
 <Cell>
 
@@ -806,15 +900,15 @@ Those questions are always the same as the first step for C-PTSD users
 
 <Cell>
 
-<Lead>01</Lead>
+<Lead size={74} align="start" color="rgba(0, 0, 0, 0.2)">01</Lead>
 
-#### Understand the outcome of the event
+<Text as="h4" size={18} color="#004377">Understand the outcome of the event</Text>
 
 </Cell>
 
 <Cell>
 
-#### What is the problem you want address?
+<Text as="h4" size={18} color="#004377">What is the problem you want address?</Text>
 
 a) emotion regulation<br />b) sense of self<br />c) relationship patterns<br />d) narrative response
 
@@ -822,7 +916,7 @@ a) emotion regulation<br />b) sense of self<br />c) relationship patterns<br />d
 
 <Cell>
 
-#### If you were trapped in a nightmare, which terrifying moment would you face?
+<Text as="h4" size={18} color="#004377">If you were trapped in a nightmare, which terrifying moment would you face?</Text>
 
 a) a ship navigating stormy seas without areliable compass<br />b) a gun pointed at myself<br />c) a prey ensnared in a toxic spider's web<br />d) A fractured mirror, where distortedimages of my worst childhood loom
 
@@ -830,15 +924,15 @@ a) a ship navigating stormy seas without areliable compass<br />b) a gun pointed
 
 <Cell>
 
-<Lead>02</Lead>
+<Lead size={74} align="start" color="rgba(0, 0, 0, 0.2)">02</Lead>
 
-#### Analyze the cause of the event
+<Text as="h4" size={18} color="#004377">Analyze the cause of the event</Text>
 
 </Cell>
 
 <Cell>
 
-#### Who is showing up in this moment? Who do you think is the chief culprit?
+<Text as="h4" size={18} color="#004377">Who is showing up in this moment? Who do you think is the chief culprit?</Text>
 
 a) myself<br />b) intimate person<br />c) ordinary relationship<br />d) strangers
 
@@ -846,7 +940,7 @@ a) myself<br />b) intimate person<br />c) ordinary relationship<br />d) stranger
 
 <Cell>
 
-#### Who do you believe is responsible for this gloomy atmosphere surrounding you?
+<Text as="h4" size={18} color="#004377">Who do you believe is responsible for this gloomy atmosphere surrounding you?</Text>
 
 a) My own shadow, which casts doubt anddespair<br />b) The monster that created and accompaniedme but imprisoned me<br />c) Someone like a beautiful rose withthorns and sweet poison<br />d) Faceless individuals grabbed me, pullingme into the abyss
 
@@ -854,15 +948,15 @@ a) My own shadow, which casts doubt anddespair<br />b) The monster that created 
 
 <Cell>
 
-<Lead>03</Lead>
+<Lead size={74} align="start" color="rgba(0, 0, 0, 0.2)">03</Lead>
 
-#### Understand emotions from a physiological perspective
+<Text as="h4" size={18} color="#004377">Understand emotions from a physiological perspective</Text>
 
 </Cell>
 
 <Cell>
 
-#### What is happening in my body?
+<Text as="h4" size={18} color="#004377">What is happening in my body?</Text>
 
 a) sadness<br />b) fear<br />c) anger<br />d) disgust
 
@@ -870,7 +964,7 @@ a) sadness<br />b) fear<br />c) anger<br />d) disgust
 
 <Cell>
 
-#### What is the state of your heart as you traversethis desolate land?
+<Text as="h4" size={18} color="#004377">What is the state of your heart as you traversethis desolate land?</Text>
 
 a) Like dark cloud that never see the sun<br />b) Like the last live people to facemonsters in the world<br />c) Like a ticking timing boom, ready toexplode<br />d) Like stepping into a puddle of murky water,surrounded by a pile of putrid garbage
 
@@ -878,15 +972,15 @@ a) Like dark cloud that never see the sun<br />b) Like the last live people to f
 
 <Cell>
 
-<Lead>04</Lead>
+<Lead size={74} align="start" color="rgba(0, 0, 0, 0.2)">04</Lead>
 
-#### Understand the actions that lead to results
+<Text as="h4" size={18} color="#004377">Understand the actions that lead to results</Text>
 
 </Cell>
 
 <Cell>
 
-#### What is the problem you want address?
+<Text as="h4" size={18} color="#004377">What is the problem you want address?</Text>
 
 a) emotion regulation<br />b) sense of self<br />c) relationship patterns<br />d) narrative response
 
@@ -894,7 +988,7 @@ a) emotion regulation<br />b) sense of self<br />c) relationship patterns<br />d
 
 <Cell>
 
-#### What sinister force might have conjured these unsettling feelings within you?
+<Text as="h4" size={18} color="#004377">What sinister force might have conjured these unsettling feelings within you?</Text>
 
 a) The blaze of a wildfire awakened<br />b) The perfection and anxiety mixedcompulsion<br />c) The Petrified Gaze of the Medusa<br />d) The Submissive Dance with Shadows
 
@@ -902,15 +996,15 @@ a) The blaze of a wildfire awakened<br />b) The perfection and anxiety mixedcomp
 
 <Cell>
 
-<Lead>05</Lead>
+<Lead size={74} align="start" color="rgba(0, 0, 0, 0.2)">05</Lead>
 
-#### Define the severity of the result
+<Text as="h4" size={18} color="#004377">Define the severity of the result</Text>
 
 </Cell>
 
 <Cell>
 
-#### Why is this emotion coming up now?
+<Text as="h4" size={18} color="#004377">Why is this emotion coming up now?</Text>
 
 a) fight<br />b) flight<br />c) freeze<br />d) fawn
 
@@ -918,7 +1012,7 @@ a) fight<br />b) flight<br />c) freeze<br />d) fawn
 
 <Cell>
 
-#### In this forsaken place, where do your negative emotions take root and how deeply do they torment you?
+<Text as="h4" size={18} color="#004377">In this forsaken place, where do your negative emotions take root and how deeply do they torment you?</Text>
 
 a) In a closed room, where sensation ofasphyxia pervades like mist.<br />b) In a desolate crypt, where sorrow restslike an ancient curse.<br />c) In an underground river, where sadness attachedto every lives<br />d) In a cursed forest, where despairlingers like a sinister fog.
 
@@ -926,15 +1020,19 @@ a) In a closed room, where sensation ofasphyxia pervades like mist.<br />b) In a
 
 </Grid>
 
+</Block>
+
+<Block mb={60}>
+
 #### Background Image Ideas
 
-In order to infuse a sense of “Towards rebirth from the brink of death” into the scene, I use dreamy colors to depict somber elements representing the meaning behind the five questions.
+In order to infuse a sense of <Span weight={500}>“Towards rebirth from the brink of death”</Span> into the scene, I use dreamy colors to depict somber elements representing the meaning behind the five questions.
 
-<Tabs>
+<Tabs active={4} bg="rgba(195, 205, 215, 0.3)" tab="rgba(255, 197, 179, 0.3)" tabActive="rgba(255, 60, 0, 0.3)">
 
 <Tab label="01. Nightmare">
 
-<Grid cols={1}>
+<Grid cols={2} gap="10px 20px" pad="20px 20px 20px 10px">
 
 <Cell>
 
@@ -948,7 +1046,7 @@ In order to infuse a sense of “Towards rebirth from the brink of death” into
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 The 'Nightmare' captures the aftermath of the incident with eerie visuals, expressing both the yearning for an escape and its harmful effects.
 
@@ -960,7 +1058,7 @@ The 'Nightmare' captures the aftermath of the incident with eerie visuals, expre
 
 <Tab label="02. Cute Devil">
 
-<Grid cols={1}>
+<Grid cols={2} gap="10px 20px" pad="20px 20px 20px 10px">
 
 <Cell>
 
@@ -974,7 +1072,7 @@ The 'Nightmare' captures the aftermath of the incident with eerie visuals, expre
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 The 'Devil' scene uses a dark illustration to show the underlying reason of the incident and offers a visual metaphor for the user's grief that is both beautiful and terrifying.
 
@@ -986,7 +1084,7 @@ The 'Devil' scene uses a dark illustration to show the underlying reason of the 
 
 <Tab label="03. Injured">
 
-<Grid cols={1}>
+<Grid cols={2} gap="10px 20px" pad="20px 20px 20px 10px">
 
 <Cell>
 
@@ -1000,7 +1098,7 @@ The 'Devil' scene uses a dark illustration to show the underlying reason of the 
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 The "Injured" sequence, which depicts the internal wounds caused by the incident, presents a moving image of behavioral difficulties and emotional difficulty. There's pyrotechnics instead of blood, signifying the bilateral effects of pain.
 
@@ -1012,7 +1110,7 @@ The "Injured" sequence, which depicts the internal wounds caused by the incident
 
 <Tab label="04. Escape">
 
-<Grid cols={1}>
+<Grid cols={2} gap="10px 20px" pad="20px 20px 20px 10px">
 
 <Cell>
 
@@ -1026,7 +1124,7 @@ The "Injured" sequence, which depicts the internal wounds caused by the incident
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 The 'Escape' scene demonstrates the acts performed, signifying the user's attempt to escape the consequences of the incident, but being stuck at a dead end due to inappropriate behavior.
 
@@ -1038,21 +1136,21 @@ The 'Escape' scene demonstrates the acts performed, signifying the user's attemp
 
 <Tab label="05. Indulge">
 
-<Grid cols={2}>
+<Grid cols={2} gap="10px 20px" pad="20px 20px 20px 10px">
 
 <Cell>
 
-![](./images/question5-dive.jpg)
+<Fit w={384}>![](./images/question5-dive.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/q5.jpg)
+<Fit w={384}>![](./images/q5.jpg)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 The 'Indulge' scenario artfully employs vibrant visuals of submerging into water surrounded by goldfish and moonlight, symbolizing a metaphorical salvation that not only captures the gravity of the situation but also imbues the viewer with a nuanced understanding of the profound and optimistic aspects of the experience.
 
@@ -1064,11 +1162,19 @@ The 'Indulge' scenario artfully employs vibrant visuals of submerging into water
 
 </Tabs>
 
+</Block>
+
+<Block mb={60}>
+
 #### Information Architecture
 
-The patient's bot's information architecture is carefully designed into five stages, which correspond to the sequential steps of a medical consultation. This allows users to experience an intuitive journey that is similar to visiting a doctor.
+The patient's bot's information architecture is carefully designed into five stages, which correspond to the sequential steps of a medical consultation. This allows users to experience an intuitive journey that is similar to <Span weight={500}>visiting a doctor</Span>.
 
-![](./images/archi2.png)
+<Fit w={1008} center>![](./images/archi2.png)</Fit>
+
+</Block>
+
+<Block mb={60}>
 
 #### Interactions - Reflection Stage
 
@@ -1086,7 +1192,7 @@ The interface design entails clicking on bubbles to dynamically increase words b
 
 <Col span={2}>
 
-![](./images/positive.png)
+<Fit w={148}>![](./images/positive.png)</Fit>
 
 Supportive<br />Helpful<br />Encouraging<br />Genuine<br />Heartwarming<br />Inspiring<br />Insightful<br />Comforting<br />Assisting<br />Worth trying<br />Pleasing<br />Knowledgeable<br />Uplifting<br />Mutual aid<br />...
 
@@ -1094,7 +1200,7 @@ Supportive<br />Helpful<br />Encouraging<br />Genuine<br />Heartwarming<br />Ins
 
 <Col span={2}>
 
-![](./images/neutral.png)
+<Fit w={148}>![](./images/neutral.png)</Fit>
 
 Irrelevant<br />Unhelpful<br />Confusing<br />Ineffective<br />Trivial<br />Disruptive<br />Uninspiring<br />Agitating<br />Perplexing<br />Indifferent<br />Unfriendly<br />Unsympathetic<br />Unsupportive<br />Inauthentic<br />...
 
@@ -1102,7 +1208,7 @@ Irrelevant<br />Unhelpful<br />Confusing<br />Ineffective<br />Trivial<br />Disr
 
 <Col span={2}>
 
-![](./images/negative.png)
+<Fit w={148}>![](./images/negative.png)</Fit>
 
 Generic<br />Moderate<br />So-so<br />Average<br />Neutral emotions<br />Standard advice<br />No strong opinion<br />No significant preference<br />Common support<br />Usual insights<br />Typical suggestions<br />...
 
@@ -1110,13 +1216,15 @@ Generic<br />Moderate<br />So-so<br />Average<br />Neutral emotions<br />Standar
 
 </Row>
 
+</Block>
+
 #### Interactions - Face Expression for Other Stages
 
 <Grid cols={2}>
 
 <Cell>
 
-![](./images/frame-2.png)
+<Fit w={474}>![](./images/frame-2.png)</Fit>
 
 </Cell>
 
@@ -1130,29 +1238,41 @@ e.g. it is showing dizziness and a question mark when looking for an appropriate
 
 <Cell>
 
-![](./images/frame-6.png)
+<Fit w={474}>![](./images/frame-6.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/frame-5.png)
+<Fit w={474}>![](./images/frame-5.png)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Parents' App
+
+<Block mb={60}>
 
 #### Information Architecture
 
 The parent app is essentially a user-friendly social media platform that parents can easily interact with, discuss, and contribute to when it comes to issues pertaining to their children.
 
-![](./images/archi1.png)
+<Fit w={1008} center>![](./images/archi1.png)</Fit>
+
+</Block>
 
 #### Wireframes
 
-![](./images/wireframe.png)
+<Fit w={1008} center>![](./images/wireframe.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Model Making
 
@@ -1192,15 +1312,19 @@ In order to test the healing effect, I 3D printed the shell and assembled it to 
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### User Journey
 
-<Grid cols={3}>
+<Grid cols={3} pad="0px 20px 20px 20px">
 
 <Cell>
 
 1\. hit the “ANSWER ME” button
 
-![](./images/rectangle-255.jpg)
+<Fit w={309}>![](./images/rectangle-255.jpg)</Fit>
 
 </Cell>
 
@@ -1208,7 +1332,7 @@ In order to test the healing effect, I 3D printed the shell and assembled it to 
 
 2\. fulfill 5 questions
 
-![](./images/rectangle-256.jpg)
+<Fit w={309} center>![](./images/rectangle-256.jpg)</Fit>
 
 </Cell>
 
@@ -1216,7 +1340,7 @@ In order to test the healing effect, I 3D printed the shell and assembled it to 
 
 3\. get the printed prescription
 
-![](./images/rectangle-257.jpg)
+<Fit w={309}>![](./images/rectangle-257.jpg)</Fit>
 
 </Cell>
 
@@ -1224,7 +1348,7 @@ In order to test the healing effect, I 3D printed the shell and assembled it to 
 
 4\. implement and record
 
-![](./images/rectangle-258.jpg)
+<Fit w={309}>![](./images/rectangle-258.jpg)</Fit>
 
 </Cell>
 
@@ -1232,7 +1356,7 @@ In order to test the healing effect, I 3D printed the shell and assembled it to 
 
 5\. make reflections
 
-![](./images/rectangle-259.jpg)
+<Fit w={309} center>![](./images/rectangle-259.jpg)</Fit>
 
 </Cell>
 
@@ -1240,17 +1364,25 @@ In order to test the healing effect, I 3D printed the shell and assembled it to 
 
 6\. check the discussion behind
 
-![](./images/rectangle-260.jpg)
+<Fit w={309}>![](./images/rectangle-260.jpg)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
 <Divider id="conclusion">💡Conclusion</Divider>
+
+<Block mb={100}>
 
 ### Key Takeaways
 
-<Grid cols={2}>
+<Grid cols={2} gap="30px 40px">
 
 <Cell>
 
@@ -1285,3 +1417,7 @@ It goes beyond the conceptual by meticulously planning the release at each step,
 </Cell>
 
 </Grid>
+
+</Block>
+
+</Block>

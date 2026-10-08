@@ -19,8 +19,15 @@ import Stat from './Stat.astro';
 import Small from './Small.astro';
 import Section from './Section.astro';
 import Box from './Box.astro';
+import Text from './Text.astro';
+import Fit from './Fit.astro';
+import Block from './Block.astro';
+import Span from './Span.astro';
+import Abs from './Abs.astro';
+import Clip from './Clip.astro';
+import Intro from './Intro.astro';
 
 export const mdxComponents = {
   Lead, MetaGrid, Meta, Row, Col, Grid, Cell, Divider, YouTube, Embed, Quote,
-  LinkButton, Member, Tabs, Tab, Accordion, Stat, Small, Section, Box,
+  LinkButton, Member, Tabs, Tab, Accordion, Stat, Small, Section, Box, Text, Fit, Block, Span, Abs, Clip, Intro,
 };

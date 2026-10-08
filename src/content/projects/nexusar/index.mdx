@@ -13,10 +13,24 @@ theme:
   background: "#141415"
   text: "#ffffff"
   accent: "#05f3ff"
+  paragraphGap: 10
+ending: 
+  show: "full"
+  line: "rgba(255, 197, 223, 0.6)"
+  title: "#05f3ff"
+  gradient: "linear-gradient(40deg, rgb(5, 243, 255), rgb(255, 197, 223) 65%)"
+  button: "#1e1e1e"
+  buttonText: "#ffffff"
 order: 6
 ---
 
+<Block mb={80}>
+
+<Block mt={40} mb={20}>
+
 <Lead>Urban Nexus Collective is an AR platform added on lampposts for the community to express their opinions by building a virtual world upon existence.</Lead>
+
+</Block>
 
 <MetaGrid>
 
@@ -54,7 +68,7 @@ Phil (Wean) Zhao<br />[Ivy (Xinzhu) Wang](https://xinzhuwang.cargo.site/)<br />S
 
 It is a design challenge from employees @ Meta Reality Lab, Gensler, and Boston Chinatown. Lamp posts have been around for a very long time to serve the purpose of providing light. We are trying to add additional functions that metaphor a campfire where the community gathers around and interact and share their opinions and stories.
 
-Urban Nexus Collective is a platform that aim to build a local community through AR interaction on Lamppost to enhance the overall shared opinions among "familiar strangers".
+Urban Nexus Collective is a platform that aim to <Span weight={500} color="#05f3ff">build a local community through AR interaction on Lamppost</Span> to enhance the overall shared opinions among "familiar strangers".
 
 </Col>
 
@@ -66,9 +80,13 @@ Urban Nexus Collective is a platform that aim to build a local community through
 
 </Row>
 
-<Divider id="product">📱Main Features</Divider>
+</Block>
 
-<Row>
+<Block pt={60} pb={60}>
+
+<Divider id="product" color="#ffffff">📱Main Features</Divider>
+
+<Row align="center" mb={60}>
 
 <Col span={6}>
 
@@ -90,7 +108,7 @@ The technology makes city infrastructures like lamp posts the communication inte
 
 </Row>
 
-<Row>
+<Row align="center" mb={60}>
 
 <Col span={9}>
 
@@ -110,83 +128,97 @@ Nexus provides a user-friendly and inclusive environment for community members t
 
 </Row>
 
-<Divider id="research">📱Research</Divider>
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="research" color="#ffffff">📱Research</Divider>
+
+<Block mb={100}>
 
 ### Background
 
 In the city of Providence, a diverse group of passionate residents united with a shared goal—to breathe new life into their beloved community. This dynamic ensemble consisted of college students from distant shores, dedicated long-time locals with bustling schedules, and resilient immigrants striving to find their place in this new land.
 
-![](./images/observe.png)
+<Fit w={1008} center>![](./images/observe.png)</Fit>
 
 Inspired from some interesting public events on Tiktok, we installed checker board and poker cards around areas with busy pedestrian traffics such as park, playground, activity field, and bus stops. We found that:
 
 <Grid cols={4}>
 
-<Cell>
+<Cell align="center" justify="center">
 
-![](./images/preicon3.png)
+<Fit w={150} center>![](./images/preicon3.png)</Fit>
+
+</Cell>
+
+<Cell align="center" justify="center">
+
+<Fit w={150} center>![](./images/preicon1.png)</Fit>
+
+</Cell>
+
+<Cell align="center" justify="center">
+
+<Fit w={150} center>![](./images/preicon4.png)</Fit>
+
+</Cell>
+
+<Cell align="center" justify="center">
+
+<Fit w={150} center>![](./images/preicon2.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/preicon1.png)
+<Text as="p" size={18} align="center" mt={0} mb={0} pad="5px 10px 5px 10px">People don’t tend to stay in one place</Text>
 
 </Cell>
 
 <Cell>
 
-![](./images/preicon4.png)
+<Text as="p" size={18} align="center" mt={0} mb={0} pad="5px 10px 5px 10px">People are attracted by music, graphics, and large scale visuals</Text>
 
 </Cell>
 
 <Cell>
 
-![](./images/preicon2.png)
+<Text as="p" size={18} align="center" mt={0} mb={0} pad="5px 10px 5px 10px">Simplicity encourages interaction</Text>
 
 </Cell>
 
 <Cell>
 
-People don’t tend to stay in one place
-
-</Cell>
-
-<Cell>
-
-People are attracted by music, graphics, and large scale visuals
-
-</Cell>
-
-<Cell>
-
-Simplicity encourages interaction
-
-</Cell>
-
-<Cell>
-
-Social interaction reinforce affiliated tendencies
+<Text as="p" size={18} align="center" mt={0} mb={0} pad="5px 10px 5px 10px">Social interaction reinforce affiliated tendencies</Text>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Discover - "Familiar Strangers"
 
 By observing and analyzing the spectators and participants around lampposts, we found a perfect word to describe them ---- "Familiar Strangers".
 
-<Row>
+<Row align="center">
 
 <Col span={7}>
 
-<Quote>
+<Box bg="rgba(5, 243, 255, 0.1)" pad="10px 40px 10px 40px" mt={20} mb={20} mx="20px 20px" radius="0px">
+
+<Quote size={28} mt={10} mb={20} padx={40}>
 
 Familiar strangers are individuals who share similar behavioral patterns or common interests with a person, even though they are not explicitly connected or familiar with each other.
 
-Milgram specified that “the further removed familiar strangers were from their routine encounters, the more likely they would be to engage in interaction and break the familiar stranger relationship”
-
 </Quote>
+
+<Text as="p" size={18} align="center" mt={0} mb={0} pad="5px 10px 5px 10px">Milgram specified that “the further removed familiar strangers were from their routine encounters, the more likely they would be to engage in interaction and break the familiar stranger relationship”</Text>
+
+</Box>
 
 </Col>
 
@@ -198,11 +230,19 @@ Milgram specified that “the further removed familiar strangers were from their
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Problem
 
 Engaging community members in the ideation process for community building can often be challenging due to limited accessibility and low levels of engagement.
 
-![](./images/problem.png)
+<Fit w={1008} center>![](./images/problem.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### Experiment 1 : Lamppost Engagement
 
@@ -222,9 +262,15 @@ We put QR codes that leads to a survey with one simple question: "Did you see th
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Experiment 2 : Potential Ways of Interaction
 
-<Grid cols={2}>
+<Block mb={60}>
+
+<Grid cols={2} template=".5fr 1fr">
 
 <Cell>
 
@@ -234,9 +280,9 @@ We put QR codes that leads to a survey with one simple question: "Did you see th
 
 </Cell>
 
-<Cell>
+<Cell align="center" row="span 4">
 
-![](./images/exp2.png)
+<Fit w={632}>![](./images/exp2.png)</Fit>
 
 </Cell>
 
@@ -248,17 +294,19 @@ put out maps in the ID building and 15West, providing 2 sets of stickers for the
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
 #### Results:
 
-![](./images/exp2-result.png)
+<Fit w={316}>![](./images/exp2-result.png)</Fit>
 
 </Cell>
 
 </Grid>
 
-<Row>
+</Block>
+
+<Row align="end">
 
 <Col span={3}>
 
@@ -292,6 +340,10 @@ Other than the stickers we provided, there are also comments on "other’s stick
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Experiment 3 : Effectiveness of AI
 
 Considering accessibility, we decided to provide four addition types of input (text, voice, photo, drawing) to fulfill different scenarios.
@@ -306,9 +358,9 @@ To test out the effectiveness of AI generated 3D models
 
 </Cell>
 
-<Cell>
+<Cell align="center" row="span 4">
 
-![](./images/test-ai.png)
+<Fit w={474}>![](./images/test-ai.png)</Fit>
 
 </Cell>
 
@@ -320,11 +372,11 @@ Put people's response into AI and generate it into 3d models & see if people are
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
 #### Results:
 
-![](./images/result-ai.png)
+<Fit w={474}>![](./images/result-ai.png)</Fit>
 
 </Cell>
 
@@ -332,65 +384,73 @@ Put people's response into AI and generate it into 3d models & see if people are
 
 Here are the detailed testing results:
 
-![](./images/ai2.png)
+<Fit w={1008} center>![](./images/ai2.png)</Fit>
 
 <Grid cols={4}>
 
-<Cell>
+<Cell col="span 2">
 
 We also tried out few software that generate 3D model from images or text instructions (prompts) to understand the basic user journey of using AI to express fuzzy ideas.
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/group-2209.jpg)
-
-</Cell>
-
-<Cell>
-
-![](./images/img-7478-1.jpg)
+<Fit w={227}>![](./images/group-2209.jpg)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell row="span 4">
 
-![](./images/kaedim.png)
+<Fit w={227}>![](./images/img-7478-1.jpg)</Fit>
+
+</Cell>
+
+<Cell col="span 2">
+
+<Fit w={60}>![](./images/kaedim.png)</Fit>
 
 Kaedim: Magically generate custom 3D models in minutes from 2d images.
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
-![](./images/spline.png)
+<Fit w={60}>![](./images/spline.png)</Fit>
 
 Spline AI: Text instructions AI. Generate 3d objects and scenes by describing what you want to create. Modify objects, apply materials, add lighting, and more.
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
-![](./images/swlqx6mjuzhl2thlgmlz-14-sev9v-2x-1.jpg)
-
-</Cell>
-
-<Cell>
-
-![](./images/image3-2.png)
+<Fit w={227}>![](./images/swlqx6mjuzhl2thlgmlz-14-sev9v-2x-1.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/image-37.png)
+<Fit w={227}>![](./images/image3-2.png)</Fit>
+
+</Cell>
+
+<Cell>
+
+<Fit w={227}>![](./images/image-37.png)</Fit>
 
 </Cell>
 
 </Grid>
 
-<Divider id="define">📱Define</Divider>
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="define" color="#ffffff">📱Define</Divider>
+
+<Block mb={100}>
 
 ### Insights - Digital Cities as Interaction Machines
 
@@ -398,11 +458,11 @@ Spline AI: Text instructions AI. Generate 3d objects and scenes by describing wh
 
 <Cell>
 
-![](./images/image-1.jpg)
+<Fit w={474}>![](./images/image-1.jpg)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell row="span 2">
 
 Lamp post projects a map of the surrounding area (a canvas) and some built-in infrastructures (hospital, house, park, trees, monster, ship, road, pets, etc.). Players can pick something and add it to the map. Different lamp posts will be placed in different districts, which allows citizens to move around and cooperate with people in different locations. Different decisions under different lamp posts will be synchronized to the final result.
 
@@ -412,7 +472,7 @@ People can use their phone to see this virtual city, use MR glasses, or AR holog
 
 <Cell>
 
-![](./images/image-2.jpg)
+<Fit w={474}>![](./images/image-2.jpg)</Fit>
 
 </Cell>
 
@@ -424,11 +484,11 @@ Under this scenario, lamp posts are used as an anonymous opinion board that pays
 
 <Cell>
 
-![](./images/image-3.jpg)
+<Fit w={474}>![](./images/image-3.jpg)</Fit>
 
 </Cell>
 
-<Cell>
+<Cell col="span 2">
 
 ![](./images/insights.png)
 
@@ -436,7 +496,11 @@ Under this scenario, lamp posts are used as an anonymous opinion board that pays
 
 </Grid>
 
-<Row>
+</Block>
+
+<Block mb={100}>
+
+<Row align="center">
 
 <Col span={3}>
 
@@ -454,7 +518,11 @@ We want to add value for local community, utilize these existing everywhere infr
 
 </Row>
 
-<Row>
+</Block>
+
+<Block mb={100}>
+
+<Row align="center">
 
 <Col span={3}>
 
@@ -474,9 +542,13 @@ This initiative allows residents to benefit from contactless community interacti
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### A Virtual World, A Service System
 
-<Row>
+<Row align="center">
 
 <Col span={3}>
 
@@ -492,21 +564,33 @@ Because this is an idea for the future, it is critical to understand how this pl
 
 </Row>
 
+</Block>
+
+<Block mb={100}>
+
 ### Value Proposition
 
-![](./images/values.png)
+<Fit w={1008} center>![](./images/values.png)</Fit>
 
-<Divider id="design">📱Design</Divider>
+</Block>
+
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="design" color="#ffffff">📱Design</Divider>
+
+<Block mb={100}>
 
 ### Ways of input
 
-We eager to embark on a revitalization project to shape the city around us. Our greatest challenge lay in bridging the gap of accessibility. The absence of a central hub where their voices could resonate promptly, a lack of multilingual support, and a lack of creative avenues for expressing ideas threatened to dim their collective enthusiasm.
+We eager to embark on a revitalization project to shape the city around us. Our greatest challenge lay in <Span weight={500} color="#05f3ff">bridging the gap of accessibility</Span>. The absence of a central hub where their voices could resonate promptly, a lack of multilingual support, and a lack of creative avenues for expressing ideas threatened to dim their collective enthusiasm.
 
 <Grid cols={5}>
 
 <Cell>
 
-![](./images/ways1.png)
+<Fit w={178}>![](./images/ways1.png)</Fit>
 
 </Cell>
 
@@ -518,9 +602,9 @@ Allows clear and detailed explanations on concepts.<br />Voice inputs also helps
 
 </Cell>
 
-<Cell>
+<Cell justify="center" row="span 2">
 
-![](./images/brazuca-ui-design.png)
+<Fit w={178} center>![](./images/brazuca-ui-design.png)</Fit>
 
 </Cell>
 
@@ -534,13 +618,13 @@ Offers a concise and universally recognizable way for community members to expre
 
 <Cell>
 
-![](./images/ways3.png)
+<Fit w={178}>![](./images/ways3.png)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/ways2.png)
+<Fit w={178}>![](./images/ways2.png)</Fit>
 
 </Cell>
 
@@ -562,25 +646,35 @@ Offers a way to provide specific visual information. It helps community members 
 
 <Cell>
 
-![](./images/ways4.png)
+<Fit w={178}>![](./images/ways4.png)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Process Flow
 
 From all the tests above, we created this information architecture to make the user experience as seamless and intuitive as possible. We are trying to organize information in a way that is easy to understand, providing clear and concise instructions, and minimizing any potential barriers or roadblocks that could hinder the user's progress.
 
-![](./images/processflow.png)
+<Fit w={1008} center>![](./images/processflow.png)</Fit>
+
+</Block>
+
+<Block mb={100}>
 
 ### UI System
 
-![](./images/nexus-uis.png)
+<Fit w={1008} center>![](./images/nexus-uis.png)</Fit>
+
+</Block>
 
 ### Scenario
 
-<Row>
+<Row mb={60}>
 
 <Col span={3}>
 
@@ -612,7 +706,7 @@ From all the tests above, we created this information architecture to make the u
 
 </Row>
 
-<Row>
+<Row mb={60}>
 
 <Col span={3}>
 
@@ -642,11 +736,17 @@ From all the tests above, we created this information architecture to make the u
 
 </Row>
 
-<Divider id="conclusion">📱Conclusion</Divider>
+</Block>
+
+<Block pt={60} pb={60}>
+
+<Divider id="conclusion" color="#ffffff">📱Conclusion</Divider>
+
+<Block mb={100}>
 
 ### Future Opportunities
 
-![](./images/end.png)
+<Fit w={1008} center>![](./images/end.png)</Fit>
 
 <Grid cols={5}>
 
@@ -682,7 +782,13 @@ The product could incorporate feedback mechanisms to gather insights and suggest
 
 </Grid>
 
+</Block>
+
+<Block mb={100}>
+
 ### Key Takeaways
+
+<Block mb={60}>
 
 #### Collaboration and Ciritiques from Different Professionals
 
@@ -694,24 +800,34 @@ Engaging with a diverse group of professionals, including designers, urban plann
 
 <Cell>
 
-![](./images/20240105221930.jpg)
+<Fit w={309}>![](./images/20240105221930.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/20240105222121.jpg)
+<Fit w={309} center>![](./images/20240105222121.jpg)</Fit>
 
 </Cell>
 
 <Cell>
 
-![](./images/20240105222009.jpg)
+<Fit w={309}>![](./images/20240105222009.jpg)</Fit>
 
 </Cell>
 
 </Grid>
 
+</Block>
+
+<Block mb={60}>
+
 #### Validation for Concept Design
 
 Under the guidance of our wondeful professor Andy Law, the AR platform project has leveraged physical simulation experiments to validate virtual designs, providing invaluable insights into user behavior and interaction patterns. By transforming virtual concepts into tangible experiences, we have been able to analyze user engagement, navigation preferences, and feedback, which have informed iterative improvements and refinements to the platform.
+
+</Block>
+
+</Block>
+
+</Block>

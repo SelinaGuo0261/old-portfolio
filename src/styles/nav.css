@@ -1,0 +1,53 @@
+/* Navbar — generated from the original Webflow stylesheet. */
+.div-block-3 { margin-left: 100px; margin-right: 100px; }
+.navbar-5 { background-color: #f7f8fa; width: auto; position: sticky; top: 0; overflow: hidden; box-shadow: 0 2px 5px #0003; }
+.navbar-5.on-dark { background-color: #f7f8fa00; width: 100%; position: fixed; overflow: hidden; }
+.brand.w--current { background-image: none; }
+.nav-link-13 { color: #000; font-family: Fivosansmodern, sans-serif; font-size: 16px; font-weight: 400; line-height: 20px; }
+.nav-link-13.w--current { color: var(--brand-blue); font-family: Fivosansmodern, sans-serif; }
+.nav-link-13.on-dark { color: #fff; }
+.logo-bright { background-color: #0000; height: 55px; }
+.logo-dark { height: 55px; position: static; }
+.brand2 { display: none; }
+.brand2.w--current { display: none; position: absolute; left: 100px; }
+@media screen and (min-width: 1280px) {
+  .navbar-5 { width: auto; }
+  .navbar-5.on-dark { width: 100%; }
+  .nav-link-13 { font-size: 18px; }
+  .logo-bright { height: 60px; }
+  .logo-dark { vertical-align: baseline; height: 60px; display: inline-block; }
+  .brand2.w--current { display: none; position: absolute; left: 100px; }
+}
+@media screen and (min-width: 1440px) {
+  .div-block-3 { margin-left: 180px; margin-right: 180px; }
+  .nav-link-13 { font-size: 20px; line-height: 28px; }
+  .logo-bright { height: 70px; }
+  .logo-dark { height: 70px; }
+  .brand2.w--current { left: 180px; }
+}
+@media screen and (min-width: 1920px) {
+  .div-block-3 { margin-left: 220px; margin-right: 220px; }
+  .nav-link-13 { font-size: 24px; line-height: 40px; }
+  .logo-bright { height: 80px; }
+  .nav-menu { position: relative; left: 0; }
+  .logo-dark { height: 80px; }
+  .brand2.w--current { left: 220px; }
+}
+@media screen and (max-width: 991px) {
+  .div-block-3 { margin-left: 20px; margin-right: 20px; }
+}
+@media screen and (max-width: 767px) {
+  .div-block-3 { margin-left: 20px; margin-right: 20px; }
+}
+@media screen and (max-width: 479px) {
+  .div-block-3 { background-color: #f7f8fa; height: 60px; margin-left: 0; margin-right: 0; }
+  .div-block-3.on-dark { background-color: #f7f8fa00; }
+  .navbar-5 { z-index: 9999; -webkit-text-fill-color: inherit; background-clip: border-box; position: sticky; overflow: visible; }
+  .navbar-5.on-dark { -webkit-text-fill-color: inherit; background-clip: border-box; overflow: visible; }
+  .menu-button-4 { background-color: #f7f8fa00; position: fixed; inset: 0% 0% auto auto; }
+  .brand { background-image: none; margin-left: 10px; padding-left: 0; position: fixed; inset: 0% auto auto 0%; }
+  .brand.w--current { background-color: #0000; }
+  .logo-bright { background-color: #f7f8fa00; }
+  .brand2.w--current { display: none; left: 10px; }
+}
+
