@@ -6,11 +6,11 @@
 interface Props { bg?: string; image?: string; text?: string; accent?: string; pad?: string; mt?: number; mb?: number; mx?: string; radius?: string }
 const { bg, image, text, accent, pad, mt, mb } = Astro.props;
 const style = [
-  bg && `--band-bg: ${bg}`,
-  image && `--band-image: url(${image})`,
+  `--band-bg: ${bg ?? 'transparent'}`,
+  `--band-image: ${image ? `url(${image})` : 'none'}`,
   text && `--text: ${text}`,
   accent && `--accent: ${accent}`,
-  pad && `--pad: ${pad}`,
+  `--band-pad: ${pad ?? '3rem 0'}`,
   mt !== undefined && `margin-top: ${mt}px`,
   mb !== undefined && `margin-bottom: ${mb}px`,
 ].filter(Boolean).join('; ');
@@ -26,8 +26,8 @@ const style = [
     width: 100vw;
     margin-left: -50vw;
     margin-block: 0;
-    background: var(--band-bg, transparent) var(--band-image, none) center / cover;
+    background: var(--band-bg) var(--band-image) center / cover;
     color: var(--text);
   }
-  .band__inner { margin-inline: var(--gutter); padding: var(--pad, 3rem 0); padding-inline: 0; }
+  .band__inner { margin-inline: var(--gutter); padding: var(--band-pad); padding-inline: 0; }
 </style>

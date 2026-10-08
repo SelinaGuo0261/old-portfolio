@@ -33,7 +33,8 @@ function initTabs(): void {
       ScrollTrigger.refresh();
     };
     buttons.forEach((b, i) => b.addEventListener('click', () => select(i)));
-    select(0, false);
+    const first = Number(tabs.dataset.active ?? 0);
+    select(first >= 0 && first < panels.length ? first : 0, false);
   }
 }
 

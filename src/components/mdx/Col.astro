@@ -1,10 +1,11 @@
 ---
-interface Props { span?: number }
-const { span = 12 } = Astro.props;
+/** One column of a <Row>: `span` of 12. `pad` overrides its side padding (default "0 10px"). */
+interface Props { span?: number; pad?: string }
+const { span = 12, pad } = Astro.props;
 ---
-<div class="col" style={`--span: ${span}`}><slot /></div>
+<div class="col" style={`--span: ${span}; --col-pad: ${pad ?? '0 10px'}`}><slot /></div>
 
 <style>
-  .col { width: calc(var(--span) / 12 * 100%); padding-inline: 10px; min-width: 0; }
+  .col { width: calc(var(--span) / 12 * 100%); padding: var(--col-pad); min-width: 0; }
   @media (max-width: 767px) { .col { width: 100%; } }
 </style>

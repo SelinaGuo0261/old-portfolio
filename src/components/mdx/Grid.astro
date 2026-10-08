@@ -7,7 +7,7 @@ interface Props { cols?: number; template?: string; bg?: string; gap?: string; p
 const { cols = 2, template, bg, gap, pad, mt, mb } = Astro.props;
 const style = [
   `--cols: ${cols}`,
-  template && `--tpl: ${template}`,
+  `--tpl: ${template ?? `repeat(${cols}, minmax(0, 1fr))`}`,
   bg && `background: ${bg}`,
   gap && `gap: ${gap}`,
   pad && `padding: ${pad}`,
@@ -22,7 +22,7 @@ const style = [
 <style>
   .grid {
     display: grid;
-    grid-template-columns: var(--tpl, repeat(var(--cols), minmax(0, 1fr)));
+    grid-template-columns: var(--tpl);
     gap: 20px;
     padding: 20px;
   }

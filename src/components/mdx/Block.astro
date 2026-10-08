@@ -10,12 +10,12 @@ const style = [
   mb !== undefined && `margin-bottom: ${mb}px`,
   pt !== undefined && `padding-top: ${pt}px`,
   pb !== undefined && `padding-bottom: ${pb}px`,
-  padx && `--padx: ${padx}`,
+  `--padx: ${padx ?? '0'}`,
 ].filter(Boolean).join('; ');
 ---
-<div class="block" style={style || undefined}><slot /></div>
+<div class="block" style={style}><slot /></div>
 
 <style>
-  .block { padding-inline: var(--padx, 0); }
+  .block { padding-inline: var(--padx); }
   @media (max-width: 479px) { .block { padding-inline: 0; } }
 </style>

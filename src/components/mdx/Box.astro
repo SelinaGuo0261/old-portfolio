@@ -3,11 +3,11 @@
 interface Props { bg?: string; image?: string; text?: string; accent?: string; pad?: string; mt?: number; mb?: number; mx?: string; radius?: string }
 const { bg, image, text, accent, pad, mt, mb, mx, radius } = Astro.props;
 const style = [
-  bg && `--box-bg: ${bg}`,
-  image && `--box-image: url(${image})`,
+  `--box-bg: ${bg ?? 'transparent'}`,
+  `--box-image: ${image ? `url(${image})` : 'none'}`,
   text && `--text: ${text}`,
   accent && `--accent: ${accent}`,
-  pad && `--pad: ${pad}`,
+  `--box-pad: ${pad ?? '1.5rem 2rem'}`,
   mt !== undefined && `margin-top: ${mt}px`,
   mb !== undefined && `margin-bottom: ${mb}px`,
   mx && `margin-left: ${mx.split(' ')[0]}; margin-right: ${mx.split(' ')[1]}`,
@@ -19,9 +19,9 @@ const style = [
 <style>
   .box {
     margin-block: 0;
-    padding: var(--pad, 1.5rem 2rem);
+    padding: var(--box-pad);
     border-radius: var(--radius);
-    background: var(--box-bg, transparent) var(--box-image, none) center / cover;
+    background: var(--box-bg) var(--box-image) center / cover;
     color: var(--text);
   }
   .box > :global(:first-child) { margin-top: 0; }

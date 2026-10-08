@@ -5,7 +5,7 @@
  */
 interface Props { h: string; mobile?: string; mb?: number }
 const { h, mobile, mb } = Astro.props;
-const style = [`--h: ${h}`, mobile && `--h-mobile: ${mobile}`, mb !== undefined && `margin-bottom: ${mb}px`]
+const style = [`--h: ${h}`, `--h-mobile: ${mobile ?? h}`, mb !== undefined && `margin-bottom: ${mb}px`]
   .filter(Boolean).join('; ');
 ---
 <div class="clip" style={style}><slot /></div>
@@ -13,5 +13,5 @@ const style = [`--h: ${h}`, mobile && `--h-mobile: ${mobile}`, mb !== undefined 
 <style>
   .clip { height: var(--h); overflow: hidden; }
   .clip > :global(p) { margin: 0; }
-  @media (max-width: 479px) { .clip { height: var(--h-mobile, var(--h)); } }
+  @media (max-width: 479px) { .clip { height: var(--h-mobile); } }
 </style>

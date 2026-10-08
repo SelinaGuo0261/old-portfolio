@@ -13,17 +13,17 @@ const style = [
   justify && `justify-content: ${justify}`,
   pad && `padding: ${pad}`,
   radius !== undefined && `border-radius: ${radius}px`,
-  col && `--col: ${col}`,
-  row && `--row: ${row}`,
+  `--col: ${col ?? 'auto'}`,
+  `--row: ${row ?? 'auto'}`,
 ].filter(Boolean).join('; ');
 ---
-<div class:list={['cell', { 'cell--panel': bg, 'cell--center': align }]} style={style || undefined}><slot /></div>
+<div class:list={['cell', { 'cell--panel': bg, 'cell--center': align }]} style={style}><slot /></div>
 
 <style>
   .cell { position: relative; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
   .cell > :global(*) { max-width: 100%; }
   .cell:not(.cell--center) > :global(p), .cell > :global(.fit) { align-self: stretch; }
-  .cell { grid-column: var(--col, auto); grid-row: var(--row, auto); }
+  .cell { grid-column: var(--col); grid-row: var(--row); }
   @media (max-width: 991px) { .cell { grid-column: auto; grid-row: auto; } }
   .cell--panel { padding: 20px; border-radius: var(--radius); }
 </style>
