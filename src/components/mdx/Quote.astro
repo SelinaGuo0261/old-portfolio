@@ -1,0 +1,22 @@
+---
+/** Callout, e.g. a "How might we…" question. */
+interface Props { title?: string }
+const { title } = Astro.props;
+---
+<blockquote class="quote" data-reveal>
+  {title && <div class="quote__title">{title}</div>}
+  <div class="quote__body"><slot /></div>
+</blockquote>
+
+<style>
+  .quote {
+    margin: 2.5rem 0;
+    padding: 2rem 2.5rem;
+    border-left: 6px solid var(--accent);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  .quote__title { font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+  .quote__body { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; line-height: 1.5; }
+  .quote__body :global(p) { margin: 0.4em 0; }
+</style>

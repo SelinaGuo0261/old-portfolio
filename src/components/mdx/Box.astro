@@ -1,0 +1,24 @@
+---
+/** Rounded tinted panel inside the content column. */
+interface Props { bg?: string; image?: string; dark?: boolean; light?: boolean }
+const { bg, image, dark, light } = Astro.props;
+const style = [
+  bg && `--box-bg: ${bg}`,
+  image && `--box-image: url(${image})`,
+  dark && '--text: #ffffff',
+  light && '--text: #000000',
+].filter(Boolean).join('; ');
+---
+<div class="box" style={style} data-reveal><slot /></div>
+
+<style>
+  .box {
+    margin-block: 2rem;
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius);
+    background: var(--box-bg, transparent) var(--box-image, none) center / cover;
+    color: var(--text);
+  }
+  .box > :global(:first-child) { margin-top: 0; }
+  .box > :global(:last-child) { margin-bottom: 0; }
+</style>

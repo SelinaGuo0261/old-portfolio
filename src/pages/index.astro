@@ -1,0 +1,266 @@
+---
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import StatusBar from '@/components/StatusBar.astro';
+import WorkCard from '@/components/cards/WorkCard.astro';
+import { getProjects } from '@/lib/projects';
+import { href, projectHref, isExternal } from '@/lib/url';
+import { home } from '@/data/home';
+import heroBg from '@/assets/home/hero-bg.png';
+import quotation from '@/assets/site/quotation.png';
+import star from '@/assets/site/orange-star.svg';
+import labelAmazing from '@/assets/site/label-amazing.svg';
+import labelDedicated from '@/assets/site/label-dedicated.svg';
+import labelPassionate from '@/assets/site/label-passionate.svg';
+import labelRemarkable from '@/assets/site/label-remarkable.svg';
+import scrollDown from '@/assets/lottie/scroll-down.json?url';
+import type { TagSprite } from '@/scripts/interactions/tagPhysics';
+
+// Pill images for the falling tags, at their natural size (px).
+const tagFiles = import.meta.glob<{ default: ImageMetadata }>('@/assets/home/tags/*.svg', { eager: true });
+const tagOrder = ['uiux', 'wordpress', 'webflow', 'whitelevel', 'webflow-green', 'sass', 'web', 'startup',
+  'maintence', 'integration', 'motion', 'pay', 'gsap', 'figma', 'migration'];
+const tags: TagSprite[] = tagOrder.flatMap((name) => {
+  const mod = Object.entries(tagFiles).find(([p]) => p.endsWith(`/${name}.svg`))?.[1];
+  return mod ? [{ src: mod.default.src, width: mod.default.width, height: mod.default.height }] : [];
+});
+const bg = await getImage({ src: heroBg, format: 'webp', width: 1600 });
+
+const all = await getProjects();
+const featured = all.filter((p) => p.data.featured);
+const showcase = all
+  .filter((p) => p.data.showcase)
+  .sort((a, b) => (a.data.showcase?.order ?? 0) - (b.data.showcase?.order ?? 0));
+---
+
+<BaseLayout navVariant="overlay">
+  <section class="hero" data-nav-hero style={`--hero-bg: url(${bg.src})`}>
+    <div class="hero__frame" aria-hidden="true">
+      {['tl', 'tr', 'bl', 'br'].map((pos) => (
+        <span class={`hero__corner hero__corner--${pos}`}>
+          <svg class="hero__star" data-hero-star viewBox="0 0 33 33" width="33" height="33">
+            <path fill="#BDFE00" d="M16.5 0s-.18 9.25 3.54 12.96C23.75 16.68 33 16.5 33 16.5s-9.25-.18-12.96 3.54C16.32 23.75 16.5 33 16.5 33s.18-9.25-3.54-12.96C9.25 16.32 0 16.5 0 16.5s9.25.18 12.96-3.54C16.68 9.25 16.5 0 16.5 0Z" />
+          </svg>
+        </span>
+      ))}
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__greeting" data-split="words-slide-up">{home.greeting}</p>
+      <h1 class="hero__name">
+        <span class="visually-hidden">Xinyu (Selina) Guo</span>
+        <span data-typer={JSON.stringify(home.typed)} aria-hidden="true">{home.typed[0]?.word}</span><span class="hero__caret" aria-hidden="true">_</span>
+      </h1>
+      <p class="hero__line">
+        I am a <span class="hl-purple">🚀Creative Technologist</span> and <span class="hl-lime">Product designer</span>,
+        leveraging detail-oriented visual sense and metric-driven problem solving to humanize design and drive measurable impact.
+      </p>
+      <p class="hero__line">
+        💼 Previous worked @ <a class="hl-lime" href="https://idea.xiaohongshu.com/login" target="_blank" rel="noopener">Xiaohongshu</a>
+        @ <a class="hl-lime" href="https://www.alibabagroup.com/en-US" target="_blank" rel="noopener">Alibaba</a>
+      </p>
+      <p class="hero__line">
+        🎓 BFA-ID @ <a class="hl-purple" href="https://www.risd.edu/academics/industrial-design" target="_blank" rel="noopener">RISD</a>
+        丨MS-HCDE @ <a class="hl-purple" href="https://www.hcde.washington.edu/ms" target="_blank" rel="noopener">UW</a>
+      </p>
+    </div>
+
+    <div class="hero__tags" data-tags={JSON.stringify(tags)}></div>
+    <div class="hero__scroll" data-lottie={scrollDown} data-lottie-loop></div>
+  </section>
+
+  <div class="wrap home">
+    <p class="page-intro" data-reveal>{home.intro}</p>
+    <StatusBar />
+
+    <h2 class="section-heading home__heading" data-split="words-slide-up">Latest Works</h2>
+    {featured.map((p) => <WorkCard project={p} />)}
+
+    <section class="showcase">
+      <div class="showcase__head" data-reveal>
+        <h2 class="home__subheading">More interesting...</h2>
+        <div class="showcase__links">
+          <a href={href('projects')} data-hover="jello">Academic projects</a>
+          <a href={href('experiment')} data-hover="jello">Playground</a>
+        </div>
+      </div>
+      <div class="showcase__grid">
+        {showcase.map((p, i) => {
+          const s = p.data.showcase!;
+          const url = projectHref(p);
+          const Tag = url ? 'a' : 'div';
+          return (
+            <article class="showcase__card" data-reveal data-reveal-delay={String(i * 0.1)}>
+              <Tag class="showcase__photo" href={url} target={isExternal(url) ? '_blank' : undefined} rel={isExternal(url) ? 'noopener' : undefined}>
+                <Image src={s.image ?? p.data.cover} alt="" widths={[400, 700]} sizes="(max-width: 767px) 100vw, 25vw" />
+              </Tag>
+              <h3>{s.title ?? p.data.title}</h3>
+              <p>{s.summary ?? p.data.summary}</p>
+              <ul class="showcase__tags">{s.tags.map((t) => <li class="tag">{t}</li>)}</ul>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="kudos">
+      <h2 class="home__subheading" data-split="words-slide-up">Mentor &amp; Leader kudos</h2>
+      {home.kudos.map((k, i) => (
+        <figure class={`kudos__card kudos__card--${i + 1}`} data-reveal={i % 2 ? 'right' : 'left'}>
+          <Image class="kudos__mark" src={quotation} alt="" width={40} />
+          <blockquote>" {k.quote} "</blockquote>
+          <figcaption>
+            <Image src={k.photo} alt="" width={70} height={70} />
+            <span><strong>{k.name}</strong><br />{k.role}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </section>
+  </div>
+
+  <section class="cta">
+    <div class="cta__inner">
+      <h2 class="cta__title">
+        {home.cta.lines.map((line, i) => (
+          <span class="cta__mask"><span class="cta__line" data-reveal="heading" data-reveal-delay={String(i * 0.1)}>{line}</span></span>
+        ))}
+      </h2>
+      <p class="cta__text" data-reveal="fade">{home.cta.text}</p>
+      <a class="cta__btn" href={href('about')} data-transition data-magnetic="20">
+        <span data-magnetic-inner>{home.cta.button}</span>
+      </a>
+      <Image class="cta__star cta__star--1" src={star} alt="" data-float data-float-delay="0" />
+      <Image class="cta__star cta__star--2" src={star} alt="" data-float data-float-delay="0.4" />
+      <Image class="cta__star cta__star--3" src={star} alt="" data-float data-float-delay="0.8" />
+      <Image class="cta__star cta__star--4" src={star} alt="" data-float data-float-delay="1.2" />
+    </div>
+    <Image class="cta__label cta__label--1" src={labelAmazing} alt="Amazing" data-reveal="left" />
+    <Image class="cta__label cta__label--2" src={labelDedicated} alt="Dedicated" data-reveal="drop" />
+    <Image class="cta__label cta__label--3" src={labelPassionate} alt="Passionate" data-reveal="right" />
+    <Image class="cta__label cta__label--4" src={labelRemarkable} alt="Remarkable" data-reveal="grow" />
+  </section>
+</BaseLayout>
+
+<script>
+  import { gsap, ScrollTrigger } from '@/scripts/gsap';
+  import { initTagPhysics, type TagSprite } from '@/scripts/interactions/tagPhysics';
+  import { initTypers } from '@/scripts/interactions/typer';
+  import { initPageTransitions } from '@/scripts/interactions/pageTransition';
+
+  const tagBox = document.querySelector<HTMLElement>('[data-tags]');
+  if (tagBox) initTagPhysics(tagBox, JSON.parse(tagBox.dataset.tags ?? '[]') as TagSprite[]);
+  initTypers();
+  initPageTransitions();
+
+  // Corner stars flip once when the hero comes into view.
+  ScrollTrigger.create({
+    trigger: '[data-nav-hero]',
+    start: 'top 80%',
+    once: true,
+    onEnter: () => {
+      gsap.timeline()
+        .to('[data-hero-star]', { rotationY: 180, duration: 1, ease: 'power1.in', stagger: 0.1 })
+        .to('[data-hero-star]', { rotationY: 0, duration: 1, ease: 'power1.in', stagger: 0.1 });
+    },
+  });
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100svh;
+    min-height: 640px;
+    padding: 96px;
+    overflow: hidden;
+    background: #15181d var(--hero-bg) 0 0 / cover;
+    color: var(--white);
+  }
+  .hero__frame { position: absolute; inset: 96px; pointer-events: none; }
+  .hero__corner { position: absolute; width: 97px; height: 97px; border: 0 solid #5259634d; }
+  .hero__corner--tl { top: -97px; left: -97px; border-width: 0 1px 1px 0; }
+  .hero__corner--tr { top: -97px; right: -97px; border-width: 0 0 1px 1px; }
+  .hero__corner--bl { bottom: -97px; left: -97px; border-width: 1px 1px 0 0; }
+  .hero__corner--br { bottom: -97px; right: -97px; border-width: 1px 0 0 1px; }
+  .hero__star { position: absolute; }
+  .hero__corner--tl .hero__star { right: -17px; bottom: -17px; }
+  .hero__corner--tr .hero__star { left: -17px; bottom: -17px; }
+  .hero__corner--bl .hero__star { right: -17px; top: -17px; }
+  .hero__corner--br .hero__star { left: -17px; top: -17px; }
+
+  .hero__content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; text-align: center; pointer-events: none; }
+  .hero__content a { pointer-events: auto; }
+  .hero__greeting { font-family: var(--font-display); font-size: 2rem; font-weight: 500; margin: 0; }
+  .hero__name { font-family: var(--font-display); font-size: 5.25rem; font-weight: 700; line-height: 1.3; min-height: 1.3em; }
+  .hero__caret { color: var(--white); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero__line { font-family: var(--font-display); font-size: 1.375rem; font-weight: 500; line-height: 1.5; margin: 0.6rem auto; max-width: 62rem; }
+  .hl-purple { color: #b984fd; }
+  .hl-lime { color: #befe00; }
+
+  .hero__tags { position: absolute; inset: 96px; }
+  .hero__tags :global(canvas) { display: block; }
+  .hero__scroll { position: absolute; left: 50%; bottom: 0; width: 90px; height: 90px; transform: translateX(-50%); pointer-events: none; }
+
+  .home { padding-top: 6rem; }
+  .home__heading { font-size: 4rem; margin-top: 2rem; }
+  .home__subheading { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; margin: 0; }
+
+  .showcase { margin-block: 4rem 8rem; }
+  .showcase__head { display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+  .showcase__links { display: flex; gap: 2rem; }
+  .showcase__links a { display: inline-block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; text-decoration: none; border-bottom: 2px solid currentColor; }
+  .showcase__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .showcase__photo { display: block; aspect-ratio: 1; overflow: hidden; border: 1px solid #d9d9d9; border-radius: var(--radius); background: var(--white); }
+  .showcase__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .showcase__card:hover img { transform: scale(1.05); }
+  .showcase__card h3 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 500; margin: 1.25rem 0 0.4rem; }
+  .showcase__card p { font-size: 1.1rem; margin: 0 0 0.75rem; }
+  .showcase__tags { list-style: none; display: flex; gap: 0.5rem; padding: 0; margin: 0; flex-wrap: wrap; }
+
+  .kudos { display: flex; flex-direction: column; gap: 6rem; padding-bottom: 6rem; }
+  .kudos__card { width: min(100%, 45rem); margin: 0; padding: 2rem; border: 1px solid #ddd; border-radius: var(--radius); }
+  .kudos__card--2 { align-self: flex-end; }
+  .kudos__card--3 { align-self: center; }
+  .kudos__card blockquote { margin: 1.5rem 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; line-height: 1.6; }
+  .kudos__card figcaption { display: flex; align-items: center; gap: 1.25rem; text-transform: uppercase; }
+  .kudos__card figcaption img { width: 70px; height: 70px; object-fit: cover; }
+  .kudos__card strong { font-family: var(--font-display); font-size: 1.25rem; }
+
+  .cta { position: relative; overflow: hidden; padding-block: 8rem 10rem; }
+  .cta__inner { position: relative; max-width: 60rem; margin: 0 auto; padding-inline: 2rem; text-align: center; }
+  .cta__title { font-family: var(--font-display); font-size: 4.5rem; font-weight: 800; line-height: 1.1; }
+  .cta__mask { display: block; overflow: hidden; }
+  .cta__line { display: block; }
+  .cta__text { font-size: 1.25rem; margin: 2rem 0; }
+  .cta__btn {
+    display: inline-block; padding: 1em 2.5em; border-radius: 100px;
+    background: var(--orange); color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; text-decoration: none;
+  }
+  .cta__btn span { display: inline-block; }
+  .cta__star { position: absolute; width: 2rem; }
+  .cta__star--1 { left: -2rem; top: 0; }
+  .cta__star--2 { right: -1rem; top: 2rem; width: 1.25rem; }
+  .cta__star--3 { left: 10%; bottom: 0; width: 1.5rem; }
+  .cta__star--4 { right: 12%; bottom: -2rem; }
+  .cta__label { position: absolute; width: 12rem; }
+  .cta__label--1 { left: 6%; top: 18%; transform: rotate(-12deg); }
+  .cta__label--2 { right: 6%; top: 12%; transform: rotate(10deg); }
+  .cta__label--3 { left: 10%; bottom: 10%; transform: rotate(8deg); }
+  .cta__label--4 { right: 9%; bottom: 14%; transform: rotate(-8deg); }
+
+  @media (max-width: 991px) {
+    .hero { padding: 40px 20px; }
+    .hero__frame, .hero__tags { inset: 40px 20px; }
+    .hero__corner { display: none; }
+    .hero__name { font-size: 3.5rem; }
+    .showcase__grid { grid-template-columns: 1fr 1fr; }
+    .cta__title { font-size: 3rem; }
+    .cta__label { width: 8rem; }
+  }
+  @media (max-width: 479px) {
+    .showcase__grid { grid-template-columns: 1fr; }
+    .showcase__head { flex-direction: column; align-items: flex-start; }
+    .cta__label { display: none; }
+  }
+</style>

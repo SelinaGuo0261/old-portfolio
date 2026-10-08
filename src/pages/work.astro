@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import StatusBar from '@/components/StatusBar.astro';
+import WorkCard from '@/components/cards/WorkCard.astro';
+import { getProjects } from '@/lib/projects';
+
+const works = await getProjects('professional');
+---
+
+<BaseLayout title="Professional" description="Professional work from internships and start-ups.">
+  <div class="wrap">
+    <h1 class="page-title" data-split="words-slide-up">Latest Works</h1>
+    <p class="page-intro" data-reveal>3 projects are under constrction from internships and start-ups; More to come!</p>
+    <StatusBar />
+    {works.map((p) => <WorkCard project={p} />)}
+  </div>
+</BaseLayout>

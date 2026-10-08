@@ -1,0 +1,11 @@
+---
+interface Props { span?: number }
+const { span = 12 } = Astro.props;
+---
+<div class="col" style={`--span: ${span}`}><slot /></div>
+
+<style>
+  .col { grid-column: span var(--span); min-width: 0; }
+  .col > :global(:first-child) { margin-top: 0; }
+  @media (max-width: 767px) { .col { grid-column: 1 / -1; } }
+</style>

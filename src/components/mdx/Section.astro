@@ -1,0 +1,30 @@
+---
+/**
+ * Full-width band with its own background. `dark` / `light` flip the
+ * text colour when the band contrasts with the page background.
+ */
+interface Props { bg?: string; image?: string; dark?: boolean; light?: boolean }
+const { bg, image, dark, light } = Astro.props;
+const style = [
+  bg && `--band-bg: ${bg}`,
+  image && `--band-image: url(${image})`,
+  dark && '--text: #ffffff',
+  light && '--text: #000000',
+].filter(Boolean).join('; ');
+---
+<section class="band" style={style}>
+  <div class="band__inner"><slot /></div>
+</section>
+
+<style>
+  .band {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    margin-block: 3rem;
+    background: var(--band-bg, transparent) var(--band-image, none) center / cover;
+    color: var(--text);
+  }
+  .band__inner { margin-inline: var(--gutter); padding-block: 3rem; }
+</style>

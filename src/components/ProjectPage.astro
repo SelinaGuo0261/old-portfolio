@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { mdxComponents } from '@/components/mdx';
+import { getProjects, type Project } from '@/lib/projects';
+import { href, projectHref } from '@/lib/url';
+
+interface Props { project: Project }
+const { project } = Astro.props;
+const { data } = project;
+const { Content } = await render(project);
+
+// "Next" = the following project in the same section that has its own page.
+const siblings = (await getProjects(data.category)).filter((p) => !p.data.listOnly && !p.data.externalUrl);
+const i = siblings.findIndex((p) => p.id === project.id);
+const next = siblings.length > 1 ? siblings[(i + 1) % siblings.length] : undefined;
+const listPage = { professional: 'work', 'case-study': 'projects', playground: 'experiment' }[data.category];
+
+const themeStyle = [
+  `--page-bg: ${data.theme.background}`,
+  `--text: ${data.theme.text}`,
+  `--accent: ${data.theme.accent}`,
+].join('; ');
+---
+
+<BaseLayout title={data.title} description={data.summary} accent={data.theme.accent}>
+  <article class="project" style={themeStyle} data-project={project.id}>
+    {data.hero ? (
+      <>
+        <h1 class="visually-hidden">{data.title}</h1>
+        <Image class="project__hero" src={data.hero} alt={data.title} widths={[800, 1440, 2400]} sizes="100vw" loading="eager" />
+      </>
+    ) : (
+      <header class="project__header">
+        <h1 class="project__title" data-split="words-slide-up">{data.title}</h1>
+        {data.period && <p class="project__period">{data.period}</p>}
+      </header>
+    )}
+
+    <div class="project__body prose">
+      <Content components={mdxComponents} />
+    </div>
+
+    <footer class="project__end">
+      <p class="project__thanks"><span></span>Thanks for Reading<span></span></p>
+      <div class="project__buttons">
+        <a class="btn" href={href(listPage)} data-hover="spin">
+          <span class="btn__spin" data-hover-target></span>
+          <span class="btn__label">Back to Project List</span>
+        </a>
+        {next && (
+          <a class="btn" href={projectHref(next)} data-hover="spin">
+            <span class="btn__spin" data-hover-target></span>
+            <span class="btn__label">See Next Work</span>
+          </a>
+        )}
+      </div>
+    </footer>
+
+    <nav class="section-nav" aria-label="Sections" data-section-nav></nav>
+  </article>
+</BaseLayout>
+
+<script>
+  import { initProjectPage } from '@/scripts/project';
+  initProjectPage();
+</script>
+
+<style>
+  .project {
+    background: var(--page-bg);
+    color: var(--text);
+    overflow-x: clip;
+  }
+  .project__hero { width: 100%; height: auto; }
+  .project__header { margin-inline: var(--gutter); padding-top: 6rem; text-align: center; }
+  .project__title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; line-height: 1.2; }
+  .project__period { color: var(--accent); }
+  .project__body { margin-inline: var(--gutter); padding-block: 3rem; }
+
+  .project__end { margin-inline: var(--gutter); padding-bottom: 5rem; text-align: center; }
+  .project__thanks {
+    display: flex; align-items: center; gap: 1.5rem;
+    font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+    margin-bottom: 3rem;
+  }
+  .project__thanks span { flex: 1; height: 2px; background: var(--accent); }
+  .project__buttons { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 100px;
+    overflow: hidden;
+    text-decoration: none;
+    isolation: isolate;
+  }
+  .btn__spin {
+    position: absolute;
+    inset: -150%;
+    z-index: -1;
+    background: conic-gradient(from 0deg, var(--accent), #ffffff, var(--accent));
+  }
+  .btn__label {
+    padding: 0.9em 2em;
+    border-radius: 100px;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  .section-nav {
+    position: fixed;
+    left: 1.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    z-index: 50;
+  }
+  .section-nav :global(a) {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 2.25rem; height: 2.25rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 25%, transparent);
+    font-size: 1.05rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .section-nav :global(a.is-active) { background: var(--accent); transform: scale(1.15); }
+  .section-nav :global(a .section-nav__label) {
+    position: absolute; left: calc(100% + 10px); top: 50%; transform: translateY(-50%);
+    white-space: nowrap; font-size: 0.8rem; padding: 0.25em 0.7em; border-radius: 4px;
+    background: var(--accent); color: #fff; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  }
+  .section-nav :global(a:hover .section-nav__label) { opacity: 1; }
+  @media (max-width: 1199px) { .section-nav { display: none; } }
+</style>
