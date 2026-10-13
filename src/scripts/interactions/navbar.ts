@@ -9,22 +9,23 @@ export function initNavbar(): void {
   const nav = document.querySelector<HTMLElement>('[data-nav]');
   if (!nav) return;
 
-  const height = () => nav.offsetHeight;
   let hidden = false;
 
   ScrollTrigger.create({
     start: 0,
     end: 'max',
     onUpdate(self) {
-      const pastTop = self.scroll() > height();
+      const pastTop = self.scroll() > nav.offsetHeight;
       const shouldHide = self.direction === 1 && pastTop && !nav.classList.contains('is-open');
       if (shouldHide === hidden) return;
       hidden = shouldHide;
+      // yPercent (not a pixel offset) so the bar stays fully hidden even if
+      // its height changes while it is up, e.g. when it turns solid.
       gsap.to(nav, {
-        y: shouldHide ? -height() : 0,
+        yPercent: shouldHide ? -100 : 0,
         duration: shouldHide ? 0.7 : 0.5,
         ease: 'power1.out',
-        overwrite: true,
+        overwrite: 'auto',
       });
     },
   });
@@ -52,6 +53,6 @@ export function initNavbar(): void {
   toggle?.addEventListener('click', () => {
     const open = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', String(open));
-    if (open) gsap.to(nav, { y: 0, duration: 0.3 });
+    if (open) gsap.to(nav, { yPercent: 0, duration: 0.3, overwrite: 'auto' });
   });
 }

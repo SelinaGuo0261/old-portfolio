@@ -35,7 +35,8 @@ const themeStyle = [
 ].filter(Boolean).join('; ');
 ---
 
-<BaseLayout title={data.title} description={data.summary} accent={data.theme.accent}>
+{/* Page colour on <body> too, so the copyright line below the article sits on it. */}
+<BaseLayout title={data.title} description={data.summary} accent={data.theme.accent} background={data.theme.background}>
   <article class="project" style={themeStyle} data-project={project.id}>
     {data.hero && <Image class="project__hero" src={data.hero} alt="" widths={[800, 1440, 2400]} sizes="100vw" loading="eager" />}
     {data.heading ? (

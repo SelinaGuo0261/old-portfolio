@@ -3,7 +3,7 @@ import { gsap, $$ } from '../gsap';
 /**
  * Hover effects, opt-in with data attributes:
  *
- *   data-hover="spin"   child [data-hover-target] spins 360° on hover
+ *   data-hover="spin"   child [data-hover-target] keeps spinning while hovered
  *   data-hover="fill"   child [data-hover-target] fills 0 → 100% height
  *   data-hover="slide"  child [data-hover-target] slides in from the left
  *   data-hover="jello"  the element wobbles once
@@ -18,7 +18,7 @@ export function initHovers(root: ParentNode = document): void {
     switch (kind) {
       case 'spin':
         el.addEventListener('mouseenter', () =>
-          gsap.fromTo(target, { rotation: 0 }, { rotation: 360, duration: 1, ease: 'power1.inOut', overwrite: true }));
+          gsap.fromTo(target, { rotation: 0 }, { rotation: 360, duration: 1, ease: 'none', repeat: -1, overwrite: true }));
         el.addEventListener('mouseleave', () => gsap.set(target, { rotation: 0, overwrite: true }));
         break;
 

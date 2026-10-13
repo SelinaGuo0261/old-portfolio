@@ -1,8 +1,12 @@
 ---
 /** Big centred quote / "How might we…" line (Lexend bold, 40–48px). */
 import { typoStyle, type TypoProps } from './typo';
-interface Props extends TypoProps { mt?: number; mb?: number; padx?: number }
-const { mt, mb, padx, ...typo } = Astro.props;
+interface Props extends TypoProps {
+  mt?: number; mb?: number; padx?: number;
+  /** Grey bar down the left edge (block-quote style). */
+  bar?: boolean;
+}
+const { mt, mb, padx, bar, ...typo } = Astro.props;
 const style = [
   typoStyle(typo),
   mt !== undefined && `margin-top: ${mt}px`,
@@ -10,7 +14,7 @@ const style = [
   padx !== undefined && `padding-left: ${padx}px; padding-right: ${padx}px`,
 ].filter(Boolean).join('; ');
 ---
-<blockquote class:list={['quote', { 'text--sized': typo.size }]} style={style || undefined} data-reveal><slot /></blockquote>
+<blockquote class:list={['quote', { 'text--sized': typo.size, 'quote--bar': bar }]} style={style || undefined} data-reveal><slot /></blockquote>
 
 <style>
   .quote {
@@ -27,5 +31,6 @@ const style = [
   @media (min-width: 1440px) { .quote { font-size: 48px; } }
   @media (max-width: 767px)  { .quote { font-size: 24px; padding-inline: 0; } }
   .quote :global(p) { margin: 0; }
+  .quote--bar { border-left: 4px solid #d9d9d9; }
   .text--sized { font-size: min(calc(var(--fs) * 1px), calc(var(--fs) / 1440 * 100vw + 4px)); }
 </style>
