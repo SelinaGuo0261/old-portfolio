@@ -1,5 +1,5 @@
 ---
-/** Case Study — original Webflow markup (styles/pages/projects.css) with a GSAP card stack. */
+/** Case Study — original Webflow markup (styles/pages/projects.css) with the same Swiper setup. */
 import '@/styles/pages/projects.css';
 import { getImage } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -11,17 +11,19 @@ const cards = await Promise.all(
   studies.map(async (p) => (await getImage({ src: p.data.card ?? p.data.cover, width: 1200, format: 'webp' })).src),
 );
 const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
+// Swiper's looping card deck needs at least 9 slides, so repeat the set.
+const deck = Array.from({ length: Math.ceil(9 / studies.length) }, () => studies.map((p, i) => ({ p, i }))).flat();
 ---
 
 <BaseLayout title="Case Study" description="UX and product design case studies." background="#f7f8fa">
   <div class="slidepage">
     <div class="pagecenter">
-      <div class="slider-wrap" data-stack tabindex="0" aria-roledescription="carousel" aria-label="Case studies">
+      <div class="slider-wrap" aria-roledescription="carousel" aria-label="Case studies">
         <div class="slider-photo">
           <div class="swiper is-photos">
-            <div class="swiper-wrapper is-photos" data-stack-deck role="list">
-              {studies.map((p, i) => (
-                <div class="swiper-slide is-photos" data-stack-card role="listitem" style={`background-image: url(${cards[i]})`} aria-label={p.data.title}>
+            <div class="swiper-wrapper is-photos" role="list">
+              {deck.map(({ p, i }, n) => (
+                <div class="swiper-slide is-photos" role="listitem" style={`background-image: url(${cards[i]})`} aria-label={p.data.title} aria-hidden={n >= studies.length ? 'true' : undefined}>
                   <div class="slider-height"></div>
                 </div>
               ))}
@@ -31,16 +33,18 @@ const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
         <div class="slider-content">
           <div class="swiper is-content">
             <div class="swiper-wrapper is-content">
-              {studies.map((p, i) => {
+              {studies.map((p) => {
                 const url = projectHref(p);
+                const color = p.data.color ? `color: ${p.data.color}` : undefined;
                 return (
-                  <div class="swiper-slide is-content" data-stack-panel hidden={i !== 0}>
+                  <div class="swiper-slide is-content">
                     {p.data.disciplines && <div class="slider-type">{p.data.disciplines}</div>}
-                    <h2 class="slider-name" style={p.data.color ? `color: ${p.data.color}` : undefined}>{p.data.title}</h2>
+                    <h2 class="slider-name" style={color}>{p.data.title}</h2>
                     <div class="text-block-48">{p.data.description ?? p.data.summary}</div>
                     {p.data.period && <div class="text-block-49">{p.data.period}</div>}
                     <a class="project-btn w-inline-block" href={url} target={isExternal(url) ? '_blank' : undefined} rel={isExternal(url) ? 'noopener' : undefined} data-hover="slide">
-                      <div class="demo-btn-wrapper-block f-2" data-hover-target></div>
+                      {/* Hover fill takes the project's title colour, as on the old page. */}
+                      <div class="demo-btn-wrapper-block f-2" data-hover-target style={p.data.color ? `background-color: ${p.data.color}` : undefined}></div>
                       <div class="demo-btn-text">View Project</div>
                     </a>
                   </div>
@@ -49,10 +53,10 @@ const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
             </div>
           </div>
           <div class="arrows-2">
-            <button type="button" class="arrow is-left" data-stack-prev aria-label="Previous case study">
+            <button type="button" class="arrow is-left" aria-label="Previous case study">
               <div class="arrow_svg"><svg width="100%" height="100%" viewBox="0 0 11 18" fill="none"><path d={arrow} stroke="currentColor" stroke-width="1.5" /></svg></div>
             </button>
-            <button type="button" class="arrow is-right" data-stack-next aria-label="Next case study">
+            <button type="button" class="arrow is-right" aria-label="Next case study">
               <div class="arrow_svg is-alt"><svg width="100%" height="100%" viewBox="0 0 11 18" fill="none"><path d={arrow} stroke="currentColor" stroke-width="1.5" /></svg></div>
             </button>
           </div>
@@ -60,21 +64,69 @@ const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
       </div>
     </div>
   </div>
-  <div class="customizecursor" data-cursor aria-hidden="true"></div>
 </BaseLayout>
 
 <script>
-  import { initCardStacks } from '@/scripts/interactions/cardStack';
-  import { initCursor } from '@/scripts/interactions/cursor';
-  initCardStacks();
-  initCursor();
+  // Same Swiper setup as the old Webflow page: a looping "cards" photo deck
+  // drives a fade-switched text panel. The deck repeats the projects, so
+  // the panel follows realIndex % count (Swiper's controller can't pair a
+  // 12-slide loop with a 6-slide panel).
+  import Swiper from 'swiper';
+  import { EffectCards, EffectFade, Keyboard, Navigation } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/effect-cards';
+  import 'swiper/css/effect-fade';
+
+  const contentSwiper = new Swiper('.swiper.is-content', {
+    modules: [EffectFade],
+    speed: 0,
+    allowTouchMove: false,
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
+  });
+  const count = contentSwiper.slides.length;
+  const photoSwiper = new Swiper('.swiper.is-photos', {
+    modules: [EffectCards, Keyboard, Navigation],
+    effect: 'cards',
+    grabCursor: true,
+    loop: true,
+    keyboard: true,
+    navigation: { nextEl: '.arrow.is-right', prevEl: '.arrow.is-left' },
+    on: {
+      // The text cross-fades over the deck's transition, as the old controller did.
+      slideChange: (s) => contentSwiper.slideTo(s.realIndex % count, s.params.speed),
+      // While dragging, blend the current text into the one the drag heads to.
+      setTranslate: (s) => {
+        if (!s.touchEventsData.isMoved) return;
+        const p = Math.max(-1, Math.min(1, s.slides[s.activeIndex]?.progress ?? 0));
+        const current = s.realIndex % count;
+        const target = (current + (p > 0 ? 1 : -1) + count) % count;
+        contentSwiper.slides.forEach((el, i) => {
+          el.style.transitionDuration = '0ms';
+          el.style.opacity = String(i === current ? 1 - Math.abs(p) : i === target ? Math.abs(p) : 0);
+        });
+      },
+      // Released without changing slide: fade the text back.
+      touchEnd: (s) => {
+        contentSwiper.setTransition(s.params.speed ?? 300);
+        contentSwiper.setTranslate(contentSwiper.getTranslate());
+      },
+    },
+  });
+
+  // Swiping the text also turns the deck (the old page's followFinger: false).
+  let startX: number | null = null;
+  contentSwiper.el.addEventListener('pointerdown', (e) => { startX = e.clientX; });
+  window.addEventListener('pointerup', (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 50) dx < 0 ? photoSwiper.slideNext() : photoSwiper.slidePrev();
+  });
 </script>
 
 <style is:global>
-  /* Card deck: all cards share one spot; GSAP fans them out. */
-  .swiper-wrapper.is-photos { display: grid; perspective: 1200px; transform-style: preserve-3d; cursor: grab; touch-action: pan-y; }
-  .swiper-slide.is-photos { grid-area: 1 / 1; transform-origin: 50% 100%; box-shadow: 0 8px 24px #0001; }
-  .swiper-slide.is-content[hidden] { display: none; }
+  body .swiper-slide.is-photos { display: block !important; } /* from the old page */
   .slider-name { margin: 0; }
   .arrow { background: none; padding: 0; cursor: pointer; color: inherit; font: inherit; }
   .project-btn { overflow: hidden; }
@@ -83,11 +135,4 @@ const arrow = 'M10 0.977539L2 8.97754L10 16.9775';
   body { position: relative; height: 100vh; max-height: 100vh; }
   /* The page is exactly one screen tall, nav included. */
   .slidepage { height: calc(100svh - var(--nav-h)); }
-  .slidepage + .customizecursor { position: fixed; left: 0; top: 0; pointer-events: none; }
-  .customizecursor {
-    z-index: 9999;
-    width: 40px;
-    height: 40px;
-    background: url('../assets/site/cursor-gradient.png') center / 40px 40px no-repeat;
-  }
 </style>
