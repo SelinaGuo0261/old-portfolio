@@ -36,8 +36,8 @@ const { full = false } = Astro.props;
 const ext = (url?: string) => (isExternal(url) ? { target: '_blank', rel: 'noopener' } : {});
 ---
 
-{full && (
-<div class="footer">
+{full ? (
+<footer class="footer">
   <div class="main-feature-wrapper">
     <div class="w-row">
       <div class="w-col w-col-4">
@@ -65,8 +65,13 @@ const ext = (url?: string) => (isExternal(url) ? { target: '_blank', rel: 'noope
       </div>
     </div>
   </div>
-</div>
-)}
+  {/* Inside the dark footer, as on the old home page. */}
+  <div class="rights-served">
+    <div class="text-block-22">Copyright © 2020-{year} Xinyu Guo. All Rights Reserved</div>
+  </div>
+</footer>
+) : (
 <footer class="rights-served">
   <div class="text-block-22">Copyright © 2020-{year} Xinyu Guo. All Rights Reserved</div>
 </footer>
+)}

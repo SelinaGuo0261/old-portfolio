@@ -132,7 +132,10 @@ const deck = Array.from({ length: Math.ceil(9 / studies.length) }, () => studies
   .project-btn { overflow: hidden; }
   /* Copyright sits at the bottom of the screen, like the old page's .rights block. */
   .rights-served { position: absolute; inset: auto 0 1%; }
-  body { position: relative; height: 100vh; max-height: 100vh; }
-  /* The page is exactly one screen tall, nav included. */
-  .slidepage { height: calc(100svh - var(--nav-h)); }
+  /* The page is exactly one screen, nav included: the slide area takes
+     whatever height the navbar (60-80px) leaves, and the card fan never
+     widens the page. Only a window too short for the cards scrolls. */
+  body { position: relative; display: flex; flex-direction: column; height: 100svh; overflow-x: clip; }
+  body > main { flex: 1; min-height: 0; }
+  main > .slidepage { width: auto; height: 100%; }
 </style>
